@@ -39,7 +39,7 @@ in
     };
 
     commit.gpgsign = "true";
-    gpg.program = "gpg2";
+    # gpg.program = "gpg2";
     credential.helper = "osxkeychain";
     pull.rebase = "true";
     init.defaultBranch = "main";
