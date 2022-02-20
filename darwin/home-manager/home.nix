@@ -32,6 +32,8 @@ in
       enable = true;
     };
 
+    alacritty = import ./alacritty.nix;
+
     git = import ./git.nix { inherit pkgs; };
 
     exa = {
@@ -133,6 +135,8 @@ in
       pkgs._1password
       _1password-gui
       rectangle
+      pkgs.fira-code
+      (pkgs.nerdfonts.override { fonts = ["FiraCode"]; })
     ];
     sessionVariables = {
       EDITOR = "nvim";
