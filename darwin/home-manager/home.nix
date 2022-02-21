@@ -34,6 +34,8 @@ in
 
     alacritty = import ./alacritty.nix;
 
+    zsh = import ./zsh.nix {  inherit pkgs; };
+
     tmux = import ./tmux.nix { inherit pkgs; };
 
     git = import ./git.nix { inherit pkgs; };
