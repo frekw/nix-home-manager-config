@@ -1,22 +1,47 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let 
   # nigpkgsRev = "staging-next";
   # pkgs = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/${nigpkgsRev}.tar.gz") {};
 
-
   firefox-darwin = pkgs.callPackage ./firefox.nix {};
   _1password-gui = pkgs.callPackage ./1password.nix {};
   rectangle = pkgs.callPackage ./rectangle.nix {};
+
+  pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+
+  externalPackages = import ./packages.nix { inherit pkgs; };
+  allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
+
+  # temporary fix until in latest release
+  ipythonFix = self: super: {
+    python3 = super.python3.override {
+      packageOverrides = pySelf: pySuper: {
+        ipython = pySuper.ipython.overridePythonAttrs (old: {
+          preCheck = old.preCheck + super.lib.optionalString super.stdenv.isDarwin ''
+            echo '#!${pkgs.stdenv.shell}' > pbcopy
+            chmod a+x pbcopy
+            cp pbcopy pbpaste
+            export PATH="$(pwd)''${PATH:+":$PATH"}"
+          '';
+        });
+      };
+      self = self.python3;
+    };
+  };
 in
 {
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnsupportedSystem = true;
-    allowBroken = true;
-    packageOverrides = pkgs: {
-      nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-        inherit pkgs;
+  nixpkgs = {
+    overlays = [ipythonFix];
+
+    config = {
+      allowUnfree = true;
+      allowUnsupportedSystem = true;
+      allowBroken = true;
+      packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
       };
     };
   };
@@ -28,22 +53,7 @@ in
   };
 
   programs = {
-    home-manager = {
-      enable = true;
-    };
-
     alacritty = import ./alacritty.nix;
-
-    zsh = import ./zsh.nix {  inherit pkgs; };
-
-    tmux = import ./tmux.nix { inherit pkgs; };
-
-    git = import ./git.nix { inherit pkgs; };
-
-    exa = {
-      enable = true;
-      enableAliases = true;
-    };
 
     direnv = {
       enable = true;
@@ -53,29 +63,10 @@ in
       };
     };
 
-    irssi = {
+    exa = {
       enable = true;
-      networks = {
-        oftc = {
-          nick = "frekw";
-          server = {
-            address = "irc.oftc.net";
-            port = 6697;
-            autoConnect = true;
-          };
-          channels = {
-            nixos.autoJoin = true;
-            home-manager.autoJoin = true;
-          };
-        };
-      };
+      enableAliases = true;
     };
-
-    gpg = {
-      enable = true;
-    };
-
-    neovim = import  ./neovim.nix { vimPlugins = pkgs.vimPlugins; };
 
     firefox = {
       enable = true;
@@ -111,6 +102,56 @@ in
       };
     };
 
+    git = import ./git.nix { inherit pkgs; };
+
+    go = {
+      enable = true;
+    };
+
+    gpg = {
+      enable = true;
+    };
+
+    home-manager = {
+      enable = true;
+    };
+
+    irssi = {
+      enable = true;
+      networks = {
+        oftc = {
+          nick = "frekw";
+          server = {
+            address = "irc.oftc.net";
+            port = 6697;
+            autoConnect = true;
+          };
+          channels = {
+            nixos.autoJoin = true;
+            home-manager.autoJoin = true;
+          };
+        };
+      };
+    };
+
+    neovim = import  ./neovim.nix { vimPlugins = pkgs.vimPlugins; };
+
+    tmux = import ./tmux.nix { inherit pkgs; };
+
+    sbt = {
+      enable = true;
+    };
+
+    ssh = {
+      enable = true;
+      extraConfig = ''
+      Host *
+        AddKeysToAgent yes
+        UseKeychain yes
+        IdentityFile ~/.ssh/id_ed25519
+      '';
+    };
+
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
@@ -122,26 +163,14 @@ in
       ];
     };
 
-    go = {
-      enable = true;
-    };
+    zsh = import ./zsh.nix {  inherit pkgs; };
   };
 
   home = {
     username = "fredrikw";
     homeDirectory = "/Users/fredrikw";
     stateVersion = "22.05";
-    packages = [
-      pkgs.keybase
-      pkgs.slack
-      pkgs.rnix-lsp
-      pkgs.nixfmt
-      pkgs._1password
-      _1password-gui
-      rectangle
-      pkgs.fira-code
-      (pkgs.nerdfonts.override { fonts = ["FiraCode"]; })
-    ];
+    packages = allPackages;
     sessionVariables = {
       EDITOR = "nvim";
       SHELL = "$HOME/.nix-profile/bin/zsh";

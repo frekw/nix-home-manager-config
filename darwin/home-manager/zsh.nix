@@ -5,6 +5,7 @@
   shellAliases = {
     ".." = "cd ..";
     grep = "grep --color=auto";
+    kc = "kubectl";
     diff = "diff --color=auto";
     szsh = "source ~/.zshrc";
     cat = "bat";
