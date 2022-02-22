@@ -38,4 +38,4 @@ homePackages = with pkgs; [
   youtube-dl
 ];
 
-in fonts ++ homePackages
+in fonts ++ homePackages ++ gitTools ++ nixTools
