@@ -8,6 +8,9 @@ let
   _1password-gui = pkgs.callPackage ./1password.nix {};
   rectangle = pkgs.callPackage ./rectangle.nix {};
 
+  vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
+  vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
+
   pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
 
   externalPackages = import ./packages.nix { inherit pkgs; };
@@ -160,6 +163,9 @@ in
         vspacecode.vspacecode
         brettm12345.nixfmt-vscode
         jnoortheen.nix-ide
+        scalameta.metals
+        vscode-monochrome
+        vscode-monochrome-dark
       ];
     };
 
