@@ -1,6 +1,9 @@
 { pkgs }:
 
-let fonts = with pkgs; [
+let
+pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+
+fonts = with pkgs; [
   fira-code
   (nerdfonts.override { fonts = ["FiraCode"]; })
 ];
@@ -36,6 +39,7 @@ homePackages = with pkgs; [
   terraform
   yarn
   youtube-dl
+  pkgsMaster.openjdk17
 ];
 
 in fonts ++ homePackages ++ gitTools ++ nixTools

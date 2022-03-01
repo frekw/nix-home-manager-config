@@ -11,8 +11,6 @@ let
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
 
-  pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
-
   externalPackages = import ./packages.nix { inherit pkgs; };
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
 
@@ -158,14 +156,15 @@ in
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
-        vscodevim.vim
-        vspacecode.whichkey
-        vspacecode.vspacecode
         brettm12345.nixfmt-vscode
         jnoortheen.nix-ide
+        scala-lang.scala
         scalameta.metals
-        vscode-monochrome
+        # vscode-monochrome
         vscode-monochrome-dark
+        vscodevim.vim
+        vspacecode.vspacecode
+        vspacecode.whichkey
       ];
     };
 
