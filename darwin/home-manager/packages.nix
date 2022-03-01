@@ -25,6 +25,7 @@ homePackages = with pkgs; [
   bat
   deno
   elixir
+  google-cloud-sdk
   httpie
   jq
   keybase
