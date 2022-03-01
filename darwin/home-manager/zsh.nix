@@ -16,6 +16,11 @@
   enableAutosuggestions = true;
   enableCompletion = true;
   autocd = false;
+  history = {
+    save = 50000;
+    size = 50000;
+    share = true;
+  };
   initExtra = (builtins.readFile ./init.sh);
   plugins = [
     {
