@@ -1,9 +1,6 @@
 { config, pkgs, lib, ... }:
 
 let 
-  # nigpkgsRev = "staging-next";
-  # pkgs = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/${nigpkgsRev}.tar.gz") {};
-
   firefox-darwin = pkgs.callPackage ./firefox.nix {};
   _1password-gui = pkgs.callPackage ./1password.nix {};
   rectangle = pkgs.callPackage ./rectangle.nix {};

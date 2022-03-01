@@ -2,6 +2,7 @@
 
 let
 pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+altair = pkgs.callPackage ./altair.nix {};
 
 fonts = with pkgs; [
   fira-code
@@ -20,6 +21,7 @@ nixTools = with pkgs; [
 
 homePackages = with pkgs; [
   _1password
+  altair
   bat
   deno
   elixir
