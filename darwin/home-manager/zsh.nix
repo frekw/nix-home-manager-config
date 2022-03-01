@@ -21,7 +21,11 @@
     size = 50000;
     share = true;
   };
-  initExtra = (builtins.readFile ./init.sh);
+  initExtra = builtins.concatStringsSep "\n" [
+      (builtins.readFile ./zsh/init.sh)
+      (builtins.readFile ./zsh/kube-context-switch.sh)
+    ];
+
   plugins = [
     {
       name = "zsh-autosuggestions";
