@@ -22,6 +22,7 @@ nixTools = with pkgs; [
 homePackages = with pkgs; [
   _1password
   altair
+  bash
   bat
   deno
   elixir
