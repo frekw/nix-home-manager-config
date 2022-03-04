@@ -13,6 +13,7 @@
     garbage = "nix-collect-garbage";
     reload = "switch && garbage";
     commit = "git log -1 --pretty=format:'%h' | tr -d '\n' | pbcopy";
+    lock = "pmset displaysleepnow";
   };
   enableAutosuggestions = true;
   enableCompletion = true;
