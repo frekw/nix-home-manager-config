@@ -2,7 +2,8 @@
 
 let
 pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
-altair = pkgs.callPackage ./altair.nix {};
+altair = pkgs.callPackage ./packages/altair.nix {};
+syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 
 fonts = with pkgs; [
   fira-code
@@ -40,6 +41,7 @@ homePackages = with pkgs; [
   ruby
   scala
   slack
+  syb-cli
   terraform
   yarn
   youtube-dl

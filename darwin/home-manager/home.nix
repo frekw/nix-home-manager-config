@@ -1,9 +1,9 @@
 { config, pkgs, lib, ... }:
 
 let 
-  firefox-darwin = pkgs.callPackage ./firefox.nix {};
-  _1password-gui = pkgs.callPackage ./1password.nix {};
-  rectangle = pkgs.callPackage ./rectangle.nix {};
+  firefox-darwin = pkgs.callPackage ./packages/firefox.nix {};
+  _1password-gui = pkgs.callPackage ./packages/1password.nix {};
+  rectangle = pkgs.callPackage ./packages/rectangle.nix {};
 
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};

@@ -12,7 +12,7 @@
     switch = "home-manager switch && source ~/.zshrc";
     garbage = "nix-collect-garbage";
     reload = "switch && garbage";
-    commit = "git log -1 --pretty=format:'%h' | tr -d '\n' | pbcopy";
+    current-commit = "git log -1 --pretty=format:'%h' | tr -d '\n' | pbcopy";
     lock = "pmset displaysleepnow";
   };
   enableAutosuggestions = true;
@@ -27,6 +27,12 @@
       (builtins.readFile ./zsh/init.sh)
       (builtins.readFile ./zsh/kube-context-switch.sh)
     ];
+
+  profileExtra = ''
+    idconvert() {
+      syb -env production idconvert $1
+    }
+  '';
 
   plugins = [
     {
