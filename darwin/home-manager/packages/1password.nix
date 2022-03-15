@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
   pname = "1password-gui";
-  version = "7.9.2";
+  version = "7.9.3";
 
   meta = with stdenv.lib; {
     description = "1Password password manager";
@@ -13,7 +13,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://c.1password.com/dist/1P/mac7/1Password-${version}.pkg";
-    sha256 = "c1e0b2235388d1a8e7639ff752beb102d2bac89dbb89b20cee8d76701355e977";
+    sha256 = "7e86ee75d3cda17dca95f941621bfe2c15b3011c2f4a29e3f24226bf7c37718a";
   };
 
   buildInputs = [ xar cpio ];
