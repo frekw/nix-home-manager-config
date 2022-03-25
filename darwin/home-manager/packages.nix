@@ -3,6 +3,7 @@
 let
 pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
+# appLauncher = pkgs.callPackage ./packages/app.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 
 fonts = with pkgs; [
@@ -23,9 +24,12 @@ nixTools = with pkgs; [
 homePackages = with pkgs; [
   _1password
   altair
+  # appLauncher
   bash
   bat
   deno
+  docker
+  docker-compose
   elixir
   google-cloud-sdk
   httpie
