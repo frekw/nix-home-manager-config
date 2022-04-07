@@ -28,8 +28,6 @@ homePackages = with pkgs; [
   bash
   bat
   deno
-  docker
-  docker-compose
   elixir
   google-cloud-sdk
   httpie
@@ -39,6 +37,8 @@ homePackages = with pkgs; [
   kubectx
   nixfmt
   nodejs_latest
+  podman
+  podman-compose
   python3
   reattach-to-user-namespace
   rnix-lsp

@@ -153,11 +153,12 @@ in
     vscode = {
       enable = true;
       extensions = with pkgs.vscode-extensions; [
+        # vscode-monochrome
         brettm12345.nixfmt-vscode
+        golang.go
         jnoortheen.nix-ide
         scala-lang.scala
         scalameta.metals
-        # vscode-monochrome
         vscode-monochrome-dark
         vscodevim.vim
         vspacecode.vspacecode
