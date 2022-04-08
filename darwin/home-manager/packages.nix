@@ -30,6 +30,8 @@ homePackages = with pkgs; [
   deno
   elixir
   google-cloud-sdk
+  gopls
+  go-outline
   httpie
   jq
   keybase

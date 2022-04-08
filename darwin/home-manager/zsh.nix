@@ -26,6 +26,7 @@
   initExtra = builtins.concatStringsSep "\n" [
       (builtins.readFile ./zsh/init.sh)
       (builtins.readFile ./zsh/kube-context-switch.sh)
+      (builtins.readFile ./zsh/app-launcher.sh)
     ];
 
   profileExtra = ''
