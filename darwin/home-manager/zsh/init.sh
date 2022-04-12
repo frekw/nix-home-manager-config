@@ -3,3 +3,5 @@
 if [ -e ~/.env.sh ]; then
   . ~/.env.sh
 fi
+
+export PATH="${PATH}:${HOME}/.krew/bin"

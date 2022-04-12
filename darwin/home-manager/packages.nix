@@ -4,6 +4,7 @@ let
 pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
+kubent = pkgs.callPackage ./packages/kubent.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 
 fonts = with pkgs; [
@@ -37,6 +38,8 @@ homePackages = with pkgs; [
   keybase
   kubectl
   kubectx
+  kubent
+  krew
   nixfmt
   nodejs_latest
   podman
