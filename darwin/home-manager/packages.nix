@@ -51,7 +51,7 @@ homePackages = with pkgs; [
   scala
   slack
   syb-cli
-  sqlitebrowser
+  # sqlitebrowser
   terraform
   yarn
   youtube-dl
