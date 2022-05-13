@@ -1,7 +1,7 @@
 { pkgs }:
 
 let
-pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+# pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
@@ -38,7 +38,7 @@ homePackages = with pkgs; [
   keybase
   kubectl
   kubectx
-  kubent
+  # kubent
   krew
   nixfmt
   nodejs_latest
@@ -51,10 +51,11 @@ homePackages = with pkgs; [
   scala
   slack
   syb-cli
+  sqlitebrowser
   terraform
   yarn
   youtube-dl
-  pkgsMaster.openjdk17
+  openjdk17
 ];
 
 in fonts ++ homePackages ++ gitTools ++ nixTools

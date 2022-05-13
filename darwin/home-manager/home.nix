@@ -12,25 +12,25 @@ let
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
 
   # temporary fix until in latest release
-  ipythonFix = self: super: {
-    python3 = super.python3.override {
-      packageOverrides = pySelf: pySuper: {
-        ipython = pySuper.ipython.overridePythonAttrs (old: {
-          preCheck = old.preCheck + super.lib.optionalString super.stdenv.isDarwin ''
-            echo '#!${pkgs.stdenv.shell}' > pbcopy
-            chmod a+x pbcopy
-            cp pbcopy pbpaste
-            export PATH="$(pwd)''${PATH:+":$PATH"}"
-          '';
-        });
-      };
-      self = self.python3;
-    };
-  };
+  # ipythonFix = self: super: {
+  #   python3 = super.python3.override {
+  #     packageOverrides = pySelf: pySuper: {
+  #       ipython = pySuper.ipython.overridePythonAttrs (old: {
+  #         preCheck = old.preCheck + super.lib.optionalString super.stdenv.isDarwin ''
+  #           echo '#!${pkgs.stdenv.shell}' > pbcopy
+  #           chmod a+x pbcopy
+  #           cp pbcopy pbpaste
+  #           export PATH="$(pwd)''${PATH:+":$PATH"}"
+  #         '';
+  #       });
+  #     };
+  #     self = self.python3;
+  #   };
+  # };
 in
 {
   nixpkgs = {
-    overlays = [ipythonFix];
+    # overlays = [ipythonFix];
 
     config = {
       allowUnfree = true;
