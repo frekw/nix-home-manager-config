@@ -7,6 +7,7 @@ let
 
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
+  vscode-copilot = pkgs.callPackage ./vscode/copilot.nix {};
 
   externalPackages = import ./packages.nix { inherit pkgs; };
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
@@ -138,7 +139,8 @@ in
       extensions = with pkgs.vscode-extensions; [
         # vscode-monochrome
         brettm12345.nixfmt-vscode
-        github.copilot
+        # github.copilot
+        vscode-copilot
         golang.go
         jnoortheen.nix-ide
         scala-lang.scala
