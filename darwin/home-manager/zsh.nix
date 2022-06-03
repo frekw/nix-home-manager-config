@@ -14,6 +14,7 @@
     reload = "switch && garbage";
     current-commit = "git log -1 --pretty=format:'%h' | tr -d '\n' | pbcopy";
     lock = "pmset displaysleepnow";
+    "nix-sha256" = "nix-hash --to-base32 --type sha256";
   };
   enableAutosuggestions = true;
   enableCompletion = true;

@@ -10,23 +10,6 @@ let
 
   externalPackages = import ./packages.nix { inherit pkgs; };
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
-
-  # temporary fix until in latest release
-  # ipythonFix = self: super: {
-  #   python3 = super.python3.override {
-  #     packageOverrides = pySelf: pySuper: {
-  #       ipython = pySuper.ipython.overridePythonAttrs (old: {
-  #         preCheck = old.preCheck + super.lib.optionalString super.stdenv.isDarwin ''
-  #           echo '#!${pkgs.stdenv.shell}' > pbcopy
-  #           chmod a+x pbcopy
-  #           cp pbcopy pbpaste
-  #           export PATH="$(pwd)''${PATH:+":$PATH"}"
-  #         '';
-  #       });
-  #     };
-  #     self = self.python3;
-  #   };
-  # };
 in
 {
   nixpkgs = {
@@ -155,6 +138,7 @@ in
       extensions = with pkgs.vscode-extensions; [
         # vscode-monochrome
         brettm12345.nixfmt-vscode
+        github.copilot
         golang.go
         jnoortheen.nix-ide
         scala-lang.scala

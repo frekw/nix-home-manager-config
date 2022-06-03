@@ -10,8 +10,6 @@ app() {
 }
 
 _app() {
-  # ls -1
-  # COMPREPLY=$(ls ~/.nix-profile/Applications)
     # Get the currently completing word
     local CWORD=${COMP_WORDS[COMP_CWORD]}
 
