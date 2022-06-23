@@ -5,8 +5,8 @@ pkgs.vscode-utils.buildVscodeMarketplaceExtension {
   mktplcRef = {
     publisher = "github";
     name = "copilot";
-    version = "1.25.6056";
-    sha256 = "05ls3lxjadwdncddjwvqwv2m6s3l6l4p2l7kvlxrsafq888sh1gl";
+    version = "1.30.6165";
+    sha256 = "193bvmp027lp2gabwg5zknq69lalk9di4y72pkik8gssk11373nr";
   };
   meta = { license = lib.licenses.unfree; };
 }
