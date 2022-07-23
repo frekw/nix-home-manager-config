@@ -6,7 +6,7 @@ buildGoModule rec {
 
   src = builtins.fetchGit {
     url = "git@github.com:soundtrackyourbrand/syb-cli.git";
-    rev = "81642ddc5f62117b8fdba36eb37f9a8142ff44a7";
+    rev = "abbfadecdab72aa59768be068ea08321a624f152";
   };
 
   vendorSha256 = null;
