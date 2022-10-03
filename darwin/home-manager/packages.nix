@@ -1,4 +1,4 @@
-{ pkgs }:
+{ unstable, pkgs }:
 
 let
 # pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
@@ -30,7 +30,7 @@ homePackages = with pkgs; [
   bat
   deno
   elixir
-  google-cloud-sdk
+  (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
   gopls
   go-outline
   httpie

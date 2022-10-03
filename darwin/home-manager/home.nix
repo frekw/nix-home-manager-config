@@ -1,6 +1,8 @@
 { config, pkgs, lib, ... }:
 
 let 
+  unstable = import (builtins.fetchTarball "https://github.com/nixos/nixpkgs/archive/refs/heads/nixpkgs-unstable.tar.gz") { config = config.nixpkgs.config; };
+
   firefox-darwin = pkgs.callPackage ./packages/firefox.nix {};
   _1password-gui = pkgs.callPackage ./packages/1password.nix {};
   rectangle = pkgs.callPackage ./packages/rectangle.nix {};
@@ -9,7 +11,7 @@ let
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
   vscode-copilot = pkgs.callPackage ./vscode/copilot.nix {};
 
-  externalPackages = import ./packages.nix { inherit pkgs; };
+  externalPackages = import ./packages.nix { inherit pkgs unstable; };
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
 in
 {
