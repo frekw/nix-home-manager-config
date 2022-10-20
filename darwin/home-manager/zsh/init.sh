@@ -4,4 +4,4 @@ if [ -e ~/.env.sh ]; then
   . ~/.env.sh
 fi
 
-export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/.krew/bin:${HOME}/google-cloud-sdk/bin"

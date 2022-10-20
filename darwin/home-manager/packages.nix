@@ -6,6 +6,7 @@ altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
+adr = pkgs.callPackage ./packages/adr.nix {};
 
 fonts = with pkgs; [
   fira-code
@@ -24,13 +25,15 @@ nixTools = with pkgs; [
 
 homePackages = with pkgs; [
   _1password
+  adr
   altair
   # appLauncher
   bash
   bat
   deno
   elixir
-  (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
+  fd
+  # (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
   gopls
   go-outline
   httpie
@@ -46,6 +49,7 @@ homePackages = with pkgs; [
   podman-compose
   python3
   reattach-to-user-namespace
+  ripgrep
   rnix-lsp
   ruby
   scala

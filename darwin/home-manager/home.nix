@@ -142,6 +142,7 @@ in
         # vscode-monochrome
         brettm12345.nixfmt-vscode
         # github.copilot
+        graphql.vscode-graphql
         vscode-copilot
         golang.go
         jnoortheen.nix-ide
