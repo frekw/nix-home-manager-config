@@ -81,6 +81,7 @@ in
           settings = {
             "app.update.auto" = false;
             "signon.rememberSignons" = false;
+            "browser.casting.enabled" = true;
           };
         };
       };

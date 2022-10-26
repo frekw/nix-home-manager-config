@@ -2,7 +2,7 @@
 
  stdenv.mkDerivation rec {
    pname = "firefox-darwin";
-   version = "105.0.2";
+   version = "106.0.1";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
@@ -15,7 +15,7 @@
    src = fetchurl {
      name = "Firefox-${version}.dmg";
      url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-US/Firefox%20${version}.dmg";
-     sha256 = "AcEBbn9+UEo/NQwfZbjYir7Jmua2oLepfnB6rRfZDG0=";
+     sha256 = "zlwXc8z2K2/axKbSPRIfHHMvG6I/ACaw/SchkzMYhHg=";
    };
  
    meta = with stdenv.lib; {

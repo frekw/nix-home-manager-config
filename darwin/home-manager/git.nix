@@ -38,6 +38,10 @@ in
       whitespace = "trailing-space,space-before-tab";
     };
 
+    url = {
+      "git@github.com:" = { insteadOf = https://github.com/; };
+    };
+
     commit.gpgsign = "true";
     # gpg.program = "gpg2";
     credential.helper = "osxkeychain";

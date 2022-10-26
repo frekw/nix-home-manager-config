@@ -43,10 +43,12 @@ homePackages = with pkgs; [
   kubectx
   # kubent
   krew
+  # mkchromecast
   nixfmt
   nodejs_latest
   podman
   podman-compose
+  (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
   python3
   reattach-to-user-namespace
   ripgrep
@@ -60,6 +62,7 @@ homePackages = with pkgs; [
   yarn
   youtube-dl
   openjdk17
+  qemu
 ];
 
 in fonts ++ homePackages ++ gitTools ++ nixTools
