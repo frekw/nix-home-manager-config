@@ -33,7 +33,7 @@ homePackages = with pkgs; [
   deno
   elixir
   fd
-  # (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
+  (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
   gopls
   go-outline
   httpie
