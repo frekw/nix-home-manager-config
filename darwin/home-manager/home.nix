@@ -10,6 +10,7 @@ let
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
   vscode-copilot = pkgs.callPackage ./vscode/copilot.nix {};
+  vscode-quickopener = pkgs.callPackage ./vscode/quickopener.nix {};
 
   externalPackages = import ./packages.nix { inherit pkgs unstable; };
   allPackages = externalPackages ++ [firefox-darwin _1password-gui rectangle];
@@ -150,6 +151,7 @@ in
         scala-lang.scala
         scalameta.metals
         vscode-monochrome-dark
+        vscode-quickopener
         vscodevim.vim
         vspacecode.vspacecode
         vspacecode.whichkey
