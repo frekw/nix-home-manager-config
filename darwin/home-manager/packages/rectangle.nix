@@ -3,7 +3,7 @@
 # TODO: Make configurable.
  stdenv.mkDerivation rec {
    pname = "rectangle";
-   version = "0.51";
+   version = "0.63";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
@@ -16,7 +16,7 @@
    src = fetchurl {
      name = "Rectangle${version}.dmg";
      url = "https://github.com/rxhanson/Rectangle/releases/download/v${version}/Rectangle${version}.dmg";
-     sha256 = "ed0c1e4634471f3c095ed1331611f8fb859f47febcdc9c2c4aba670f7db3a5bb";
+     sha256 = "sha256-xgO9fqf8PX0SwEsMVef3pBiaLblTgo9ZNrqHUn0+JIg=";
    };
  
    meta = with stdenv.lib; {

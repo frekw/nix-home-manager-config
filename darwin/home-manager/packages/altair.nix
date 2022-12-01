@@ -2,7 +2,7 @@
 
 stdenv.mkDerivation rec {
    pname = "altair-darwin";
-   version = "4.4.0";
+   version = "5.0.5";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
@@ -15,7 +15,7 @@ stdenv.mkDerivation rec {
    src = fetchurl {
      name = "Altair-${version}.dmg";
      url = "https://github.com/altair-graphql/altair/releases/download/v${version}/altair_${version}_arm64_mac.dmg";
-     sha256 = "b7652b449fd9709a1af0875fbd34a37798807ece50c927b3465cdc35661c5fe8";
+     sha256 = "sha256-CQs9zuhtw1OS/OOAMotEIGYM/E5ZmklbDnkHAJt3iGk=";
    };
  
    meta = with stdenv.lib; {
