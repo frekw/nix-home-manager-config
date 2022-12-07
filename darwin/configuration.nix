@@ -70,7 +70,7 @@
   system.defaults.NSGlobalDomain.NSScrollAnimationEnabled = true;
 
   # faster resize animations
-  system.defaults.NSGlobalDomain.NSWindowResizeTime = "0.05";
+  system.defaults.NSGlobalDomain.NSWindowResizeTime = 0.05;
 
   
   # expand printer dialog
@@ -93,7 +93,7 @@
   system.defaults.NSGlobalDomain."com.apple.swipescrolldirection" = false;
 
   # disable beep volume
-  system.defaults.NSGlobalDomain."com.apple.sound.beep.volume" = "0.0";
+  system.defaults.NSGlobalDomain."com.apple.sound.beep.volume" = 0.0;
 
   # beep sound when changing volume
   system.defaults.NSGlobalDomain."com.apple.sound.beep.feedback" = 1;
@@ -104,7 +104,7 @@
   # system.defaults.universalaccess.closeViewZoomFollowsFocus = true;
 
   system.defaults.dock.autohide = true;
-  system.defaults.dock.autohide-delay = "0.24";
+  system.defaults.dock.autohide-delay = 0.24;
   system.defaults.dock.orientation = "bottom";
   # only show open applications in the dock
   system.defaults.dock.static-only = true;
