@@ -147,6 +147,7 @@ in
         graphql.vscode-graphql
         vscode-copilot
         golang.go
+        hashicorp.terraform
         jnoortheen.nix-ide
         scala-lang.scala
         scalameta.metals

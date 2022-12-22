@@ -7,6 +7,7 @@ altair = pkgs.callPackage ./packages/altair.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
+wombat = pkgs.callPackage ./packages/wombat.nix {};
 
 fonts = with pkgs; [
   fira-code
@@ -33,10 +34,12 @@ homePackages = with pkgs; [
   deno
   elixir
   fd
-  (unstable.pkgs.google-cloud-sdk.withExtraComponents [unstable.pkgs.google-cloud-sdk.components.bigtable])
+  (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable])
   gopls
   go-outline
+  grpcurl
   httpie
+  jetbrains.idea-community
   jq
   keybase
   kubectl
@@ -63,6 +66,7 @@ homePackages = with pkgs; [
   youtube-dl
   openjdk17
   qemu
+  wombat
 ];
 
 in fonts ++ homePackages ++ gitTools ++ nixTools

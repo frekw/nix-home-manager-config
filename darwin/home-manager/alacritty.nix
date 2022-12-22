@@ -84,9 +84,7 @@
     draw_bold_text_with_bright_colors = true;
     opacity = 1.0;
 
-    font = {
-      use_thin_strokes =  true;
-    };
+    font = {};
 
     cursor = {
       style = "Block";
