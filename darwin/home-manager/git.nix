@@ -47,5 +47,6 @@ in
     credential.helper = "osxkeychain";
     pull.rebase = "true";
     init.defaultBranch = "main";
+    push.autoSetupRemote = "true";
   };
 }
