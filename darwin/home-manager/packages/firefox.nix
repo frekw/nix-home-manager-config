@@ -2,7 +2,7 @@
 
  stdenv.mkDerivation rec {
    pname = "firefox-darwin";
-   version = "109.0.1";
+   version = "110.0";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
