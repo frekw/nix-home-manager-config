@@ -15,7 +15,7 @@
    src = fetchurl {
      name = "Firefox-${version}.dmg";
      url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-US/Firefox%20${version}.dmg";
-     sha256 = "sha256-TWnxZ1gk/zF3ENTq24yodVc8KWkiR/OY4jvHpNMRWbo=";
+     sha256 = "sha256-MFFh3WRWWoFvIqpvLoB/E5ozyK/N7OysoMfaDNO7OqQ=";
    };
  
    meta = with stdenv.lib; {

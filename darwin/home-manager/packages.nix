@@ -44,6 +44,8 @@ homePackages = with pkgs; [
   keybase
   kubectl
   kubectx
+  kubernetes-helm
+  kustomize
   # kubent
   krew
   # mkchromecast
