@@ -49,6 +49,7 @@ homePackages = with pkgs; [
   # kubent
   krew
   # mkchromecast
+  mplayer
   nixfmt
   nodejs_latest
   podman
@@ -64,6 +65,7 @@ homePackages = with pkgs; [
   syb-cli
   # sqlitebrowser
   terraform
+  tree
   yarn
   youtube-dl
   openjdk17
