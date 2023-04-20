@@ -5,3 +5,4 @@ if [ -e ~/.env.sh ]; then
 fi
 
 export PATH="${PATH}:${HOME}/.krew/bin"
+export WORDCHARS=''

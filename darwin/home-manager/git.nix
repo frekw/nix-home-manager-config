@@ -33,7 +33,7 @@ in
     rm-gone-from-remote = "!git branch --format '%(refname:short) %(upstream:track)' | awk '$2 == \"[gone]\" { print $1 }' | xargs -r git branch -D";
 
     # Update from remote and delete all branches removed from remote
-    sync = "!git main && git pull --prune && git rm-gone-from-remote";
+    resync = "!git main && git pull --prune && git rm-gone-from-remote";
   };
 
   signing = {

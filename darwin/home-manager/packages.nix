@@ -17,7 +17,10 @@ fonts = with pkgs; [
 gitTools = with pkgs; [
   delta
   diff-so-fancy
+  git-absorb
+  git-branchless
   git-codeowners
+  spr
 ];
 
 nixTools = with pkgs; [
@@ -31,6 +34,8 @@ homePackages = with pkgs; [
   # appLauncher
   bash
   bat
+  clang-tools
+  cmake
   deno
   elixir
   fd
@@ -50,6 +55,7 @@ homePackages = with pkgs; [
   krew
   # mkchromecast
   mplayer
+  ninja
   nixfmt
   nodejs_latest
   podman
