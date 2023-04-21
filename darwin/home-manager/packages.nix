@@ -20,6 +20,7 @@ gitTools = with pkgs; [
   git-absorb
   git-branchless
   git-codeowners
+  git-open
   spr
 ];
 
