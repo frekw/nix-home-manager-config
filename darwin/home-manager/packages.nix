@@ -78,6 +78,7 @@ homePackages = with pkgs; [
   openjdk17
   qemu
   wombat
+  zlib
 ];
 
 in fonts ++ homePackages ++ gitTools ++ nixTools

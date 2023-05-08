@@ -26,7 +26,7 @@ _app() {
     if [ ${#CANDIDATES[*]} -eq 0 ]; then
         COMPREPLY=()
     else
-        COMPREPLY=($(printf '%q\n' "${CANDIDATES[@]}"))
+        COMPREPLY=($(printf '%s\n' "${CANDIDATES[@]}"))
     fi
 }
 
