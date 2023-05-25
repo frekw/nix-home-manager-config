@@ -6,6 +6,7 @@ altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
+sloth = pkgs.callPackage ./packages/sloth.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
 wombat = pkgs.callPackage ./packages/wombat.nix {};
 
@@ -69,6 +70,7 @@ homePackages = with pkgs; [
   ruby
   scala
   slack
+  sloth
   syb-cli
   # sqlitebrowser
   terraform
