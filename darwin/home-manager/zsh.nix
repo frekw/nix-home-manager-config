@@ -1,4 +1,4 @@
-{ pkgs }:
+{ pkgs, config }:
 
 {
   enable = true;
@@ -25,10 +25,12 @@
     share = true;
   };
   initExtra = builtins.concatStringsSep "\n" [
-      (builtins.readFile ./zsh/init.sh)
-      (builtins.readFile ./zsh/kube-context-switch.sh)
-      (builtins.readFile ./zsh/app-launcher.sh)
-    ];
+        # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'' 
+        (builtins.readFile ./zsh/init.sh)
+        (builtins.readFile ./zsh/kube-context-switch.sh)
+        (builtins.readFile ./zsh/app-launcher.sh)
+        ''export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"''
+      ];
 
   profileExtra = ''
     idconvert() {

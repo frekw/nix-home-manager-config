@@ -7,6 +7,7 @@ let
   _1password-gui = pkgs.callPackage ./packages/1password.nix {};
   rectangle = pkgs.callPackage ./packages/rectangle.nix {};
 
+  vscode-elixir = pkgs.callPackage ./vscode/elixir.nix {};
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
   vscode-copilot = pkgs.callPackage ./vscode/copilot.nix {};
@@ -56,12 +57,6 @@ in
     firefox = {
       enable = true;
       package = firefox-darwin;
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        unpaywall
-        reddit-enhancement-suite
-        react-devtools
-      ];
       # extraPolicies = {
       #   DisableFirefoxStudies = true;
       #   DisablePocket = true;
@@ -84,6 +79,12 @@ in
             "signon.rememberSignons" = false;
             "browser.casting.enabled" = true;
           };
+          extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            ublock-origin
+            unpaywall
+            reddit-enhancement-suite
+            react-devtools
+          ];
         };
       };
     };
@@ -120,6 +121,11 @@ in
       };
     };
 
+    java = {
+      enable = true;
+      package = pkgs.graalvm19-ce;
+    };
+
     neovim = import  ./neovim.nix { vimPlugins = pkgs.vimPlugins; };
 
     tmux = import ./tmux.nix { inherit pkgs; };
@@ -144,13 +150,16 @@ in
         # vscode-monochrome
         brettm12345.nixfmt-vscode
         # github.copilot
+        elixir-lsp.vscode-elixir-ls
         graphql.vscode-graphql
         vscode-copilot
         golang.go
         hashicorp.terraform
         jnoortheen.nix-ide
+        matklad.rust-analyzer
         scala-lang.scala
         scalameta.metals
+        vscode-elixir
         vscode-monochrome-dark
         vscode-quickopener
         vscodevim.vim
@@ -160,7 +169,7 @@ in
       ];
     };
 
-    zsh = import ./zsh.nix {  inherit pkgs; };
+    zsh = import ./zsh.nix {  inherit pkgs; inherit config; };
   };
 
   home = {

@@ -8,10 +8,10 @@ buildGoModule rec {
     owner = "slok";
     repo = "sloth";
     rev = "v0.11.0";
-    sha256 = "sha256-ENxpzL3m8jHKvWoyXFxvlwUkZOqmoePTCmaXd0aE4vo=";
+		sha256 = "sha256-KMVD7uH3Yg9ThnwKKzo6jom0ctFywt2vu7kNdfjiMCs=";
   };
 
   subPackages = ["cmd/sloth"];
 
-  vendorSha256 = "sha256-APIqB8P7Zfta62RPhy3iLcQNeYBZZgRjw5LC0A18ES0=";
+	vendorSha256 = "sha256-j6qXUQ/Tu3VNQL5xBOHloRn5DH3KG/znCLi1s8RIoL8=";
 }

@@ -44,6 +44,7 @@ homePackages = with pkgs; [
   (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable])
   gopls
   go-outline
+  # graalvm19-ce
   grpcurl
   httpie
   jetbrains.idea-community
@@ -76,8 +77,9 @@ homePackages = with pkgs; [
   terraform
   tree
   yarn
+  yq-go
   youtube-dl
-  openjdk17
+  # openjdk17
   qemu
   wombat
   zlib
