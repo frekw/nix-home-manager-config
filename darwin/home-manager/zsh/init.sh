@@ -6,3 +6,4 @@ fi
 
 export PATH="${PATH}:${HOME}/.krew/bin"
 export WORDCHARS=''
+export USE_GKE_GCLOUD_AUTH_PLUGIN=True

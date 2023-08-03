@@ -157,6 +157,7 @@ in
         hashicorp.terraform
         jnoortheen.nix-ide
         matklad.rust-analyzer
+        ocamllabs.ocaml-platform
         scala-lang.scala
         scalameta.metals
         vscode-elixir

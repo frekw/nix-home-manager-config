@@ -10,6 +10,7 @@ sloth = pkgs.callPackage ./packages/sloth.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
 wombat = pkgs.callPackage ./packages/wombat.nix {};
 
+
 fonts = with pkgs; [
   fira-code
   (nerdfonts.override { fonts = ["FiraCode"]; })
@@ -29,6 +30,13 @@ nixTools = with pkgs; [
   cachix
 ];
 
+ocamlPackages = with pkgs; [
+  opam
+  ocaml-ng.ocamlPackages_5_0.dune_3
+  ocaml-ng.ocamlPackages_5_0.ocaml
+  ocaml-ng.ocamlPackages_5_0.reason
+];
+
 homePackages = with pkgs; [
   _1password
   adr
@@ -41,7 +49,8 @@ homePackages = with pkgs; [
   deno
   elixir
   fd
-  (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable])
+  ffmpeg
+  (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
   gopls
   go-outline
   # graalvm19-ce
@@ -85,4 +94,4 @@ homePackages = with pkgs; [
   zlib
 ];
 
-in fonts ++ homePackages ++ gitTools ++ nixTools
+in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages
