@@ -5,6 +5,7 @@ let
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
+obsidian = pkgs.callPackage ./packages/obsidian.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 sloth = pkgs.callPackage ./packages/sloth.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
@@ -34,12 +35,17 @@ ocamlPackages = with pkgs; [
   opam
   ocaml-ng.ocamlPackages_5_0.dune_3
   ocaml-ng.ocamlPackages_5_0.ocaml
+  ocaml-ng.ocamlPackages.ocaml-lsp
   ocaml-ng.ocamlPackages_5_0.reason
+
+  pkg-config
+  libev
 ];
 
 homePackages = with pkgs; [
-  _1password
-  adr
+  # _1password
+  # _1password-gui
+  # adr
   altair
   # appLauncher
   bash
@@ -70,11 +76,13 @@ homePackages = with pkgs; [
   ninja
   nixfmt
   nodejs_latest
+  obsidian
   podman
   podman-compose
   (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
   python3
   reattach-to-user-namespace
+  # rectangle
   ripgrep
   rnix-lsp
   ruby
