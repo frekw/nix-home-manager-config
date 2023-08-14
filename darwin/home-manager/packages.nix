@@ -9,6 +9,7 @@ obsidian = pkgs.callPackage ./packages/obsidian.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 sloth = pkgs.callPackage ./packages/sloth.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
+vlc = pkgs.callPackage ./packages/vlc.nix {};
 wombat = pkgs.callPackage ./packages/wombat.nix {};
 
 
@@ -98,6 +99,7 @@ homePackages = with pkgs; [
   youtube-dl
   # openjdk17
   qemu
+  vlc
   wombat
   zlib
 ];

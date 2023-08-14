@@ -167,7 +167,134 @@ in
         vspacecode.vspacecode
         vspacecode.whichkey
         zxh404.vscode-proto3
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "apc-extension";
+          publisher = "drcika";
+          version = "0.3.0";
+          sha256 = "sha256-do3QYBq83XcqD2jSMC+q+2mQHPiodpDA+OJdT0Zh7uc=";
+        }
       ];
+      userSettings = {
+        "[nix]"."editor.tabSize" = 2;
+        "nix.enableLanguageServer" = true;
+
+        "vim.easymotion" = true;
+        "vim.useSystemClipboard" = true;
+        "vim.normalModeKeyBindingsNonRecursive" = [
+          {
+            "before" = [
+              "<space>"
+            ];
+            "commands" = [
+              "vspacecode.space"
+            ];
+          }
+          {
+            "before" = [
+              ","
+            ];
+            "commands" = [
+              "vspacecode.space"
+              {
+                "command" = "whichkey.triggerKey";
+                "args" = "m";
+              }
+            ];
+          }
+        ];
+        "vim.visualModeKeyBindingsNonRecursive" = [
+          {
+            "before" = [
+              "<space>"
+            ];
+            "commands" = [
+              "vspacecode.space"
+            ];
+          }
+          {
+            "before" = [
+              ","
+            ];
+            "commands" = [
+              "vspacecode.space"
+              {
+                "command" = "whichkey.triggerKey";
+                "args" = "m";
+              }
+            ];
+          }
+        ];
+
+        "files.watcherExclude" = {
+          "**/.bloop" = true;
+          "**/.metals" = true;
+          "**/.ammonite" = true;
+        };
+
+        "editor.fontFamily" = "Fira Code";
+        "editor.fontSize" = 14;
+        "editor.fontLigatures" = true;
+        "editor.formatOnSave" = true;
+        "editor.bracketPairColorization.enabled" = false;
+        "editor.inlineSuggest.enabled" = true;
+        "editor.minimap.enabled" = false;
+        "editor.inlayHints.enabled" = "on";
+        "editor.inlayHints.fontSize" = 11;
+        "editor.tokenColorCustomizations" = {};
+
+        "metals.suggestLatestUpgrade" = true;
+
+        "github.copilot.enable" = {
+          "*" = true;
+          "yaml" = true;
+          "plaintext" = false;
+          "markdown" = false;
+          "scala" = true;
+        };
+
+        "window.zoomLevel" = 1;
+        "workbench.colorTheme" = "Monochrome Dark";
+        "workbench.preferredDarkColorTheme" = "Monochrome Dark";
+        "workbench.colorCustomizations" = {
+          "[Monochrome Dark]" = {
+            "editorInlayHint.foreground" = "#606060";
+            "editorInlayHint.background" = "#1a1a1a";
+            "editorInlayHint.typeForeground" = "#606060";
+            "editorInlayHint.parameterForeground" = "#606060";
+          };
+        };
+
+        "apc.activityBar" = {
+          "position" = "bottom";
+          "hideSettings" = true;
+          "size" = 20;
+        };
+
+        "apc.statusBar" = {
+          "position" = "editor-bottom";
+          "height" = 22;
+          "fontSize" = 12;
+        };
+
+        "apc.electron" = {
+          "titleBarStyle" = "hiddenInset";
+          "trafficLightPosition" = {
+            "x" = 8;
+            "y" = 10;
+          };
+        };
+
+        "apc.header" = {
+          "height" = 34;
+          "fontSize" = 14;
+        };
+
+        "apc.listRow" = {
+          "height" = 21;
+          "fontSize" = 13;
+        };
+      };
     };
 
     zsh = import ./zsh.nix {  inherit pkgs; inherit config; };
