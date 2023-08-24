@@ -89,6 +89,11 @@ in
       };
     };
 
+    fzf = {
+      enable = true;
+      enableZshIntegration = true;
+    };
+
     git = import ./git.nix { inherit pkgs; };
 
     go = {
