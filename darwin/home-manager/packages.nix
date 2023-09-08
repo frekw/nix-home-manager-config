@@ -26,6 +26,7 @@ gitTools = with pkgs; [
   git-codeowners
   git-open
   spr
+  nodePackages_latest.graphite-cli
 ];
 
 nixTools = with pkgs; [
@@ -73,6 +74,7 @@ homePackages = with pkgs; [
   # kubent
   krew
   # mkchromecast
+  microplane
   mplayer
   ninja
   nixfmt
