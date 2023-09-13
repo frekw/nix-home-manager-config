@@ -52,6 +52,7 @@ homePackages = with pkgs; [
   # appLauncher
   bash
   bat
+  bazel
   clang-tools
   cmake
   deno

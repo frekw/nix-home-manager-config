@@ -149,8 +149,61 @@ in
       '';
     };
 
+    starship = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        add_newline = false;
+        format = lib.concatStrings [
+          "$username"
+          "$hostname"
+          "$directory"
+          "$git_branch"
+          "$git_state"
+          "$git_status"
+          "$cmd_duration"
+          "$character"
+        ];
+        directory = {
+          style = "blue";
+        };
+        scan_timeout = 10;
+        character = {
+          success_symbol = "[❯](purple)";
+          error_symbol = "[❯](red)";
+          vimcmd_symbol = "[❮](green)";
+        };
+        git_branch = {
+          format = "[$branch]($style)";
+          style = "bright-black";
+        };
+        git_status = {
+          format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)";
+          style = "cyan";
+          conflicted = "​";
+          untracked = "​";
+          modified = "​";
+          staged = "​";
+          renamed = "​";
+          deleted = "​";
+          stashed = "≡";
+        };
+        git_state = {
+          format = lib.concatStrings [
+            "\([$state( $progress_current/$progress_total)]($style)\) "
+          ];
+          style = "bright-black";
+        };
+        cmd_duration = {
+          format = "[$duration]($style) ";
+          style = "yellow";
+        };
+      };
+    };
+
     vscode = {
       enable = true;
+      mutableExtensionsDir = false;
       extensions = with pkgs.vscode-extensions; [
         # vscode-monochrome
         brettm12345.nixfmt-vscode
@@ -178,6 +231,12 @@ in
           publisher = "drcika";
           version = "0.3.0";
           sha256 = "sha256-do3QYBq83XcqD2jSMC+q+2mQHPiodpDA+OJdT0Zh7uc=";
+        }
+        {
+          name = "vscode-bazel";
+          publisher = "BazelBuild";
+          version = "0.7.0";
+          sha256 = "sha256-/a34MMsHy7zmGrVAtjMWKmulwS+lip3J1YugkACMmxc=";
         }
       ];
       userSettings = {
@@ -300,6 +359,43 @@ in
           "fontSize" = 13;
         };
       };
+    };
+
+    wezterm = {
+      enable = true;
+      extraConfig = ''
+        -- Pull in the wezterm API
+        local wezterm = require 'wezterm'
+
+        -- This table will hold the configuration.
+        local config = {}
+
+        -- In newer versions of wezterm, use the config_builder which will
+        -- help provide clearer error messages
+        if wezterm.config_builder then
+          config = wezterm.config_builder()
+        end
+
+        -- This is where you actually apply your config choices
+
+        -- For example, changing the color scheme:
+        config.color_scheme = 'Dark Pastel'
+
+        config.font = wezterm.font('FiraCode Nerd Font')
+        config.font_size = 16
+        config.enable_tab_bar = false
+        config.window_padding = {
+          left = "60px",
+          right = "60px",
+          top = "60px",
+          bottom = "60px",
+        }
+        config.window_decorations = "RESIZE | MACOS_FORCE_DISABLE_SHADOW"
+
+
+        -- and finally, return the configuration to wezterm
+        return config
+      '';
     };
 
     zsh = import ./zsh.nix {  inherit pkgs; inherit config; };
