@@ -7,3 +7,11 @@ fi
 export PATH="${PATH}:${HOME}/.krew/bin"
 export WORDCHARS=''
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
+
+autoload -Uz incarg
+zle -N incarg
+bindkey -M vicmd '^a' incarg
+
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'vv' edit-command-line

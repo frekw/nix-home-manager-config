@@ -25,6 +25,7 @@ gitTools = with pkgs; [
   git-branchless
   git-codeowners
   git-open
+  git-ps-rs
   spr
   nodePackages_latest.graphite-cli
 ];

@@ -94,6 +94,10 @@ in
       enableZshIntegration = true;
     };
 
+    gh = {
+      enable = true;
+    };
+
     git = import ./git.nix { inherit pkgs; };
 
     go = {
@@ -128,7 +132,7 @@ in
 
     java = {
       enable = true;
-      package = pkgs.graalvm19-ce;
+      # package = pkgs.graalvm19-ce;
     };
 
     neovim = import  ./neovim.nix { vimPlugins = pkgs.vimPlugins; };
@@ -409,6 +413,13 @@ in
     sessionVariables = {
       EDITOR = "nvim";
       SHELL = "$HOME/.nix-profile/bin/zsh";
+    };
+
+    file = {
+      "${config.xdg.configHome}/git-ps" = {
+        source = ./git-ps;
+        recursive = true;
+      };
     };
   };
 }
