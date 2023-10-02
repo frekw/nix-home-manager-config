@@ -45,6 +45,12 @@ ocamlPackages = with pkgs; [
   libev
 ];
 
+jsPackages = with pkgs; [
+  bun
+  deno
+  nodejs_latest
+];
+
 homePackages = with pkgs; [
   # _1password
   # _1password-gui
@@ -56,7 +62,6 @@ homePackages = with pkgs; [
   bazel
   clang-tools
   cmake
-  deno
   elixir
   fd
   ffmpeg
@@ -80,7 +85,6 @@ homePackages = with pkgs; [
   mplayer
   ninja
   nixfmt
-  nodejs_latest
   obsidian
   podman
   podman-compose
@@ -108,4 +112,4 @@ homePackages = with pkgs; [
   zlib
 ];
 
-in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages
+in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages ++ jsPackages

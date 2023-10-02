@@ -2,7 +2,7 @@
 
  stdenv.mkDerivation rec {
    pname = "obsidian";
-   version = "1.3.7";
+   version = "1.4.13";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
@@ -15,7 +15,7 @@
    src = fetchurl {
      name = "Obsidian-${version}-universal.dmg";
      url = "https://github.com/obsidianmd/obsidian-releases/releases/download/v${version}/Obsidian-${version}-universal.dmg";
-     sha256 = "sha256-jHsrSYBHJBMyChGsgXHxH/S7wdI1CMonzid8WenNSmI=";
+     sha256 = "sha256-FMaEq99D8bCQF91drHrB5icXyQIdnWIwhAM9yuG97aA=";
    };
  
    meta = with stdenv.lib; {
