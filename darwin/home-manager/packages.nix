@@ -52,8 +52,6 @@ jsPackages = with pkgs; [
 ];
 
 homePackages = with pkgs; [
-  # _1password
-  # _1password-gui
   # adr
   altair
   # appLauncher
@@ -91,7 +89,7 @@ homePackages = with pkgs; [
   (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
   python3
   reattach-to-user-namespace
-  # rectangle
+  rectangle
   ripgrep
   rnix-lsp
   ruby
