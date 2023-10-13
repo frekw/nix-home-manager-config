@@ -51,6 +51,24 @@ jsPackages = with pkgs; [
   nodejs_latest
 ];
 
+k8sPackages = with pkgs; [
+  # kubent
+  fluxcd
+  (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
+  krew
+  kubectl
+  kubectx
+  kubernetes-helm
+  kustomize
+  microplane
+  podman
+  podman-compose
+  (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
+  qemu
+  sloth
+  terraform
+];
+
 homePackages = with pkgs; [
   # adr
   altair
@@ -63,30 +81,18 @@ homePackages = with pkgs; [
   elixir
   fd
   ffmpeg
-  (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin-darwin-arm pkgs.google-cloud-sdk.components.bigtable pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin])
   gopls
   go-outline
   # graalvm19-ce
   grpcurl
   httpie
-  jetbrains.idea-community
   jq
   keybase
-  kubectl
-  kubectx
-  kubernetes-helm
-  kustomize
-  # kubent
-  krew
   # mkchromecast
-  microplane
   mplayer
   ninja
   nixfmt
   obsidian
-  podman
-  podman-compose
-  (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
   python3
   reattach-to-user-namespace
   rectangle
@@ -95,19 +101,16 @@ homePackages = with pkgs; [
   ruby
   scala
   slack
-  sloth
   syb-cli
   # sqlitebrowser
-  terraform
   tree
   yarn
   yq-go
   youtube-dl
   # openjdk17
-  qemu
   vlc
   wombat
   zlib
 ];
 
-in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages ++ jsPackages
+in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages ++ jsPackages ++ k8sPackages
