@@ -11,6 +11,7 @@ sloth = pkgs.callPackage ./packages/sloth.nix {};
 adr = pkgs.callPackage ./packages/adr.nix {};
 vlc = pkgs.callPackage ./packages/vlc.nix {};
 wombat = pkgs.callPackage ./packages/wombat.nix {};
+tunnelblick = pkgs.callPackage ./packages/tunnelblick.nix {};
 
 
 fonts = with pkgs; [
@@ -65,6 +66,7 @@ k8sPackages = with pkgs; [
   podman-compose
   (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
   qemu
+  rancher
   sloth
   terraform
 ];
@@ -104,6 +106,7 @@ homePackages = with pkgs; [
   syb-cli
   # sqlitebrowser
   tree
+  tunnelblick
   yarn
   yq-go
   youtube-dl

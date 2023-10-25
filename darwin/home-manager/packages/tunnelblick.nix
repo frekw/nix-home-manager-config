@@ -1,26 +1,26 @@
  { stdenv, fetchurl, undmg }:
 
  stdenv.mkDerivation rec {
-   pname = "firefox-darwin";
-   version = "119.0";
+   pname = "tunnelblick";
+   version = "3.8.8d";
  
    buildInputs = [ undmg ];
    sourceRoot = ".";
    phases = ["unpackPhase" "installPhase"];
    installPhase = ''
      mkdir -p "$out/Applications"
-     cp -r Firefox.app "$out/Applications/Firefox.app"
+     cp -r Tunnelblick.app "$out/Applications/Tunnelblick.app"
    '';
  
    src = fetchurl {
-     name = "Firefox-${version}.dmg";
-     url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-US/Firefox%20${version}.dmg";
+     name = "Tunnelblick_${version}_build_5779.dmg";
+     url = "https://tunnelblick.net/iprelease/Tunnelblick_3.8.8d_build_5779.dmg";
      sha256 = "sha256-QWtb4HoR0SXqU5nRq5XX3gxcu2Z7AROakJEwNGSsDi0=";
    };
  
    meta = with stdenv.lib; {
-     description = "The Firefox web browser";
-     homepage = "https://www.mozilla.org/en-US/firefox";
+     description = "Tunnelblick VPN";
+     homepage = "https://tunnelblick.net/";
      maintainers = [ maintainers.frekw ];
      platforms = platforms.darwin;
    };
