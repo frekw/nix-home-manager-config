@@ -240,6 +240,24 @@ in
           version = "0.7.0";
           sha256 = "sha256-/a34MMsHy7zmGrVAtjMWKmulwS+lip3J1YugkACMmxc=";
         }
+        {
+          name = "graphql";
+          publisher = "mquandalle";
+          version = "0.1.2";
+          sha256 = "sha256-0hBtHDD/yk+EpA0A/9ovAz8SUcAoTrXAtHU4Y9MiHnw=";
+        }
+        {
+          name = "direnv";
+          publisher = "mkhl";
+          version = "0.15.2";
+          sha256 = "sha256-agJfEc4JqxKaNQhto0BfVx2Pxk809G0Ne3TqaR8mlxo=";
+        }
+        {
+          name = "authzed";
+          publisher = "chiperific";
+          version = "1.1.0";
+          sha256 = "sha256-GmZowlnf+0JjN5ilR5aWZyR06pQKzuydhCeEWXnRvfs=";
+        }
       ];
       userSettings = {
         "[nix]"."editor.tabSize" = 2;
@@ -383,7 +401,11 @@ in
         -- For example, changing the color scheme:
         config.color_scheme = 'Dark Pastel'
 
-        config.font = wezterm.font('FiraCode Nerd Font')
+        -- config.font = wezterm.font('Monaspace Neon')
+        config.font = wezterm.font('Berkeley Mono Variable')
+        config.freetype_load_flags = 'NO_HINTING'
+        config.freetype_load_target = 'Normal'
+        config.line_height = 1.0
         config.font_size = 16
         config.enable_tab_bar = false
         config.window_padding = {

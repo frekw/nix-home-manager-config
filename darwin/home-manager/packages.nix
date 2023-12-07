@@ -5,6 +5,7 @@ let
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
+monaspace = pkgs.callPackage ./packages/monaspace.nix {};
 obsidian = pkgs.callPackage ./packages/obsidian.nix {};
 syb-cli = pkgs.callPackage ./packages/syb-cli.nix {};
 sloth = pkgs.callPackage ./packages/sloth.nix {};
@@ -16,6 +17,7 @@ tunnelblick = pkgs.callPackage ./packages/tunnelblick.nix {};
 
 fonts = with pkgs; [
   fira-code
+  monaspace
   (nerdfonts.override { fonts = ["FiraCode"]; })
 ];
 
@@ -65,10 +67,17 @@ k8sPackages = with pkgs; [
   podman
   podman-compose
   (pkgs.writeShellScriptBin "docker" "exec -a $0 ${podman}/bin/podman $@")
+  (pkgs.writeShellScriptBin "docker-compose" "exec -a $0 ${podman-compose}/bin/podman-compose $@")
   qemu
   rancher
   sloth
   terraform
+];
+
+buildTools = with pkgs; [
+  bazel
+  buck2
+  cmake
 ];
 
 homePackages = with pkgs; [
@@ -77,15 +86,14 @@ homePackages = with pkgs; [
   # appLauncher
   bash
   bat
-  bazel
   clang-tools
-  cmake
   elixir
   fd
   ffmpeg
   gopls
   go-outline
   # graalvm19-ce
+  graphviz
   grpcurl
   httpie
   jq
@@ -106,7 +114,7 @@ homePackages = with pkgs; [
   syb-cli
   # sqlitebrowser
   tree
-  tunnelblick
+  # tunnelblick
   yarn
   yq-go
   youtube-dl
@@ -116,4 +124,4 @@ homePackages = with pkgs; [
   zlib
 ];
 
-in fonts ++ homePackages ++ gitTools ++ nixTools ++ ocamlPackages ++ jsPackages ++ k8sPackages
+in fonts ++ homePackages ++ gitTools ++ nixTools ++ buildTools ++ ocamlPackages ++ jsPackages ++ k8sPackages
