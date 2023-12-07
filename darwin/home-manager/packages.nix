@@ -76,7 +76,7 @@ k8sPackages = with pkgs; [
 
 buildTools = with pkgs; [
   bazel
-  buck2
+  # buck2
   cmake
 ];
 

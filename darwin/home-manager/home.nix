@@ -316,7 +316,8 @@ in
           "**/.ammonite" = true;
         };
 
-        "editor.fontFamily" = "Fira Code";
+        # "editor.fontFamily" = "Monaspace Neon Var";
+        "editor.fontFamily" = "Berkeley Mono Variable";
         "editor.fontSize" = 14;
         "editor.fontLigatures" = true;
         "editor.formatOnSave" = true;
