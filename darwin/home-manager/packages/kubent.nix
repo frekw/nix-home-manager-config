@@ -9,7 +9,7 @@ buildGoModule rec {
     rev = "1ce0aa95059198f82e87bef3ba7a387db553beda";
   };
 
-  vendorSha256 = null;
+  vendorHash = null;
 
   preBuild = ''
   go mod tidy

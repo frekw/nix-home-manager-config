@@ -9,5 +9,5 @@ buildGoModule rec {
     rev = "a719e2325f3b639de91b295956fdbe63ddef3628";
   };
 
-  vendorSha256 = null;
+  vendorHash = null;
 }

@@ -2,6 +2,7 @@
 
 let
 # pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+pkgsTF136 = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/e371f83543c611b119ce9bdc2edf3922e7512442.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
@@ -38,14 +39,13 @@ nixTools = with pkgs; [
 ];
 
 ocamlPackages = with pkgs; [
-  opam
-  ocaml-ng.ocamlPackages_5_0.dune_3
-  ocaml-ng.ocamlPackages_5_0.ocaml
-  ocaml-ng.ocamlPackages.ocaml-lsp
-  ocaml-ng.ocamlPackages_5_0.reason
-
-  pkg-config
-  libev
+  # opam
+  # pkg-config
+  # libev
+  # ocaml-ng.ocamlPackages_5_0.dune_3
+  # ocaml-ng.ocamlPackages_5_0.ocaml
+  # ocaml-ng.ocamlPackages.ocaml-lsp
+  # ocaml-ng.ocamlPackages_5_0.reason
 ];
 
 jsPackages = with pkgs; [
@@ -71,12 +71,13 @@ k8sPackages = with pkgs; [
   qemu
   rancher
   sloth
-  terraform
+  sops
+  pkgsTF136.terraform
 ];
 
 buildTools = with pkgs; [
   bazel
-  # buck2
+  buck2
   cmake
 ];
 
@@ -99,7 +100,6 @@ homePackages = with pkgs; [
   jq
   keybase
   # mkchromecast
-  mplayer
   ninja
   nixfmt
   obsidian

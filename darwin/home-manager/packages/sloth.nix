@@ -13,5 +13,5 @@ buildGoModule rec {
 
   subPackages = ["cmd/sloth"];
 
-	vendorSha256 = "sha256-j6qXUQ/Tu3VNQL5xBOHloRn5DH3KG/znCLi1s8RIoL8=";
+	vendorHash = "sha256-j6qXUQ/Tu3VNQL5xBOHloRn5DH3KG/znCLi1s8RIoL8=";
 }

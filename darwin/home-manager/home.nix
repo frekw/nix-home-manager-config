@@ -47,7 +47,7 @@ in
       };
     };
 
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
     };
@@ -78,10 +78,11 @@ in
             "browser.casting.enabled" = true;
           };
           extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+            istilldontcareaboutcookies
+            react-devtools
+            reddit-enhancement-suite
             ublock-origin
             unpaywall
-            reddit-enhancement-suite
-            react-devtools
           ];
         };
       };
