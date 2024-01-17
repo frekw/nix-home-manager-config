@@ -1,7 +1,7 @@
 { unstable, pkgs }:
 
 let
-# pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
+pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
 pkgsTF136 = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/e371f83543c611b119ce9bdc2edf3922e7512442.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
@@ -30,6 +30,7 @@ gitTools = with pkgs; [
   git-codeowners
   git-open
   git-ps-rs
+  gitmux
   spr
   nodePackages_latest.graphite-cli
 ];
@@ -39,13 +40,15 @@ nixTools = with pkgs; [
 ];
 
 ocamlPackages = with pkgs; [
-  # opam
+  # pkgsMaster.opam
   # pkg-config
   # libev
   # ocaml-ng.ocamlPackages_5_0.dune_3
   # ocaml-ng.ocamlPackages_5_0.ocaml
   # ocaml-ng.ocamlPackages.ocaml-lsp
   # ocaml-ng.ocamlPackages_5_0.reason
+  # WASM
+  # binaryen
 ];
 
 jsPackages = with pkgs; [

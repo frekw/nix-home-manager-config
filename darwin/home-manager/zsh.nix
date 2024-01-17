@@ -30,7 +30,12 @@
         (builtins.readFile ./zsh/init.sh)
         (builtins.readFile ./zsh/kube-context-switch.sh)
         (builtins.readFile ./zsh/app-launcher.sh)
-        ''export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"''
+        ''
+        export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
+        setopt PROMPT_SUBST
+        export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
+        export RPROMPT=
+        ''
       ];
 
   profileExtra = ''
