@@ -9,9 +9,10 @@
   shortcut = "a";
   extraConfig = (builtins.readFile ./tmux.conf);
   plugins = with pkgs; [
-    tmuxPlugins.sensible
-    tmuxPlugins.yank
     tmuxPlugins.pain-control
     tmuxPlugins.prefix-highlight
+    tmuxPlugins.sensible
+    tmuxPlugins.weather
+    tmuxPlugins.yank
   ];
 }

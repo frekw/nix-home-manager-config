@@ -2,7 +2,7 @@
 
 let
 pkgsMaster = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/master.tar.gz") {};
-pkgsTF136 = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/e371f83543c611b119ce9bdc2edf3922e7512442.tar.gz") {};
+pkgsTF136 = import (fetchTarball "https://github.com/nixos/nixpkgs/archive/39ed4b64ba5929e8e9221d06b719a758915e619b.tar.gz") {};
 altair = pkgs.callPackage ./packages/altair.nix {};
 # appLauncher = pkgs.callPackage ./packages/app.nix {};
 kubent = pkgs.callPackage ./packages/kubent.nix {};
@@ -32,7 +32,8 @@ gitTools = with pkgs; [
   git-ps-rs
   gitmux
   spr
-  nodePackages_latest.graphite-cli
+  unstable.nodePackages_latest.graphite-cli
+  sapling
 ];
 
 nixTools = with pkgs; [
@@ -41,8 +42,8 @@ nixTools = with pkgs; [
 
 ocamlPackages = with pkgs; [
   # pkgsMaster.opam
-  # pkg-config
-  # libev
+  pkg-config
+  libev
   # ocaml-ng.ocamlPackages_5_0.dune_3
   # ocaml-ng.ocamlPackages_5_0.ocaml
   # ocaml-ng.ocamlPackages.ocaml-lsp
@@ -86,6 +87,7 @@ buildTools = with pkgs; [
 
 homePackages = with pkgs; [
   # adr
+  audacity
   altair
   # appLauncher
   bash

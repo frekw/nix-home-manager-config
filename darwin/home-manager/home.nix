@@ -136,6 +136,12 @@ in
 
     neovim = import  ./neovim.nix { vimPlugins = pkgs.vimPlugins; };
 
+    opam = {
+      enable = true;
+      enableZshIntegration = true;
+      package = unstable.opam;
+    };
+
     tmux = import ./tmux.nix { inherit pkgs; };
 
     sbt = {
@@ -259,6 +265,18 @@ in
           version = "1.1.0";
           sha256 = "sha256-GmZowlnf+0JjN5ilR5aWZyR06pQKzuydhCeEWXnRvfs=";
         }
+        {
+          name = "sapling-scm";
+          publisher = "meta";
+          version = "0.1.36";
+          sha256 = "sha256-STRTh2RftqAb1OIn5eBVAGjZVZO6DpAUl0rnYCDzbII=";
+        }
+        {
+          name = "gti-vscode";
+          publisher = "Graphite";
+          version = "0.5.4";
+          sha256 = "sha256-mD6bLyToVcckADdUbj1s973As+DSnPsJLMjDv3omO6I=";
+        }
       ];
       userSettings = {
         "[nix]"."editor.tabSize" = 2;
@@ -330,6 +348,7 @@ in
         "editor.tokenColorCustomizations" = {};
 
         "metals.suggestLatestUpgrade" = true;
+        "metals.serverVersion" = "1.2.0+106-c6ab0475-SNAPSHOT";
 
         "github.copilot.enable" = {
           "*" = true;
