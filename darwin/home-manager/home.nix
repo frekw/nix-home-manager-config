@@ -8,7 +8,6 @@ let
   vscode-elixir = pkgs.callPackage ./vscode/elixir.nix {};
   vscode-monochrome  = pkgs.callPackage ./vscode/monochrome.nix {};
   vscode-monochrome-dark  = pkgs.callPackage ./vscode/monochrome-dark.nix {};
-  vscode-copilot = pkgs.callPackage ./vscode/copilot.nix {};
   vscode-quickopener = pkgs.callPackage ./vscode/quickopener.nix {};
 
   externalPackages = import ./packages.nix { inherit pkgs unstable; };
@@ -216,10 +215,9 @@ in
       extensions = with pkgs.vscode-extensions; [
         # vscode-monochrome
         brettm12345.nixfmt-vscode
-        # github.copilot
+        github.copilot
         elixir-lsp.vscode-elixir-ls
         graphql.vscode-graphql
-        vscode-copilot
         golang.go
         hashicorp.terraform
         jnoortheen.nix-ide
@@ -277,6 +275,12 @@ in
           version = "0.5.4";
           sha256 = "sha256-mD6bLyToVcckADdUbj1s973As+DSnPsJLMjDv3omO6I=";
         }
+        # {
+        #   publisher = "github";
+        #   name = "copilot";
+        #   version = "1.158.0";
+        #   sha256 = "sha256-W1j1VAuSM1sgxHRIahqVncUlknT+MPi7uutY+0NURZQ=";
+        # }
       ];
       userSettings = {
         "[nix]"."editor.tabSize" = 2;
@@ -356,6 +360,7 @@ in
           "plaintext" = false;
           "markdown" = false;
           "scala" = true;
+          "go" = true;
         };
 
         "window.zoomLevel" = 1;

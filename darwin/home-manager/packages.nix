@@ -33,7 +33,7 @@ gitTools = with pkgs; [
   gitmux
   spr
   unstable.nodePackages_latest.graphite-cli
-  sapling
+  pkgsMaster.sapling
 ];
 
 nixTools = with pkgs; [
