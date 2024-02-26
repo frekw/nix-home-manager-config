@@ -14,6 +14,7 @@ adr = pkgs.callPackage ./packages/adr.nix {};
 vlc = pkgs.callPackage ./packages/vlc.nix {};
 wombat = pkgs.callPackage ./packages/wombat.nix {};
 tunnelblick = pkgs.callPackage ./packages/tunnelblick.nix {};
+pants-scie = pkgs.callPackage ./packages/pants.nix {};
 
 
 fonts = with pkgs; [
@@ -83,6 +84,8 @@ buildTools = with pkgs; [
   bazel
   buck2
   cmake
+  pants-scie
+  ninja
 ];
 
 homePackages = with pkgs; [
@@ -105,7 +108,6 @@ homePackages = with pkgs; [
   jq
   keybase
   # mkchromecast
-  ninja
   nixfmt
   obsidian
   python3
