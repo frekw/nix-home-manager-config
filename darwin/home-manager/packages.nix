@@ -101,6 +101,7 @@ homePackages = with pkgs; [
   ffmpeg
   gopls
   go-outline
+  ginkgo
   # graalvm19-ce
   graphviz
   grpcurl

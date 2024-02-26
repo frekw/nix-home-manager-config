@@ -13,6 +13,10 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-M2XTYi9svX9QVizNSRPyY1N0d98KLL9xDbNIXWXil90=";
 
+  postInstall = ''
+    cp $out/bin/scie-pants $out/bin/pants
+  '';
+
   meta = with lib; {
     description = "A build system for software projects in a variety of languages";
     homepage    = "https://www.pantsbuild.org/";
