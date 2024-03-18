@@ -1,4 +1,4 @@
-{mypkgs, pkgs, pkgs-unstable, ...}: {
+{ mypkgs, pkgs, pkgs-unstable, ... }: {
   imports = [
     ./neovim
     ./tmux
@@ -15,16 +15,12 @@
     ./wezterm.nix
   ];
 
-  xdg = {
-    enable = true;
-  };
+  xdg = { enable = true; };
 
   programs.direnv = {
     enable = true;
-    
-    nix-direnv = {
-      enable = true;
-    };
+
+    nix-direnv = { enable = true; };
   };
 
   programs.eza = {
@@ -37,25 +33,15 @@
     enableZshIntegration = true;
   };
 
-  programs.gh = {
-    enable = true;
-  };
+  programs.gh = { enable = true; };
 
-  programs.go = {
-    enable = true;
-  };
+  programs.go = { enable = true; };
 
-  programs.gpg = {
-    enable = true;
-  };
+  programs.gpg = { enable = true; };
 
-  programs.home-manager = {
-    enable = true;
-  };
+  programs.home-manager = { enable = true; };
 
-  programs.java = {
-    enable = true;
-  };
+  programs.java = { enable = true; };
 
   programs.opam = {
     enable = true;
@@ -63,9 +49,7 @@
     package = pkgs-unstable.opam;
   };
 
-  programs.sbt = {
-    enable = true;
-  };
+  programs.sbt = { enable = true; };
 
   home.packages = with pkgs; [
     audacity
@@ -88,7 +72,6 @@
     reattach-to-user-namespace
     rectangle
     ripgrep
-    rnix-lsp
     ruby
     scala
     slack
