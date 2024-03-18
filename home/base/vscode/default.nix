@@ -3,7 +3,6 @@
     enable = true;
     mutableExtensionsDir = false;
     extensions = with pkgs.vscode-extensions; [
-      # vscode-monochrome
       brettm12345.nixfmt-vscode
       github.copilot
       elixir-lsp.vscode-elixir-ls
@@ -15,14 +14,35 @@
       ocamllabs.ocaml-platform
       scala-lang.scala
       scalameta.metals
-      vscode-elixir
-      vscode-monochrome-dark
-      vscode-quickopener
       vscodevim.vim
       vspacecode.vspacecode
       vspacecode.whichkey
       zxh404.vscode-proto3
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      {
+        name = "vscode-elixir";
+        publisher = "mjmcloug";
+        version = "1.1.0";
+        sha256 = "sha256-EE4x75ljGu212gqu1cADs8bsXLaToVaDnXHOqyDlR04=";
+      }
+      {
+        name = "monochrome-dark";
+        publisher = "mikehhodgson";
+        version = "0.0.7";
+        sha256 = "sha256-W+QNykFE5wE/huW1f+JA0+OcIBmtrbSLD/y54REqhEE=";
+      }
+      {
+        name = "monochrome";
+        publisher = "anotherglitchinthematrix";
+        version = "2.4.3";
+        sha256 = "c64e184d3e9ad515bf2675a5fabeced1cdd937f95933bba212709cf61eec9997";
+      }
+      {
+        publisher = "mogelbrod";
+        name = "quickopener";
+        version = "0.4.1";
+        sha256 = "sha256-AJ3C1QdGpsobSMyu7xes+rC4EW/NravZWS60GqEKW2Y=";
+      }
       {
         name = "apc-extension";
         publisher = "drcika";
@@ -52,12 +72,6 @@
         publisher = "chiperific";
         version = "1.1.0";
         sha256 = "sha256-GmZowlnf+0JjN5ilR5aWZyR06pQKzuydhCeEWXnRvfs=";
-      }
-      {
-        name = "sapling-scm";
-        publisher = "meta";
-        version = "0.1.36";
-        sha256 = "sha256-STRTh2RftqAb1OIn5eBVAGjZVZO6DpAUl0rnYCDzbII=";
       }
       {
         name = "gti-vscode";

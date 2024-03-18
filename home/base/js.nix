@@ -1,5 +1,5 @@
 {pkgs, ...}: {
-  packages = with pkgs; [
+  home.packages = with pkgs; [
     bun
     deno
     nodejs_latest

@@ -1,5 +1,4 @@
-{ lib }:
-
+{ pkgs, lib, ... }:
 let
   inherit (builtins) readDir;
 
@@ -12,7 +11,7 @@ let
 
       isShardedCorrectly = path: elemAt path 0 == toLower (substring 0 2 (elemAt path 1));
 
-      mkPath = shard: package: [ shard package "${prefix}module.nix" ];
+      mkPath = shard: package: [ shard package "${prefix}package.nix" ];
 
       modulesInShard = shard: map (mkPath shard) (childPaths (basePath + "/${shard}"));
 
@@ -23,10 +22,12 @@ let
       (filter isShardedCorrectly)
       (map (renderPath basePath))
       (filter pathExists)
+      (mapAttrs name: path: pkgs.callPackage path {})
+      BANAN
     ];
 
-  allModules = enumerateModules { basePath = ../by-name; };
-in allModules // {
+  allModules = builtins.trace enumerateModules { basePath = ../by-name; };
+in {
   darwin = allModules ++ enumerateModules { prefix = "darwin-"; basePath = ../by-name; };
   nixos = allModules ++ enumerateModules { prefix = "nixos-"; basePath = ../by-name; };
   home = enumerateModules { prefix = "hm-"; basePath = ../by-name; };

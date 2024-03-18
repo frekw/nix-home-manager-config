@@ -16,7 +16,7 @@
       lock = "pmset displaysleepnow";
       "nix-sha256" = "nix-hash --to-base32 --type sha256";
     };
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     enableCompletion = true;
     autocd = false;
     history = {
