@@ -1,15 +1,15 @@
-{ config, pkgs, ... }:
+{config, pkgs, user, ...}: {
+  imports = [
+    ../base
+  ];
 
-{
-  nix = {
-    settings = {
-      experimental-features = "nix-command flakes";
-    };
+  users.users."${user.username}" = {
+    home = "/Users/${user.username}";
   };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = [ pkgs.vim ];
+  environment.systemPackages = with pkgs; [ git vim ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
@@ -119,7 +119,6 @@
   system.defaults.finder.AppleShowAllExtensions = true;
   system.defaults.finder._FXShowPosixPathInTitle = true;
   system.defaults.finder.FXEnableExtensionChangeWarning = false;
-
 
   system.stateVersion = 4; 
 }

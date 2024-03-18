@@ -4,7 +4,7 @@ if [ -e ~/.env.sh ]; then
   . ~/.env.sh
 fi
 
-export PATH="${PATH}:${HOME}/.krew/bin"
+export PATH="${PATH}:${HOME}/.krew/bin:${HOME}/bin"
 export WORDCHARS=''
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
