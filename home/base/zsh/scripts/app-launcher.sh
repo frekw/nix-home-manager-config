@@ -14,7 +14,7 @@ _app() {
     local CWORD=${COMP_WORDS[COMP_CWORD]}
 
     # This is our word list
-    local WORD_LIST=$(/bin/ls -1p ~/.nix-profile/Applications)
+    local WORD_LIST=$(/bin/ls -1p ~/Applications/'Home Manager Apps')
 
     # Commands below depend on this IFS
     local IFS=$'\n'

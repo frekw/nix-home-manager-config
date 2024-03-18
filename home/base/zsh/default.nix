@@ -1,4 +1,4 @@
-{pkgs, config, ...}: {
+{ pkgs, config, ... }: {
   programs.zsh = {
     defaultKeymap = "viins";
     enable = true;
@@ -9,10 +9,13 @@
       diff = "diff --color=auto";
       szsh = "source ~/.zshrc";
       cat = "bat";
-      switch = "home-manager switch && source ~/.zshrc";
+      switch =
+        "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config && source ~/.zshrc";
       garbage = "nix-collect-garbage";
       reload = "switch && garbage";
-      current-commit = "git log -1 --pretty=format:'%h' | tr -d '\n' | pbcopy";
+      current-commit = ''
+        git log -1 --pretty=format:'%h' | tr -d '
+        ' | pbcopy'';
       lock = "pmset displaysleepnow";
       "nix-sha256" = "nix-hash --to-base32 --type sha256";
     };
@@ -25,17 +28,17 @@
       share = true;
     };
     initExtra = builtins.concatStringsSep "\n" [
-          # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'' 
-          (builtins.readFile ./scripts/init.sh)
-          (builtins.readFile ./scripts/kube-context-switch.sh)
-          (builtins.readFile ./scripts/app-launcher.sh)
-          ''
-          export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
-          setopt PROMPT_SUBST
-          export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
-          export RPROMPT=
-          ''
-        ];
+      # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'' 
+      (builtins.readFile ./scripts/init.sh)
+      (builtins.readFile ./scripts/kube-context-switch.sh)
+      (builtins.readFile ./scripts/app-launcher.sh)
+      ''
+        export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
+        setopt PROMPT_SUBST
+        export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
+        export RPROMPT=
+      ''
+    ];
 
     profileExtra = ''
       idconvert() {
