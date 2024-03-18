@@ -6,7 +6,7 @@
   && exit
 
 app() {
-  open ~/.nix-profile/Applications/"$1"
+  open ~/Applications/'Home Manager Apps'/"$1"
 }
 
 _app() {
