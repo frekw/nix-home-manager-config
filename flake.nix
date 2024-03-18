@@ -114,6 +114,7 @@
           modules = [
             ./hosts/m1
             ./modules/darwin
+            ./modules/darwin/brew.nix
 
             home-manager.darwinModules.home-manager
             {

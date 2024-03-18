@@ -1,11 +1,7 @@
-{config, pkgs, user, ...}: {
-  imports = [
-    ../base
-  ];
+{ config, pkgs, user, ... }: {
+  imports = [ ../base ];
 
-  users.users."${user.username}" = {
-    home = "/Users/${user.username}";
-  };
+  users.users."${user.username}" = { home = "/Users/${user.username}"; };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
@@ -20,11 +16,13 @@
   # nix.package = pkgs.nix;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
-  programs.zsh.enable = true;  # default shell on catalina
+  programs.zsh.enable = true; # default shell on catalina
   # programs.fish.enable = true;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   system.keyboard.enableKeyMapping = true;
   system.keyboard.remapCapsLockToEscape = true;
@@ -32,7 +30,7 @@
   system.defaults.SoftwareUpdate.AutomaticallyInstallMacOSUpdates = false;
 
   # subpixel font smoothing on non-apple LCDs
-  system.defaults.NSGlobalDomain.AppleFontSmoothing = 1;
+  system.defaults.NSGlobalDomain.AppleFontSmoothing = 0;
 
   # dark mode
   system.defaults.NSGlobalDomain.AppleInterfaceStyle = "Dark";
@@ -76,9 +74,8 @@
   system.defaults.NSGlobalDomain.NSScrollAnimationEnabled = true;
 
   # faster resize animations
-  system.defaults.NSGlobalDomain.NSWindowResizeTime = 0.05;
+  system.defaults.NSGlobalDomain.NSWindowResizeTime = 5.0e-2;
 
-  
   # expand printer dialog
   system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint = true;
   system.defaults.NSGlobalDomain.PMPrintingExpandedStateForPrint2 = true;
@@ -87,10 +84,12 @@
   system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
 
   # enable two finger right click
-  system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
+  system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" =
+    true;
 
   # disable corner right click
-  system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = null;
+  system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" =
+    null;
   # disable trackpad tap clicking
   system.defaults.trackpad.Clicking = true;
   system.defaults.trackpad.TrackpadRightClick = true;
@@ -103,7 +102,6 @@
 
   # beep sound when changing volume
   system.defaults.NSGlobalDomain."com.apple.sound.beep.feedback" = 1;
-
 
   # system.defaults.universalaccess.reduceTransparency = true;
   # system.defaults.universalaccess.closeViewScrollWheelToggle = true;
@@ -120,5 +118,5 @@
   system.defaults.finder._FXShowPosixPathInTitle = true;
   system.defaults.finder.FXEnableExtensionChangeWarning = false;
 
-  system.stateVersion = 4; 
+  system.stateVersion = 4;
 }
