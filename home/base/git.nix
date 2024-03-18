@@ -3,7 +3,7 @@
     ./git-ps
   ];
 
-  home.packages = with pkgs; [
+  packages = with pkgs; [
     delta
     diff-so-fancy
     git-absorb

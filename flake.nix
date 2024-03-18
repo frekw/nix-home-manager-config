@@ -99,8 +99,9 @@
 
           system = "aarch64-darwin";
           modules = [
-            ./modules/darwin
             ./hosts/m1
+            ./modules/darwin
+            ./home/darwin
 
             home-manager.darwinModules.home-manager
             {

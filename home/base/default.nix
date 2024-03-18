@@ -1,4 +1,4 @@
-{mypkgs, ...}: {
+{mypkgs, pkgs, pkgs-unstable, ...}: {
   imports = [
     ./neovim
     ./tmux
@@ -15,7 +15,7 @@
     ./wezterm.nix
   ];
 
-  fonts. fontconfig = {
+  xdg = {
     enable = true;
   };
 
@@ -60,7 +60,7 @@
   programs.opam = {
     enable = true;
     enableZshIntegration = true;
-    package = unstable.opam;
+    package = pkgs-unstable.opam;
   };
 
   programs.sbt = {

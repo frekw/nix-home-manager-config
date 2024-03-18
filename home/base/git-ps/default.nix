@@ -1,6 +1,6 @@
-{config, ...}: {
-  home.file = {
-    "${config.xdg.configHome}/git-ps" = {
+{config, user, ...}: {
+  xdg.configFile = {
+    "git-ps" = {
       source = ./config;
       recursive = true;
     };

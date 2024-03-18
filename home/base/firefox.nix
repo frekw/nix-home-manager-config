@@ -1,4 +1,4 @@
-{pkgs, nur, user, mypkgs}: {
+{pkgs, nur, user, mypkgs, ...}: {
   programs.firefox = {
     enable = true;
     package = mypkgs.darwin.firefox;
