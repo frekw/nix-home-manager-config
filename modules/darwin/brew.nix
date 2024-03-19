@@ -15,7 +15,7 @@
       # Xcode = 497799835;
     };
 
-    casks = [ "slack" "logitune" "loom" "tunnelblick" "dropbox" "figma" ];
+    casks = [ "dropbox" "figma" "logitune" "loom" "slack" "tunnelblick" ];
 
     brews = [
       # https://github.com/rgcr/m-cli
