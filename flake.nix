@@ -8,8 +8,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     nixpkgs-old-tf.url =
       "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
@@ -72,16 +70,11 @@
             config.allowUnfree = true;
           };
 
-          pkgs-unstable = import inputs.nixpkgs-unstable {
+          pkgs-unstable = import inputs.nixpkgs {
             inherit system;
             config.allowUnfree = true;
           };
           pkgs-stable = import inputs.nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          pkgs-master = import inputs.nixpkgs-master {
             inherit system;
             config.allowUnfree = true;
           };
