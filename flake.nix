@@ -24,7 +24,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-homebrew = { url = "github:zhaofengli-wip/nix-homebrew"; };
+    nix-homebrew = {
+      url = "github:zhaofengli-wip/nix-homebrew";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nix-darwin.follows = "nix-darwin";
+    };
 
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
@@ -128,13 +132,14 @@
               nix-homebrew = {
                 user = user.username;
                 enable = true;
+                enableRosetta = true;
                 taps = {
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
                 };
                 mutableTaps = false;
-                autoMigrate = true;
+                # autoMigrate = true;
               };
             }
           ];

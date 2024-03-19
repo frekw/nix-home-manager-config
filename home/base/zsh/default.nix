@@ -10,7 +10,7 @@
       szsh = "source ~/.zshrc";
       cat = "bat";
       switch =
-        "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config && source ~/.zshrc";
+        "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config";
       garbage = "nix-collect-garbage";
       reload = "switch && garbage";
       current-commit = ''
@@ -33,6 +33,7 @@
       (builtins.readFile ./scripts/kube-context-switch.sh)
       (builtins.readFile ./scripts/app-launcher.sh)
       ''
+        eval $(brew shellenv)
         export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
         setopt PROMPT_SUBST
         export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
