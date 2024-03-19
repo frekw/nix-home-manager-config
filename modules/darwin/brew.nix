@@ -9,13 +9,24 @@
     };
 
     masApps = {
-      # 1password
-      # iA writer
-      # pixelmator
-      # Xcode = 497799835;
+      "1Password" = 1333542190;
+      "iA Writer" = 775737590;
+      "Pixelmator Classic" = 407963104;
+      "Poolsuite FM" = 1514817810;
+      "Soundtrack Player" = 1114799709;
+      # XCode = 497799835;
     };
 
-    casks = [ "dropbox" "figma" "logitune" "loom" "slack" "tunnelblick" ];
+    casks = [
+      "dropbox"
+      "figma"
+      "heynote"
+      "logitune"
+      "loom"
+      "shureplus-motiv"
+      "slack"
+      "tunnelblick"
+    ];
 
     brews = [
       # https://github.com/rgcr/m-cli
