@@ -9,10 +9,13 @@
     };
 
     masApps = {
+      # 1password
+      # iA writer
+      # pixelmator
       # Xcode = 497799835;
     };
 
-    casks = [ "slack" ];
+    casks = [ "slack" "logitune" "loom" "tunnelblick" "dropbox" "figma" ];
 
     brews = [
       # https://github.com/rgcr/m-cli
