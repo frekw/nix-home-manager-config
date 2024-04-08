@@ -18,6 +18,7 @@
     };
 
     casks = [
+      "balenaetcher"
       "dropbox"
       "figma"
       "heynote"
@@ -25,6 +26,7 @@
       "loom"
       "shureplus-motiv"
       "slack"
+      "spotify"
       "tunnelblick"
     ];
 

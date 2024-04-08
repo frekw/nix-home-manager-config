@@ -5,7 +5,6 @@
     delta
     diff-so-fancy
     git-absorb
-    git-branchless
     git-codeowners
     git-open
     git-ps-rs
