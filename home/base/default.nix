@@ -44,7 +44,7 @@
   programs.java = { enable = true; };
 
   programs.opam = {
-    enable = true;
+    enable = false;
     enableZshIntegration = true;
     package = pkgs-unstable.opam;
   };
