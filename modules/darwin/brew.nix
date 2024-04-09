@@ -9,7 +9,8 @@
     };
 
     masApps = {
-      "1Password" = 1333542190;
+      # this is 1password 7 currently.
+      # "1Password" = 1333542190;
       "iA Writer" = 775737590;
       "Pixelmator Classic" = 407963104;
       "Poolsuite FM" = 1514817810;
@@ -18,6 +19,7 @@
     };
 
     casks = [
+      "1password"
       "balenaetcher"
       "dropbox"
       "figma"

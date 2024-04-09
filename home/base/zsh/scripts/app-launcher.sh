@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/user/bin/env bash
 
 # check that the function doesn't already exist
 [[ ! -z "$(compgen -c | grep "^app$")" ]] \

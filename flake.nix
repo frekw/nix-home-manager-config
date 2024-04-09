@@ -46,10 +46,17 @@
     rycee-ff = {
       url = "sourcehut:~rycee/nur-expressions?dir=pkgs/firefox-addons";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew
-    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, ... }@inputs:
+    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, ...
+    }@inputs:
     let
       user = {
         name = "Fredrik Wärnsberg";
@@ -112,6 +119,8 @@
             ./hosts/m1
             ./modules/darwin
             ./modules/darwin/brew.nix
+
+            agenix.darwinModules.default
 
             home-manager.darwinModules.home-manager
             {

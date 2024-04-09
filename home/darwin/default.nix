@@ -1,4 +1,4 @@
-{ user, mypkgs, ... }: {
+{ pkgs, user, mypkgs, ... }: {
   imports = [ ../base ./zsh ./docker.nix ];
 
   home = {
