@@ -1,7 +1,7 @@
 { pkgs, config, rycee-ff, user, mypkgs, ... }: {
   programs.firefox = {
     enable = true;
-    package = mypkgs.darwin.firefox;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then mypkgs.darwin.firefox else pkgs.firefox;
     policies = {
       DisableFirefoxStudies = true;
       DisablePocket = true;

@@ -69,13 +69,11 @@
     keybase
     nixfmt
     python3
-    reattach-to-user-namespace
-    rectangle
     ripgrep
     ruby
     scala
     slack
-    mypkgs.syb-cli
+    # mypkgs.syb-cli
     tree
     yarn
     yq-go

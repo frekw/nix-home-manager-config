@@ -1,7 +1,10 @@
 { config, pkgs, user, ... }: {
   imports = [ ../base ];
 
-  users.users."${user.username}" = { home = "/Users/${user.username}"; };
+  users.users."${user.username}" = {
+    description = user.name;
+    home = "/Users/${user.username}";
+  };
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget

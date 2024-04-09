@@ -9,8 +9,6 @@
       diff = "diff --color=auto";
       szsh = "source ~/.zshrc";
       cat = "bat";
-      switch =
-        "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config";
       garbage = "nix-collect-garbage";
       reload = "switch && garbage";
       current-commit = ''
@@ -64,15 +62,6 @@
           repo = "autojump";
           rev = "release-v22.5.3";
           sha256 = "1rgpsh70manr2dydna9da4x7p8ahii7dgdgwir5fka340n1wrcws";
-        };
-      }
-      {
-        name = "macos";
-        src = pkgs.fetchFromGitHub {
-          owner = "joow";
-          repo = "macos";
-          rev = "76bb298dc0ff5c5a1c640fe8f33f09c68b9af239";
-          sha256 = "13mq0dq2y7d4m5cxxj13mbplk53kgg3j3f2id89klaw28kh9jrvs";
         };
       }
     ];

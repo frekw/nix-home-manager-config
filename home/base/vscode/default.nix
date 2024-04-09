@@ -39,12 +39,12 @@
         #   sha256 =
         #     "c64e184d3e9ad515bf2675a5fabeced1cdd937f95933bba212709cf61eec9997";
         # }
-        {
-          publisher = "mogelbrod";
-          name = "quickopener";
-          version = "0.4.1";
-          sha256 = "sha256-AJ3C1QdGpsobSMyu7xes+rC4EW/NravZWS60GqEKW2Y=";
-        }
+				# {
+        #   publisher = "mogelbrod";
+        #   name = "quickopener";
+        #   version = "0.4.1";
+        #   sha256 = "sha256-AJ3C1QdGpsobSMyu7xes+rC4EW/NravZWS60GqEKW2Y=";
+        # }
         {
           name = "apc-extension";
           publisher = "drcika";

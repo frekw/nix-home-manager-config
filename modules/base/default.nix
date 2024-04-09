@@ -29,8 +29,6 @@
     tree
   ];
 
-  users.users.${user.username} = { description = user.name; };
-
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ user.username ];

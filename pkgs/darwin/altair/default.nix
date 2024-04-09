@@ -1,4 +1,4 @@
-{ stdenv, lib, fetchurl, undmg }:
+{ stdenv, lib, fetchurl, undmg, ... }:
 
 stdenv.mkDerivation rec {
   pname = "altair-darwin";

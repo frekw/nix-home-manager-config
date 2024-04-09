@@ -80,8 +80,8 @@
           };
 
           pkgs-old-tf = import inputs.nixpkgs-old-tf {
-            inherit
-              system; # refer the `system` parameter form outer scope recursively
+            # refer the `system` parameter form outer scope recursively
+            inherit system;
             config.allowUnfree = true;
           };
 
@@ -139,6 +139,25 @@
         };
       };
 
-      nixosConfigurations = { };
+      nixosConfigurations = {
+        um790 = let specialArgs = genSpecialArgs "x86_64-linux";
+        in nixpkgs.lib.nixosSystem {
+          # inherit inputs;
+
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            ./hosts/um790
+            ./modules/linux
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users."${user.username}" = import ./home/linux;
+            }
+          ];
+        };
+      };
     };
 }

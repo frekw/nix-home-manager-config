@@ -1,8 +1,5 @@
-{user, mypkgs, ...}: {
-  imports = [
-    ../base
-    ./docker.nix
-  ];
+{ user, mypkgs, ... }: {
+  imports = [ ../base ./zsh ./docker.nix ];
 
   home = {
     username = user.username;
@@ -14,10 +11,12 @@
     };
   };
 
-  home.packages = [
+  home.packages = with pkgs; [
     mypkgs.darwin.altair
     mypkgs.darwin.obsidian
     mypkgs.darwin.vlc
     mypkgs.darwin.wombat
+    reattach-to-user-namespace
+    rectangle
   ];
 }
