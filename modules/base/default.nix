@@ -1,5 +1,6 @@
-{ pkgs, lib, user, ... }@args: {
+{ pkgs, lib, user, agenix, ... }@args: {
   environment.systemPackages = with pkgs; [
+    agenix.packages."${pkgs.system}".default
     git
     neovim
 

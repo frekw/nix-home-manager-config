@@ -1,5 +1,6 @@
-{ mypkgs, pkgs, pkgs-unstable, ... }: {
+{ mypkgs, pkgs, pkgs-unstable, agenix, ... }: {
   imports = [
+    agenix.homeManagerModules.default
     ./neovim
     ./tmux
     ./vscode

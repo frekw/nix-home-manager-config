@@ -69,7 +69,7 @@
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
       genSpecialArgs = system:
         inputs // rec {
-          inherit user;
+          inherit user agenix;
 
           pkgs = import inputs.nixpkgs {
             # refer the `system` parameter form outer scope recursively
@@ -121,7 +121,6 @@
             ./modules/darwin/brew.nix
 
             agenix.darwinModules.default
-
             home-manager.darwinModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
@@ -151,13 +150,12 @@
       nixosConfigurations = {
         um790 = let specialArgs = genSpecialArgs "x86_64-linux";
         in nixpkgs.lib.nixosSystem {
-          # inherit inputs;
-
           system = "x86_64-linux";
           specialArgs = specialArgs;
           modules = [
             ./hosts/um790
             ./modules/linux
+            agenix.nixosModules.default
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
