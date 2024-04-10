@@ -74,6 +74,7 @@
     scala
     slack
     # mypkgs.syb-cli
+    mypkgs.kube-context-switch
     tree
     yarn
     yq-go

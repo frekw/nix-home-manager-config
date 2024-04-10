@@ -28,8 +28,6 @@
     initExtra = builtins.concatStringsSep "\n" [
       # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'' 
       (builtins.readFile ./scripts/init.sh)
-      (builtins.readFile ./scripts/kube-context-switch.sh)
-      (builtins.readFile ./scripts/app-launcher.sh)
       ''
         eval $(brew shellenv)
         export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"

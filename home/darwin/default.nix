@@ -12,6 +12,7 @@
   };
 
   home.packages = with pkgs; [
+    mypkgs.app-launcher
     mypkgs.darwin.altair
     mypkgs.darwin.obsidian
     mypkgs.darwin.vlc
