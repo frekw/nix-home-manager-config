@@ -63,7 +63,7 @@
       url = { "git@github.com:" = { insteadOf = "https://github.com/"; }; };
 
       rerere.enabled = "true";
-      commit.gpgsign = "true";
+      # commit.gpgsign = "true";
       # gpg.program = "gpg2";
 
       # TODO(linux)

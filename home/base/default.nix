@@ -38,7 +38,7 @@
 
   programs.go = { enable = true; };
 
-  programs.gpg = { enable = true; };
+  # programs.gpg = { enable = true; };
 
   programs.home-manager = { enable = true; };
 
