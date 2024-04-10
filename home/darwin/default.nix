@@ -1,7 +1,7 @@
 { pkgs, user, mypkgs, config, ... }: {
   imports = [ ../base ./zsh ./docker.nix ];
 
-  age.secrets."github-token".file = ../../secrets/github-token.age;
+  age.secrets.github-token.file = ../../secrets/github-token.age;
 
   home = {
     username = user.username;
@@ -11,7 +11,7 @@
       EDITOR = "nvim";
       SHELL = "$HOME/.nix-profile/bin/zsh";
       GITHUB_TOKEN = ''
-        $(${pkgs.coreutils}/bin/cat ${config.age.secrets.github-token.file})
+        $(${pkgs.coreutils}/bin/cat ${config.age.secrets.github-token.path})
       '';
     };
   };
