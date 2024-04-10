@@ -1,4 +1,7 @@
 { pkgs, config, ... }: {
+
+  age.secrets.github-token.file = ../../../secrets/github-token.age;
+
   programs.zsh = {
     defaultKeymap = "viins";
     enable = true;
@@ -33,6 +36,7 @@
         setopt PROMPT_SUBST
         export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
         export RPROMPT=
+        export GITHUB_TOKEN=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.github-token.path})
       ''
     ];
 

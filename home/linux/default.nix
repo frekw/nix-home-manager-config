@@ -1,8 +1,6 @@
 { user, pkgs, config, ... }: {
   imports = [ ../base ./zsh ];
 
-  age.secrets.github-token.file = ../../secrets/github-token.age;
-
   home = {
     username = user.username;
     homeDirectory = "/home/${user.username}";
@@ -10,9 +8,6 @@
     sessionVariables = {
       EDITOR = "nvim";
       SHELL = "$HOME/.nix-profile/bin/zsh";
-      GITHUB_TOKEN = ''
-        $(${pkgs.coreutils}/bin/cat ${config.age.secrets.github-token.path})
-      '';
     };
   };
 
