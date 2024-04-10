@@ -29,7 +29,6 @@
       # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"'' 
       (builtins.readFile ./scripts/init.sh)
       ''
-        eval $(brew shellenv)
         export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
         setopt PROMPT_SUBST
         export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '

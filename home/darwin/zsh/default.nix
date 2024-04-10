@@ -4,6 +4,9 @@
       switch =
         "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config";
     };
+    initExtra = ''
+      eval $(brew shellenv)
+    '';
     plugins = [{
       name = "macos";
       src = pkgs.fetchFromGitHub {
