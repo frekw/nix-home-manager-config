@@ -52,11 +52,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # private flake
+    fonts = {
+      url = "git+ssh://git@github.com/frekw/fonts.git";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew
-    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, ...
-    }@inputs:
+    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, fonts
+    , ... }@inputs:
     let
       user = {
         name = "Fredrik Wärnsberg";
@@ -69,18 +74,13 @@
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
       genSpecialArgs = system:
         inputs // rec {
-          inherit user agenix;
+          inherit user agenix fonts;
 
           pkgs = import inputs.nixpkgs {
-            # refer the `system` parameter form outer scope recursively
             inherit system;
             config.allowUnfree = true;
           };
 
-          pkgs-unstable = import inputs.nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
           pkgs-stable = import inputs.nixpkgs-stable {
             inherit system;
             config.allowUnfree = true;

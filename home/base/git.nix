@@ -1,4 +1,4 @@
-{ pkgs, pkgs-unstable, ... }: {
+{ pkgs, ... }: {
   imports = [ ./git-ps ];
 
   home.packages = with pkgs; [
@@ -10,7 +10,7 @@
     git-ps-rs
     gitmux
     spr
-    pkgs-unstable.nodePackages_latest.graphite-cli
+    pkgs.nodePackages_latest.graphite-cli
   ];
 
   programs.git = {

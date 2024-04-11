@@ -1,4 +1,4 @@
-{ mypkgs, pkgs, pkgs-unstable, agenix, ... }: {
+{ mypkgs, pkgs, agenix, ... }: {
   imports = [
     agenix.homeManagerModules.default
     ./neovim
@@ -47,7 +47,7 @@
   programs.opam = {
     enable = false;
     enableZshIntegration = true;
-    package = pkgs-unstable.opam;
+    package = pkgs.opam;
   };
 
   programs.sbt = { enable = true; };
