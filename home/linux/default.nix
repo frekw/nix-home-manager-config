@@ -5,10 +5,7 @@
     username = user.username;
     homeDirectory = "/home/${user.username}";
     stateVersion = "23.11";
-    sessionVariables = {
-      EDITOR = "nvim";
-      SHELL = "$HOME/.nix-profile/bin/zsh";
-    };
+    sessionVariables = { EDITOR = "nvim"; };
   };
 
   home.packages = with pkgs; [ _1password-gui _1password spotify ];
