@@ -1,4 +1,4 @@
-{...}: {
+{ ... }: {
   programs.wezterm = {
     enable = true;
     extraConfig = ''
@@ -20,7 +20,7 @@
       config.color_scheme = 'Dark Pastel'
 
       -- config.font = wezterm.font('Monaspace Neon')
-      config.font = wezterm.font('Berkeley Mono Variable')
+      config.font = wezterm.font('Berkeley Mono')
       config.freetype_load_flags = 'NO_HINTING'
       config.freetype_load_target = 'Normal'
       config.line_height = 1.0

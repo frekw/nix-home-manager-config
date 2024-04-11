@@ -1,5 +1,5 @@
 { user, pkgs, config, ... }: {
-  imports = [ ../base ./zsh ];
+  imports = [ ../base ./audio ./zsh ];
 
   home = {
     username = user.username;

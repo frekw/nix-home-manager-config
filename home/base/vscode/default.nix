@@ -39,7 +39,7 @@
         #   sha256 =
         #     "c64e184d3e9ad515bf2675a5fabeced1cdd937f95933bba212709cf61eec9997";
         # }
-				# {
+        # {
         #   publisher = "mogelbrod";
         #   name = "quickopener";
         #   version = "0.4.1";
@@ -147,7 +147,7 @@
       };
 
       # "editor.fontFamily" = "Monaspace Neon Var";
-      "editor.fontFamily" = "Berkeley Mono Variable";
+      "editor.fontFamily" = "Berkeley Mono";
       "editor.fontSize" = 14;
       "editor.fontLigatures" = true;
       "editor.formatOnSave" = true;

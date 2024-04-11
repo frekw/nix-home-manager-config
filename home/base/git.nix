@@ -63,11 +63,11 @@
       url = { "git@github.com:" = { insteadOf = "https://github.com/"; }; };
 
       rerere.enabled = "true";
-      # commit.gpgsign = "true";
+      commit.gpgsign = "false";
       # gpg.program = "gpg2";
 
       # TODO(linux)
-      credential.helper = "osxkeychain";
+      # credential.helper = "osxkeychain";
 
       pull.rebase = "true";
       init.defaultBranch = "main";
