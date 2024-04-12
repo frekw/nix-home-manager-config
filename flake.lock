@@ -103,11 +103,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1712871354,
-        "narHash": "sha256-DIEFGE5JV7DMS06bY/boTRMbi2I49DhdSrCA4oE0Glo=",
+        "lastModified": 1712915348,
+        "narHash": "sha256-oI7qrtBQVnGz/b8uFAqU4G0ZUAofQVYNQ++r8uDWOMc=",
         "ref": "refs/heads/main",
-        "rev": "af2a2fcba41a5ef0edfff32d847219ab07e41129",
-        "revCount": 17,
+        "rev": "e954ee79f937b021bdd0d55f288681c0ea521e67",
+        "revCount": 20,
         "type": "git",
         "url": "ssh://git@github.com/frekw/fonts.git"
       },

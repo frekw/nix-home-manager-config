@@ -1,7 +1,10 @@
 { pkgs, config, rycee-ff, user, mypkgs, ... }: {
   programs.firefox = {
     enable = true;
-    package = if pkgs.stdenv.hostPlatform.isDarwin then mypkgs.darwin.firefox else pkgs.firefox;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then
+      mypkgs.darwin.firefox
+    else
+      pkgs.firefox;
     policies = {
       DisableFirefoxStudies = true;
       DisablePocket = true;
@@ -30,6 +33,8 @@
           "app.update.auto" = false;
           "signon.rememberSignons" = false;
           "browser.casting.enabled" = true;
+          "gfx.webrender.all" = true;
+          "media.ffmpeg.vaapi.enabled" = true;
         };
 
         extensions = with rycee-ff.packages."${pkgs.system}"; [
