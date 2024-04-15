@@ -1,3 +1,3 @@
 { pkgs, ... }: {
-  imports = [ ../base ./audio.nix ./keyboard.nix ./locale.nix ];
+  imports = [ ../base ./audio.nix ./keyboard.nix ./vpn ./locale.nix ];
 }
