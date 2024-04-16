@@ -80,7 +80,7 @@
     yarn
     yq-go
     youtube-dl
-    zed-editor
+    # zed-editor
     zlib
   ];
 }
