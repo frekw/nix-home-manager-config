@@ -105,6 +105,7 @@
       "[nix]"."editor.tabSize" = 2;
       "nix.enableLanguageServer" = true;
 
+      "vim.leader" = ",";
       "vim.easymotion" = true;
       "vim.useSystemClipboard" = true;
       "vim.normalModeKeyBindingsNonRecursive" = [
@@ -123,6 +124,10 @@
           ];
         }
       ];
+      "vim.insertModeKeyBindings" = [{
+        "before" = [ "j" "j" ];
+        "after" = [ "<Esc>" ];
+      }];
       "vim.visualModeKeyBindingsNonRecursive" = [
         {
           "before" = [ "<space>" ];

@@ -41,9 +41,9 @@
   ;; Ö #(ralt " O)
 
 (defalias
-  å (tap-hold 200 [ (around ralt [))
-  ä (tap-hold 200 ' (around ralt '))
-  ö (tap-hold 200 ; (around ralt ;))
+  å (tap-hold 300 [ (around ralt [))
+  ä (tap-hold 300 ' (around ralt '))
+  ö (tap-hold 300 ; (around ralt ;))
   fwd (around lalt f)
   bck (around lalt b)
 
