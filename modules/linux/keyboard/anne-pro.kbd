@@ -41,9 +41,9 @@
   ;; Ö #(ralt " O)
 
 (defalias
-  å (tap-hold 175 [ (around ralt [))
-  ä (tap-hold 175 ' (around ralt '))
-  ö (tap-hold 175 ; (around ralt ;))
+  å (tap-hold 200 [ (around ralt [))
+  ä (tap-hold 200 ' (around ralt '))
+  ö (tap-hold 200 ; (around ralt ;))
   fwd (around lalt f)
   bck (around lalt b)
 
@@ -63,8 +63,8 @@
 
 (deflayer mods
   _     _    @eml _    _    _    _    _    _    _    _    _   _   _
-  _     _    @fwd _    _    _    _    _    _    _    _    _   _    _
+  _     _    @fwd _    _    _    _    pgup pgdn _    _    _   _    _
   _     _    _    _    _    _    left down up   right _   _   _
-  _     _    _    _    _    _    @bck _    _    _    _    _   _
+  _     _    _    _    _    _    @bck end  home _    _    _   _
   _     _    _              _              _    _    _    _
 )
