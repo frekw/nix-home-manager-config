@@ -52,6 +52,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    kmonad = {
+      url = "github:kmonad/kmonad?dir=nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # private flake
     fonts = {
       url = "git+ssh://git@github.com/frekw/fonts.git";
@@ -60,8 +65,8 @@
   };
 
   outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew
-    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, fonts
-    , ... }@inputs:
+    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, kmonad
+    , fonts, ... }@inputs:
     let
       user = {
         name = "Fredrik Wärnsberg";
@@ -157,6 +162,7 @@
             ./modules/linux
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
+            kmonad.nixosModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
