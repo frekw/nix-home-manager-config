@@ -30,16 +30,6 @@
   lctl lmet lalt            spc                 ralt rmet cmp  rctl
 )
 
-;; alt + tab behaviour, see
-;; https://github.com/kmonad/kmonad/issues/593#issuecomment-1190230580
-
-  ;; å #(ralt o a)
-  ;; ä #(ralt  " a)
-  ;; ö #(ralt " o)
-  ;; Å #(ralt o A)
-  ;; Ä #(ralt  " A)
-  ;; Ö #(ralt " O)
-
 (defalias
   å (tap-hold 300 [ (around ralt [))
   ä (tap-hold 300 ' (around ralt '))
