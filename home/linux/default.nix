@@ -1,5 +1,5 @@
 { user, pkgs, config, ... }: {
-  imports = [ ../base ./audio ./hyprland ./zsh ];
+  imports = [ ../base ./audio ./hyprland ./tofi ./zsh ];
 
   home = {
     username = user.username;
