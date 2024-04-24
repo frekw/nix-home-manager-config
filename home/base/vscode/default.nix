@@ -124,10 +124,17 @@
           ];
         }
       ];
-      "vim.insertModeKeyBindings" = [{
-        "before" = [ "j" "j" ];
-        "after" = [ "<Esc>" ];
-      }];
+      "vim.insertModeKeyBindings" = [
+        {
+          "before" = [ "j" "j" ];
+          "after" = [ "<Esc>" ];
+        }
+        {
+          "before" = [ "<Esc>" ];
+          "after" = [ "<Esc>" ];
+          "commands" = [ "workbench.action.files.save" ];
+        }
+      ];
       "vim.visualModeKeyBindingsNonRecursive" = [
         {
           "before" = [ "<space>" ];

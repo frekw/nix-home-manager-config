@@ -12,6 +12,8 @@
     ./fonts.nix
     ./git.nix
     ./js.nix
+    ./kitty.nix
+    ./rio.nix
     ./ssh.nix
     ./wezterm.nix
   ];
