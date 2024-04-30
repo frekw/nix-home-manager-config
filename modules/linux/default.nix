@@ -1,3 +1,4 @@
 { pkgs, ... }: {
-  imports = [ ../base ./audio.nix ./keyboard ./hyprland ./vpn ./locale.nix ];
+  imports =
+    [ ../base ./audio.nix ./dropbox ./keyboard ./hyprland ./vpn ./locale.nix ];
 }

@@ -1,14 +1,11 @@
-{ user, pkgs, config, ... }: {
-  imports = [ ../base ./audio ./hyprland ./tofi ./zsh ];
+{ user, pkgs, mypkgs, config, fonts, ... }: {
+  imports = [ ../base ./audio ./zsh ];
 
   home = {
     username = user.username;
     homeDirectory = "/home/${user.username}";
     stateVersion = "23.11";
-    sessionVariables = {
-      EDITOR = "nvim";
-      NIXOS_OZONE_WL = 1;
-    };
+    sessionVariables = { EDITOR = "nvim"; };
   };
 
   # homee.file.".XCompose".text e= ''
@@ -18,5 +15,22 @@
   #   <Multi_key> <"> <o> : "ö"
   # '';
 
-  home.packages = with pkgs; [ _1password-gui _1password spotify ncspot ];
+  gtk = {
+    enable = true;
+    font = {
+      package = fonts.packages.${pkgs.system}.berkeley-mono;
+      name = "BerkeleyMono-Regular";
+    };
+
+    theme = { name = "Adwaita Dark"; };
+  };
+
+  home.packages = with pkgs; [
+    _1password
+    _1password-gui
+    ncspot
+    obsidian
+    spotify
+    mypkgs.pants
+  ];
 }

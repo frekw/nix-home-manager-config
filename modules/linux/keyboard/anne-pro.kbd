@@ -31,30 +31,49 @@
 )
 
 (defalias
-  å (tap-hold 300 [ (around ralt w))
-  ä (tap-hold 300 ' (around ralt q))
-  ö (tap-hold 300 ; (around ralt p))
+  ;; å (tap-hold 300 [ (around ralt w))
+  ;; ä (tap-hold 300 ' (around ralt q))
+  ;; ö (tap-hold 300 ; (around ralt p))
+
+  mu (layer-toggle mods-upper)
+
+  å (around ralt å)
+  ä (around ralt ä)
+  ö (around ralt ö)
+  
+  Å (around ralt Å)
+  Ä (around ralt Ä)
+  Ö (around ralt Ö)
+
   fwd (around lalt f)
   bck (around lalt b)
 
   eml #(@ s o u n d t r a c k y o u r b r a n d . c o m)
 
-  caps (tap-next esc lctl)
+  caps (tap-next esc (layer-toggle mods))
   spc (tap-hold 250 spc (layer-toggle mods))
 )
 
 (deflayer base
   esc   1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab   q    w    e    r    t    y    u    i    o    p    @å   ]    ret
-  @caps a    s    d    f    g    h    j    k    l    @ö   @ä   \
+  tab   q    w    e    r    t    y    u    i    o    p    [    ]    ret
+  @caps a    s    d    f    g    h    j    k    l    ;    '    \
   lsft  grv  z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet  lalt           @spc                 ralt rmet cmp  rctl
+  lctl lmet  lalt           spc                 ralt rmet cmp  rctl
 )
 
 (deflayer mods
   _     _    @eml _    _    _    _    _    _    _    _    _   _   _
-  _     _    @fwd _    _    _    _    pgdn pgup _    _    _   _    _
-  _     _    _    _    _    _    left down up   right _   _   _
+  _     _    @fwd _    _    _    _    pgdn pgup _    _    @å  _   _
+  _     _    _    _    _    _    left down up   right @ö  @ä  _
+  @mu   _    _    _    _    _    @bck end  home _    _    _   _
+  _     _    _              _              _    _    _    _
+)
+
+(deflayer mods-upper
+  _     _    @eml _    _    _    _    _    _    _    _    _   _   _
+  _     _    @fwd _    _    _    _    pgdn pgup _    _    @Å  _   _
+  _     _    _    _    _    _    left down up   right @Ö  @Ä  _
   _     _    _    _    _    _    @bck end  home _    _    _   _
   _     _    _              _              _    _    _    _
 )
