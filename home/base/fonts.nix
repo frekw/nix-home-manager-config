@@ -1,4 +1,5 @@
-{ pkgs, fonts, ... }: {
+{ pkgs, fonts, ... }:
+{
   fonts.fontconfig.enable = true;
 
   home.packages = with pkgs; [
@@ -8,6 +9,5 @@
     monaspace
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
     fonts.packages.${pkgs.system}.berkeley-mono
-    fonts.packages.${pkgs.system}.apple-fonts
   ];
 }

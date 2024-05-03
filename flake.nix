@@ -9,8 +9,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
-    nixpkgs-old-tf.url =
-      "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
+    nixpkgs-old-tf.url = "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -54,6 +53,10 @@
 
     kmonad = {
       url = "github:kmonad/kmonad?dir=nix";
+    };
+
+    roc = {
+      url = "github:roc-lang/roc";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -64,22 +67,47 @@
     };
   };
 
-  outputs = { self, nixpkgs, nix-darwin, home-manager, nix-homebrew
-    , homebrew-bundle, homebrew-core, homebrew-cask, rycee-ff, agenix, kmonad
-    , fonts, ... }@inputs:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      nix-darwin,
+      home-manager,
+      nix-homebrew,
+      homebrew-bundle,
+      homebrew-core,
+      homebrew-cask,
+      rycee-ff,
+      agenix,
+      kmonad,
+      roc,
+      fonts,
+      ...
+    }@inputs:
     let
       user = {
         name = "Fredrik Wärnsberg";
         username = "fredrikw";
       };
-      darwinSystems = { aarch64-darwin = "aarch64-darwin"; };
-      linuxSystems = { x86_64-linux = "x86_64-linux"; };
+      darwinSystems = {
+        aarch64-darwin = "aarch64-darwin";
+      };
+      linuxSystems = {
+        x86_64-linux = "x86_64-linux";
+      };
       allSystems = darwinSystems // linuxSystems;
       allSystemNames = builtins.attrNames allSystems;
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
-      genSpecialArgs = system:
-        inputs // rec {
-          inherit user agenix fonts;
+      genSpecialArgs =
+        system:
+        inputs
+        // rec {
+          inherit
+            user
+            agenix
+            fonts
+            roc
+            ;
 
           pkgs = import inputs.nixpkgs {
             inherit system;
@@ -99,78 +127,92 @@
 
           mypkgs = import ./pkgs { pkgs = pkgs; };
         };
-
-    in {
-      devShells = forAllSystems (system:
-        let pkgs = nixpkgs.legacyPackages.${system};
-        in {
+    in
+    {
+      devShells = forAllSystems (
+        system:
+        let
+          pkgs = nixpkgs.legacyPackages.${system};
+        in
+        {
           default = pkgs.mkShell {
-            packages = with pkgs; [ zsh git alejandra ];
+            packages = with pkgs; [
+              zsh
+              git
+              alejandra
+            ];
             name = "dotfiles";
             shellHook = ''
               export EDITOR=vim
             '';
           };
-        });
+        }
+      );
 
       darwinConfigurations = {
-        m1 = let specialArgs = genSpecialArgs "aarch64-darwin";
-        in nix-darwin.lib.darwinSystem {
-          inherit inputs;
+        m1 =
+          let
+            specialArgs = genSpecialArgs "aarch64-darwin";
+          in
+          nix-darwin.lib.darwinSystem {
+            inherit inputs;
 
-          system = "aarch64-darwin";
-          specialArgs = specialArgs;
-          modules = [
-            ./hosts/m1
-            ./modules/darwin
-            ./modules/darwin/brew.nix
+            system = "aarch64-darwin";
+            specialArgs = specialArgs;
+            modules = [
+              ./hosts/m1
+              ./modules/darwin
+              ./modules/darwin/brew.nix
 
-            agenix.darwinModules.default
-            home-manager.darwinModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.users."${user.username}" = import ./home/darwin;
-            }
-            nix-homebrew.darwinModules.nix-homebrew
-            {
-              nix-homebrew = {
-                user = user.username;
-                enable = true;
-                enableRosetta = true;
-                taps = {
-                  "homebrew/homebrew-core" = homebrew-core;
-                  "homebrew/homebrew-cask" = homebrew-cask;
-                  "homebrew/homebrew-bundle" = homebrew-bundle;
+              agenix.darwinModules.default
+              home-manager.darwinModules.home-manager
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = specialArgs;
+                home-manager.users."${user.username}" = import ./home/darwin;
+              }
+              nix-homebrew.darwinModules.nix-homebrew
+              {
+                nix-homebrew = {
+                  user = user.username;
+                  enable = true;
+                  enableRosetta = true;
+                  taps = {
+                    "homebrew/homebrew-core" = homebrew-core;
+                    "homebrew/homebrew-cask" = homebrew-cask;
+                    "homebrew/homebrew-bundle" = homebrew-bundle;
+                  };
+                  mutableTaps = false;
+                  # autoMigrate = true;
                 };
-                mutableTaps = false;
-                # autoMigrate = true;
-              };
-            }
-          ];
-        };
+              }
+            ];
+          };
       };
 
       nixosConfigurations = {
-        um790 = let specialArgs = genSpecialArgs "x86_64-linux";
-        in nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = specialArgs;
-          modules = [
-            ./hosts/um790
-            ./modules/linux
-            agenix.nixosModules.default
-            home-manager.nixosModules.home-manager
-            kmonad.nixosModules.default
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = specialArgs;
-              home-manager.users."${user.username}" = import ./home/linux;
-            }
-          ];
-        };
+        um790 =
+          let
+            specialArgs = genSpecialArgs "x86_64-linux";
+          in
+          nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            specialArgs = specialArgs;
+            modules = [
+              ./hosts/um790
+              ./modules/linux
+              agenix.nixosModules.default
+              home-manager.nixosModules.home-manager
+              kmonad.nixosModules.default
+              {
+                home-manager.useGlobalPkgs = true;
+                home-manager.useUserPackages = true;
+                home-manager.extraSpecialArgs = specialArgs;
+                home-manager.users."${user.username}" = import ./home/linux;
+              }
+            ];
+          };
       };
     };
 }

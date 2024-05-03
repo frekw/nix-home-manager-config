@@ -1,4 +1,11 @@
-{ mypkgs, pkgs, agenix, ... }: {
+{
+  mypkgs,
+  pkgs,
+  agenix,
+  roc,
+  ...
+}:
+{
   imports = [
     agenix.homeManagerModules.default
     ./neovim
@@ -18,12 +25,16 @@
     ./wezterm.nix
   ];
 
-  xdg = { enable = true; };
+  xdg = {
+    enable = true;
+  };
 
   programs.direnv = {
     enable = true;
 
-    nix-direnv = { enable = true; };
+    nix-direnv = {
+      enable = true;
+    };
   };
 
   programs.eza = {
@@ -36,15 +47,27 @@
     enableZshIntegration = true;
   };
 
-  programs.gh = { enable = true; };
+  programs.gh = {
+    enable = true;
+  };
 
-  programs.go = { enable = true; };
+  programs.go = {
+    enable = true;
+  };
 
   # programs.gpg = { enable = true; };
 
-  programs.home-manager = { enable = true; };
+  programs.home-manager = {
+    enable = true;
+  };
 
-  programs.java = { enable = true; };
+  programs.java = {
+    enable = true;
+  };
+
+  programs.ncspot = {
+    enable = true;
+  };
 
   programs.opam = {
     enable = false;
@@ -52,7 +75,9 @@
     package = pkgs.opam;
   };
 
-  programs.sbt = { enable = true; };
+  programs.sbt = {
+    enable = true;
+  };
 
   home.packages = with pkgs; [
     audacity
@@ -70,7 +95,7 @@
     httpie
     jq
     keybase
-    nixfmt
+    nixfmt-rfc-style
     python3
     ripgrep
     ruby
@@ -78,6 +103,8 @@
     slack
     # mypkgs.syb-cli
     mypkgs.kube-context-switch
+    roc.packages."${pkgs.system}".default
+    roc.packages."${pkgs.system}".lang-server
     tree
     yarn
     yq-go
