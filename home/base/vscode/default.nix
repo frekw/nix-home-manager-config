@@ -1,8 +1,10 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   programs.vscode = {
     enable = true;
     mutableExtensionsDir = false;
-    extensions = with pkgs.vscode-extensions;
+    extensions =
+      with pkgs.vscode-extensions;
       [
         brettm12345.nixfmt-vscode
         github.copilot
@@ -19,7 +21,8 @@
         vspacecode.vspacecode
         vspacecode.whichkey
         zxh404.vscode-proto3
-      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+      ]
+      ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "vscode-elixir";
           publisher = "mjmcloug";
@@ -126,7 +129,10 @@
       ];
       "vim.insertModeKeyBindings" = [
         {
-          "before" = [ "j" "j" ];
+          "before" = [
+            "j"
+            "j"
+          ];
           "after" = [ "<Esc>" ];
         }
         {
@@ -171,7 +177,8 @@
       "editor.tokenColorCustomizations" = { };
 
       "metals.suggestLatestUpgrade" = true;
-      "metals.serverVersion" = "1.2.0+106-c6ab0475-SNAPSHOT";
+      "metals.serverVersion" = "1.2.0";
+      "metals.javaHome" = "${pkgs.jdk}";
 
       "github.copilot.enable" = {
         "*" = true;
