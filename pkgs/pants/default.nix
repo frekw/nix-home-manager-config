@@ -1,4 +1,4 @@
-{ lib, stdenv, fetchurl }:
+{ git, lib, stdenv, fetchurl, fetchFromGitHub, rustPlatform }:
 let
   version = "0.11.0";
   if_let = v: p: if lib.attrsets.matchAttrs p v then v else null;
@@ -64,12 +64,19 @@ in stdenv.mkDerivation {
 #     hash = "sha256-UwhASnhBi4HjP1qiXJ0tjnQEOLmfBk2oOYNzDHLRKk4=";
 #   };
 
+#   useRealVendorConfig = true;
 #   cargoHash = "sha256-vvujhBfd2HbpS6RFtEXZEIgvB1NeVlpZZY1Hodn0AH0=";
+
+#   # work around
+#   # error: failed to create directory `/homeless-shelter/.cargo/git/db/ptex-5a131d6d4c303ba0`
+#   preConfigure = ''
+#     export HOME=$(mktemp -d)
+#   '';
 
 #   # cargo run -p package -- --dest-dir dist/ scie
 #   buildPhase = ''
 #     # mkdir $out/dist
-#     export SCIE_PANTS_DEV_CACHE=$out/.cache
+#     # export SCIE_PANTS_DEV_CACHE=$out/.cache
 #     cargo run -p package -- --dest-dir $out/dist/ tools
 #     cargo run -p package -- --dest-dir $out/dist/ scie-pants
 #     cargo run -p package -- --dest-dir $out/dist/ scie \
