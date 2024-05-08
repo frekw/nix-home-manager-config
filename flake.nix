@@ -42,6 +42,11 @@
       flake = false;
     };
 
+    nix-alien = {
+      url = "github:thiagokokada/nix-alien";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     rycee-ff = {
       url = "sourcehut:~rycee/nur-expressions?dir=pkgs/firefox-addons";
     };
@@ -77,6 +82,7 @@
       homebrew-bundle,
       homebrew-core,
       homebrew-cask,
+      nix-alien,
       rycee-ff,
       agenix,
       kmonad,
@@ -125,7 +131,10 @@
             config.allowUnfree = true;
           };
 
-          mypkgs = import ./pkgs { pkgs = pkgs; };
+          mypkgs = import ./pkgs {
+            pkgs = pkgs;
+            nix-alien = nix-alien;
+          };
         };
     in
     {

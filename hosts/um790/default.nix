@@ -1,6 +1,8 @@
 { pkgs, ... }:
-let hostname = "um790";
-in {
+let
+  hostname = "um790";
+in
+{
   imports = [ ./hardware-configuration.nix ];
 
   # Bootloader.
@@ -36,7 +38,11 @@ in {
   users.users.fredrikw = {
     isNormalUser = true;
     description = "fredrikw";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
   };

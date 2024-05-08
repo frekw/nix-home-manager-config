@@ -1,11 +1,25 @@
-{ user, pkgs, mypkgs, config, fonts, ... }: {
-  imports = [ ../base ./audio ./zsh ];
+{
+  user,
+  pkgs,
+  mypkgs,
+  config,
+  fonts,
+  ...
+}:
+{
+  imports = [
+    ../base
+    ./audio
+    ./zsh
+  ];
 
   home = {
     username = user.username;
     homeDirectory = "/home/${user.username}";
     stateVersion = "23.11";
-    sessionVariables = { EDITOR = "nvim"; };
+    sessionVariables = {
+      EDITOR = "nvim";
+    };
   };
 
   # homee.file.".XCompose".text e= ''
@@ -22,12 +36,15 @@
       name = "BerkeleyMono-Regular";
     };
 
-    theme = { name = "Adwaita Dark"; };
+    theme = {
+      name = "Adwaita Dark";
+    };
   };
 
   home.packages = with pkgs; [
     _1password
     _1password-gui
+    docker-compose
     ncspot
     obsidian
     spotify

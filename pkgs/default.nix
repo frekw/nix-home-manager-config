@@ -1,10 +1,14 @@
-{ pkgs ? import <nixpkgs> { } }: {
+{
+  pkgs ? import <nixpkgs> { },
+  nix-alien,
+}:
+{
   adr = pkgs.callPackage ./adr { };
   app-launcher = pkgs.callPackage ./app-launcher { };
   kube-context-switch = pkgs.callPackage ./kube-context-switch { };
   kubent = pkgs.callPackage ./kubent { };
   monaspace = pkgs.callPackage ./monaspace { };
-  pants = pkgs.callPackage ./pants { };
+  pants = pkgs.callPackage ./pants { inherit nix-alien; };
   sloth = pkgs.callPackage ./sloth { };
   syb-cli = pkgs.callPackage ./syb-cli { };
 
