@@ -58,6 +58,7 @@ let
     '';
   };
   patched = writeShellScriptBin "pants" ''
+    export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
     ${nix-alien.packages."${pkgs.system}".default}/bin/nix-alien ${unpatched}/bin/pants -- "$@"
   '';
 in
