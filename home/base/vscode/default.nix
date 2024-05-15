@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, roc, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -96,12 +96,12 @@
           version = "2024.3.10601007";
           sha256 = "sha256-7BmzlsgsCOUvEVhiIL6v7ItvVOqqfTsdEMZYieurmyc=";
         }
-        # {
-        #   publisher = "github";
-        #   name = "copilot";
-        #   version = "1.158.0";
-        #   sha256 = "sha256-W1j1VAuSM1sgxHRIahqVncUlknT+MPi7uutY+0NURZQ=";
-        # }
+        {
+          name = "roc-lang-unofficial";
+          publisher = "IvanDemchenko";
+          version = "1.2.0";
+          sha256 = "sha256-lMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
+        }
       ];
 
     userSettings = {
@@ -134,11 +134,6 @@
             "j"
           ];
           "after" = [ "<Esc>" ];
-        }
-        {
-          "before" = [ "<Esc>" ];
-          "after" = [ "<Esc>" ];
-          "commands" = [ "workbench.action.files.save" ];
         }
       ];
       "vim.visualModeKeyBindingsNonRecursive" = [
@@ -230,6 +225,11 @@
         "height" = 21;
         "fontSize" = 13;
       };
+
+      "roc-lang.language-server.exe" = "${
+        roc.packages.${pkgs.system}.lang-server
+      }/bin/roc_language_server
+      }";
     };
   };
 }
