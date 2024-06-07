@@ -13,7 +13,7 @@
         golang.go
         hashicorp.terraform
         jnoortheen.nix-ide
-        matklad.rust-analyzer
+        rust-lang.rust-analyzer
         ocamllabs.ocaml-platform
         scala-lang.scala
         scalameta.metals
@@ -232,10 +232,10 @@
         "fontSize" = 13;
       };
 
-      "roc-lang.language-server.exe" = "${
-        roc.packages.${pkgs.system}.lang-server
-      }/bin/roc_language_server
-      }";
+      # "roc-lang.language-server.exe" = "${
+      #   roc.packages.${pkgs.system}.lang-server
+      # }/bin/roc_language_server
+      # }";
     };
   };
 }
