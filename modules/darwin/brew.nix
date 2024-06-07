@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   homebrew = {
     enable = true;
 
@@ -15,7 +16,7 @@
       "Pixelmator Classic" = 407963104;
       "Poolsuite FM" = 1514817810;
       "Soundtrack Player" = 1114799709;
-      # XCode = 497799835;
+      "XCode" = 497799835;
     };
 
     casks = [

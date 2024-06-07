@@ -1,12 +1,21 @@
-{ stdenv, lib, fetchurl, undmg, ... }:
+{
+  stdenv,
+  lib,
+  fetchurl,
+  undmg,
+  ...
+}:
 
 stdenv.mkDerivation rec {
   pname = "firefox-darwin";
-  version = "124.0.2";
+  version = "126.0.1";
 
   buildInputs = [ undmg ];
   sourceRoot = ".";
-  phases = [ "unpackPhase" "installPhase" ];
+  phases = [
+    "unpackPhase"
+    "installPhase"
+  ];
   installPhase = ''
     mkdir -p "$out/Applications"
     cp -r Firefox.app "$out/Applications/Firefox.app"
@@ -14,9 +23,8 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     name = "Firefox-${version}.dmg";
-    url =
-      "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-US/Firefox%20${version}.dmg";
-    sha256 = "sha256-9GyJk2nvlRcW0K9oE2qxqyMOpIRaGwjbSscbHlsVHTY=";
+    url = "https://download-installer.cdn.mozilla.net/pub/firefox/releases/${version}/mac/en-US/Firefox%20${version}.dmg";
+    sha256 = "sha256-U/Q92vaEpS6kBpWpZ71lD9peEqoTRgKPykCqx00+dO4=";
   };
 
   meta = with lib; {

@@ -102,6 +102,12 @@
           version = "1.2.0";
           sha256 = "sha256-lMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
         }
+        {
+          name = "prettier-vscode";
+          publisher = "esbenp";
+          version = "10.4.0";
+          sha256 = "sha256-8+90cZpqyH+wBgPFaX5GaU6E02yBWUoB+T9C2z2Ix8c=";
+        }
       ];
 
     userSettings = {
@@ -172,7 +178,7 @@
       "editor.tokenColorCustomizations" = { };
 
       "metals.suggestLatestUpgrade" = true;
-      "metals.serverVersion" = "1.2.0";
+      "metals.serverVersion" = "1.3.0";
       "metals.javaHome" = "${pkgs.jdk}";
 
       "github.copilot.enable" = {
