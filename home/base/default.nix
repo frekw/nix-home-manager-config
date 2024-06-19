@@ -101,7 +101,7 @@
     ruby
     scala
     slack
-    # mypkgs.syb-cli
+    mypkgs.syb-cli
     mypkgs.kube-context-switch
     # roc.packages."${pkgs.system}".default
     # roc.packages."${pkgs.system}".lang-server
