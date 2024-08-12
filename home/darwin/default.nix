@@ -1,5 +1,16 @@
-{ pkgs, user, mypkgs, config, ... }: {
-  imports = [ ../base ./zsh ./docker.nix ];
+{
+  pkgs,
+  user,
+  mypkgs,
+  config,
+  ...
+}:
+{
+  imports = [
+    ../base
+    ./zsh
+    ./docker.nix
+  ];
 
   home = {
     username = user.username;
@@ -13,7 +24,7 @@
 
   home.packages = with pkgs; [
     mypkgs.app-launcher
-    mypkgs.darwin.altair
+    # mypkgs.darwin.altair
     mypkgs.darwin.obsidian
     mypkgs.darwin.vlc
     mypkgs.darwin.wombat

@@ -21,6 +21,7 @@
 
     casks = [
       "1password"
+      "altair-graphql-client"
       "balenaetcher"
       "dropbox"
       "figma"
