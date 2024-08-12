@@ -108,7 +108,7 @@
     tree
     yarn
     yq-go
-    youtube-dl
+    yt-dlp
     # zed-editor
     zlib
   ];
