@@ -28,7 +28,6 @@
     mypkgs.darwin.obsidian
     mypkgs.darwin.vlc
     mypkgs.darwin.wombat
-    reattach-to-user-namespace
     rectangle
   ];
 }

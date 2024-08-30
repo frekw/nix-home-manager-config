@@ -115,10 +115,22 @@
             roc
             ;
 
-          pkgs = import inputs.nixpkgs {
-            inherit system;
-            config.allowUnfree = true;
-          };
+          pkgs =
+            (import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            }).extend
+              (
+                final: prev: {
+                  tmuxPlugins = prev.tmuxPlugins // {
+                    sensible = prev.tmuxPlugins.sensible.overrideAttrs (old: {
+                      # remove the postInstall hook that force enables reattach-to-user-namespace
+                      # since it seems to be broken in OSX 14.6.1 and isn't needed since tmux 2.7
+                      postInstall = "";
+                    });
+                  };
+                }
+              );
 
           pkgs-stable = import inputs.nixpkgs-stable {
             inherit system;
