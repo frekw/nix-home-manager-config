@@ -34,6 +34,7 @@
     profiles = {
       "${user.username}" = {
         id = 0;
+        isDefault = true;
         settings = {
           "app.update.auto" = false;
           "signon.rememberSignons" = false;
