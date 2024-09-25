@@ -118,7 +118,7 @@
       allSystemNames = builtins.attrNames allSystems;
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
       genSpecialArgs =
-        system:
+        pkgs: system:
         inputs
         // rec {
           inherit
@@ -127,23 +127,6 @@
             fonts
             roc
             ;
-
-          pkgs =
-            (import inputs.nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            }).extend
-              (
-                final: prev: {
-                  tmuxPlugins = prev.tmuxPlugins // {
-                    sensible = prev.tmuxPlugins.sensible.overrideAttrs (old: {
-                      # remove the postInstall hook that force enables reattach-to-user-namespace
-                      # since it seems to be broken in OSX 14.6.1 and isn't needed since tmux 2.7
-                      postInstall = "";
-                    });
-                  };
-                }
-              );
 
           pkgs-stable = import inputs.nixpkgs-stable {
             inherit system;
@@ -186,7 +169,25 @@
       darwinConfigurations = {
         m1 =
           let
-            specialArgs = genSpecialArgs "aarch64-darwin";
+            system = "aarch64-darwin";
+            pkgs =
+              (import inputs.nixpkgs {
+                inherit system;
+                config.allowUnfree = true;
+              }).extend
+                (
+                  final: prev: {
+                    tmuxPlugins = prev.tmuxPlugins // {
+                      sensible = prev.tmuxPlugins.sensible.overrideAttrs (old: {
+                        # remove the postInstall hook that force enables reattach-to-user-namespace
+                        # since it seems to be broken in OSX 14.6.1 and isn't needed since tmux 2.7
+                        postInstall = "";
+                      });
+                    };
+                  }
+                );
+            specialArgs = genSpecialArgs pkgs system;
+
           in
           nix-darwin.lib.darwinSystem {
             inherit inputs;
@@ -228,7 +229,14 @@
       nixosConfigurations = {
         um790 =
           let
-            specialArgs = genSpecialArgs "x86_64-linux";
+            system = "x86_64-linux";
+            specialArgs = genSpecialArgs pkgs system;
+
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+
           in
           nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
