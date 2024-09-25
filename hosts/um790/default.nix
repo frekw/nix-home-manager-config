@@ -49,5 +49,7 @@ in
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
-  modules.desktop.hyprland.enable = true;
+
+  modules.desktop.hyprland.enable = false;
+  modules.desktop.cosmic.enable = true;
 }
