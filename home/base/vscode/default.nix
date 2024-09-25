@@ -202,6 +202,8 @@
         };
       };
 
+      "python.analysis.typeCheckingMode" = "basic";
+
       "apc.activityBar" = {
         "position" = "bottom";
         "hideSettings" = true;
