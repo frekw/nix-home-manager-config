@@ -27,8 +27,6 @@ in
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  modules.desktop.hyprland.enable = true;
-
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
@@ -51,4 +49,5 @@ in
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = "23.11"; # Did you read the comment?
+  modules.desktop.hyprland.enable = true;
 }

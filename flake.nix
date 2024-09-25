@@ -6,10 +6,22 @@
 
   description = "frekw's Nix configuration";
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
+    };
 
-    nixpkgs-old-tf.url = "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
+    nixpkgs = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
+      follows = "nixos-cosmic/nixpkgs"; # NOTE: change "nixpkgs" to "nixpkgs-stable" to use stable NixOS release
+    };
+
+    nixpkgs-stable = {
+      url = "github:nixos/nixpkgs/nixos-23.11";
+    };
+
+    nixpkgs-old-tf = {
+      url = "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
+    };
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -75,6 +87,7 @@
   outputs =
     {
       self,
+      nixos-cosmic,
       nixpkgs,
       nix-darwin,
       home-manager,
@@ -231,6 +244,13 @@
                 home-manager.useUserPackages = true;
                 home-manager.extraSpecialArgs = specialArgs;
                 home-manager.users."${user.username}" = import ./home/linux;
+              }
+              nixos-cosmic.nixosModules.default
+              {
+                nix.settings = {
+                  substituters = [ "https://cosmic.cachix.org/" ];
+                  trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+                };
               }
             ];
           };

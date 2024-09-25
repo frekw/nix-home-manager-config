@@ -1,12 +1,14 @@
-{ ... }: {
+{ ... }:
+{
   # Enable sound with pipewire.
-  sound.enable = true;
   hardware.pulseaudio.enable = false;
 
   # recommended for pipewire
   security.rtkit.enable = true;
 
-  services.pipewire.wireplumber = { enable = true; };
+  services.pipewire.wireplumber = {
+    enable = true;
+  };
 
   services.pipewire = {
     enable = true;
@@ -22,7 +24,12 @@
     extraConfig = {
       pipewire = {
         default.clock.rate = 48000;
-        default.clock.allowed-rates = [ 44100 48000 96000 192000 ];
+        default.clock.allowed-rates = [
+          44100
+          48000
+          96000
+          192000
+        ];
         default.clock.quantum = 1024;
         default.clock.min-quantum = 16;
         default.clock.max-quantum = 4096;
@@ -34,7 +41,9 @@
         settings.check-quantum = false;
         settings.check-rate = false;
         # These overrides are only applied when running in a vm.
-        vm.overrides = { default.clock.min-quantum = 1024; };
+        vm.overrides = {
+          default.clock.min-quantum = 1024;
+        };
       };
     };
   };

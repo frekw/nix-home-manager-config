@@ -81,8 +81,8 @@
         {
           name = "gti-vscode";
           publisher = "Graphite";
-          version = "0.5.4";
-          sha256 = "sha256-mD6bLyToVcckADdUbj1s973As+DSnPsJLMjDv3omO6I=";
+          version = "0.6.1";
+          sha256 = "sha256-gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
         }
         {
           name = "toml";
