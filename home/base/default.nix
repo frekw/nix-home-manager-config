@@ -109,7 +109,7 @@
     yarn
     yq-go
     yt-dlp
-    # zed-editor
+    zed-editor
     zlib
   ];
 }
