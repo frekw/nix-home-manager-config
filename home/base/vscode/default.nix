@@ -7,16 +7,17 @@
       with pkgs.vscode-extensions;
       [
         brettm12345.nixfmt-vscode
-        github.copilot
         elixir-lsp.vscode-elixir-ls
-        graphql.vscode-graphql
+        github.copilot
         golang.go
+        graphql.vscode-graphql
         hashicorp.terraform
         jnoortheen.nix-ide
-        rust-lang.rust-analyzer
         ocamllabs.ocaml-platform
+        rust-lang.rust-analyzer
         scala-lang.scala
         scalameta.metals
+        redhat.vscode-yaml
         vscodevim.vim
         vspacecode.vspacecode
         vspacecode.whichkey

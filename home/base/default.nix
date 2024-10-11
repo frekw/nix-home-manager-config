@@ -86,7 +86,8 @@
     clang-tools
     elixir
     fd
-    ffmpeg
+    # ffmpeg
+    ffmpeg_7
     gopls
     go-outline
     ginkgo
@@ -97,6 +98,7 @@
     keybase
     nixfmt-rfc-style
     python3
+    postman
     ripgrep
     ruby
     scala
