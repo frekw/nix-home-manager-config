@@ -10,6 +10,7 @@
   imports = [
     ../base
     ./audio
+    ./fonts.nix
     ./zsh
   ];
 
@@ -42,7 +43,7 @@
   };
 
   home.packages = with pkgs; [
-    _1password
+    _1password-cli
     _1password-gui
     docker-compose
     ncspot
