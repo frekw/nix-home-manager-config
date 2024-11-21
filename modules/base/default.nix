@@ -1,4 +1,11 @@
-{ pkgs, lib, user, agenix, ... }@args: {
+{
+  pkgs,
+  lib,
+  user,
+  agenix,
+  ...
+}@args:
+{
   environment.systemPackages = with pkgs; [
     agenix.packages."${pkgs.system}".default
     git
@@ -31,12 +38,17 @@
   ];
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
+    experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
     trusted-users = [ user.username ];
+  };
 
+  nix.optimise = {
     # Manual optimise storage: nix-store --optimise
     # https://nixos.org/manual/nix/stable/command-ref/conf-file.html#conf-auto-optimise-store
-    auto-optimise-store = true;
+    automatic = true;
   };
 
   nix.gc = {
