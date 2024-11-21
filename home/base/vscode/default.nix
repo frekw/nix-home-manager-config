@@ -6,18 +6,26 @@
     extensions =
       with pkgs.vscode-extensions;
       [
+        bazelbuild.vscode-bazel
         brettm12345.nixfmt-vscode
         elixir-lsp.vscode-elixir-ls
+        elixir-lsp.vscode-elixir-ls
+        esbenp.prettier-vscode
         github.copilot
+        github.vscode-github-actions
         golang.go
         graphql.vscode-graphql
+        graphql.vscode-graphql-syntax
         hashicorp.terraform
         jnoortheen.nix-ide
+        mkhl.direnv
+        ms-python.python
         ocamllabs.ocaml-platform
+        redhat.vscode-yaml
         rust-lang.rust-analyzer
         scala-lang.scala
         scalameta.metals
-        redhat.vscode-yaml
+        tamasfe.even-better-toml
         vscodevim.vim
         vspacecode.vspacecode
         vspacecode.whichkey
@@ -25,53 +33,10 @@
       ]
       ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
-          name = "vscode-elixir";
-          publisher = "mjmcloug";
-          version = "1.1.0";
-          sha256 = "sha256-EE4x75ljGu212gqu1cADs8bsXLaToVaDnXHOqyDlR04=";
-        }
-        {
           name = "monochrome-dark";
           publisher = "mikehhodgson";
           version = "0.0.7";
           sha256 = "sha256-W+QNykFE5wE/huW1f+JA0+OcIBmtrbSLD/y54REqhEE=";
-        }
-        # {
-        #   name = "monochrome";
-        #   publisher = "anotherglitchinthematrix";
-        #   version = "2.4.3";
-        #   sha256 =
-        #     "c64e184d3e9ad515bf2675a5fabeced1cdd937f95933bba212709cf61eec9997";
-        # }
-        # {
-        #   publisher = "mogelbrod";
-        #   name = "quickopener";
-        #   version = "0.4.1";
-        #   sha256 = "sha256-AJ3C1QdGpsobSMyu7xes+rC4EW/NravZWS60GqEKW2Y=";
-        # }
-        {
-          name = "apc-extension";
-          publisher = "drcika";
-          version = "0.3.0";
-          sha256 = "sha256-do3QYBq83XcqD2jSMC+q+2mQHPiodpDA+OJdT0Zh7uc=";
-        }
-        {
-          name = "vscode-bazel";
-          publisher = "BazelBuild";
-          version = "0.7.0";
-          sha256 = "sha256-/a34MMsHy7zmGrVAtjMWKmulwS+lip3J1YugkACMmxc=";
-        }
-        {
-          name = "graphql";
-          publisher = "mquandalle";
-          version = "0.1.2";
-          sha256 = "sha256-0hBtHDD/yk+EpA0A/9ovAz8SUcAoTrXAtHU4Y9MiHnw=";
-        }
-        {
-          name = "direnv";
-          publisher = "mkhl";
-          version = "0.15.2";
-          sha256 = "sha256-agJfEc4JqxKaNQhto0BfVx2Pxk809G0Ne3TqaR8mlxo=";
         }
         {
           name = "authzed";
@@ -86,28 +51,10 @@
           sha256 = "sha256-gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
         }
         {
-          name = "toml";
-          publisher = "be5invis";
-          version = "0.6.0";
-          sha256 = "sha256-yk7buEyQIw6aiUizAm+sgalWxUibIuP9crhyBaOjC2E=";
-        }
-        {
-          name = "python";
-          publisher = "ms-python";
-          version = "2024.3.10601007";
-          sha256 = "sha256-7BmzlsgsCOUvEVhiIL6v7ItvVOqqfTsdEMZYieurmyc=";
-        }
-        {
           name = "roc-lang-unofficial";
           publisher = "IvanDemchenko";
           version = "1.2.0";
           sha256 = "sha256-lMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
-        }
-        {
-          name = "prettier-vscode";
-          publisher = "esbenp";
-          version = "10.4.0";
-          sha256 = "sha256-8+90cZpqyH+wBgPFaX5GaU6E02yBWUoB+T9C2z2Ix8c=";
         }
       ];
 
