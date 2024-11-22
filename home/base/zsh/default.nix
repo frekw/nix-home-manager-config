@@ -1,4 +1,5 @@
-{ pkgs, config, ... }: {
+{ pkgs, config, ... }:
+{
 
   age.secrets.github-token.file = ../../../secrets/github-token.age;
 

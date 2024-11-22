@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    agenix.homeManagerModules.default
+    ./age.nix
     ./neovim
     ./tmux
     ./vscode

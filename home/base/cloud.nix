@@ -1,4 +1,9 @@
-{ pkgs, pkgs-old-tf, ... }:
+{
+  pkgs,
+  pkgs-old-tf,
+  user,
+  ...
+}:
 {
   home.packages = with pkgs; [
     fluxcd
