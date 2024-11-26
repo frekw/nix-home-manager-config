@@ -9,8 +9,9 @@
     ./cosmic
     ./docker
     ./dropbox
-    ./keyboard
     ./hyprland
+    ./keyboard
+    ./steam
     ./vpn
     ./wayland
     ./locale.nix
