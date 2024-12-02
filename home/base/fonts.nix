@@ -7,7 +7,7 @@
     vistafonts
     fira-code
     monaspace
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    nerd-fonts.fira-code
     fonts.packages.${pkgs.system}.berkeley-mono
   ];
 }
