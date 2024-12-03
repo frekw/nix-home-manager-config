@@ -13,4 +13,5 @@ in
   "s-production.age".publicKeys = hosts;
   "s-staging.age".publicKeys = hosts;
   "terraformrc.age".publicKeys = hosts;
+  "npmrc.age".publicKeys = hosts;
 }

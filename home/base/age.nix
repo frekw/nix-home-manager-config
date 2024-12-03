@@ -10,5 +10,11 @@
       path = "\${HOME}/.terraformrc";
       symlink = false;
     };
+
+    secrets.npmrc = {
+      file = ../../secrets/npmrc.age;
+      path = "\${HOME}/.npmrc";
+      symlink = false;
+    };
   };
 }
