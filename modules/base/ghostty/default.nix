@@ -27,7 +27,7 @@
         settings = {
           command = "~/.config/ghostty/launch.sh";
           font-family = "Berkeley Mono";
-          theme = "Adwaita Dark";
+          theme = "Adventure";
           fullscreen = false;
           window-padding-x = 16;
           window-padding-y = 16;
