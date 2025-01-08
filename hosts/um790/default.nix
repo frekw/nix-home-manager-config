@@ -52,4 +52,5 @@ in
 
   modules.desktop.hyprland.enable = false;
   modules.desktop.cosmic.enable = true;
+  modules.programs.ghostty.enable = true;
 }
