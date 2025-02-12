@@ -9,7 +9,8 @@
     git-open
     git-ps-rs
     gitmux
-    spr
+    # broken on macOS and not currently using it.
+    # spr
     pkgs.nodePackages_latest.graphite-cli
   ];
 
