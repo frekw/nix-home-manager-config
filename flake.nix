@@ -6,13 +6,18 @@
 
   description = "frekw's Nix configuration";
   inputs = {
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
-    };
-
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
       follows = "nixos-cosmic/nixpkgs"; # NOTE: change "nixpkgs" to "nixpkgs-stable" to use stable NixOS release
+    };
+
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixos-cosmic = {
+      url = "github:lilyinstarlight/nixos-cosmic";
     };
 
     nixpkgs-stable = {
@@ -87,8 +92,9 @@
   outputs =
     {
       self,
-      nixos-cosmic,
       nixpkgs,
+      disko,
+      nixos-cosmic,
       nix-darwin,
       home-manager,
       nix-homebrew,
@@ -262,6 +268,59 @@
               }
             ];
           };
+
+        naus =
+          let
+            system = "x86_64-linux";
+            specialArgs = genSpecialArgs pkgs system;
+
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+
+          in
+          nixpkgs.lib.nixosSystem {
+            system = system;
+            specialArgs = specialArgs;
+            modules = [
+              disko.nixosModules.disko
+              ./hosts/naus
+            ];
+          };
+      };
+
+      colmena = {
+        meta = {
+          nixpkgs = import nixpkgs {
+            system = "x86_64-linux";
+          };
+        };
+
+        defaults =
+          { pkgs, ... }:
+          {
+            environment.systemPackages = with pkgs; [
+              curl
+              gitMinimal
+              zsh
+            ];
+          };
+
+        naus = {
+          deployment = {
+            targetHost = "192.168.68.66";
+            targetPort = 22;
+            buildOnTarget = true;
+            targetUser = "fredrikw";
+            tags = [ "homelab" ];
+          };
+          time.timeZone = "Europe/Stockholm";
+
+          imports = [
+            ./hosts/naus
+          ];
+        };
       };
     };
 }

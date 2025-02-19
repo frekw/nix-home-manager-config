@@ -25,7 +25,7 @@ in
   services.xserver.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  services.printing.enable = false;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
