@@ -4,6 +4,9 @@
   pkgs,
   ...
 }:
+let
+  hostname = "naus";
+in
 {
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
