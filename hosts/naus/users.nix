@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   programs.zsh.enable = true;
 
@@ -11,5 +12,21 @@
     ];
     packages = with pkgs; [ ];
     shell = pkgs.zsh;
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdb2HLabEYCPyYyScJ9JHSQOAgbUy+phiTNZrRPd4qj fredrikw@um790"
+    ];
   };
+
+  security.sudo.extraRules = [
+    {
+      users = [ "fredrikw" ];
+      commands = [
+        {
+          command = "ALL";
+          options = [ "NOPASSWD" ];
+        }
+      ];
+    }
+  ];
 }

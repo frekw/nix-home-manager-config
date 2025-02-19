@@ -307,20 +307,32 @@
             ];
           };
 
-        naus = {
-          deployment = {
-            targetHost = "192.168.68.66";
-            targetPort = 22;
-            buildOnTarget = true;
-            targetUser = "fredrikw";
-            tags = [ "homelab" ];
-          };
-          time.timeZone = "Europe/Stockholm";
+        naus =
+          # let
+          #   system = "x86_64-linux";
+          #   specialArgs = genSpecialArgs pkgs system;
 
-          imports = [
-            ./hosts/naus
-          ];
-        };
+          #   pkgs = import inputs.nixpkgs {
+          #     inherit system;
+          #     config.allowUnfree = true;
+          #   };
+          # in
+          {
+            # specialArgs = specialArgs;
+            deployment = {
+              targetHost = "192.168.68.66";
+              targetPort = 22;
+              buildOnTarget = true;
+              targetUser = "root";
+              tags = [ "homelab" ];
+            };
+            time.timeZone = "Europe/Stockholm";
+
+            imports = [
+              disko.nixosModules.disko
+              ./hosts/naus
+            ];
+          };
       };
     };
 }
