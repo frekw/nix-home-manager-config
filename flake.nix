@@ -253,11 +253,11 @@
         naus =
           let
             system = "x86_64-linux";
-            specialArgs = inputs;
-            # pkgs = import inputs.nixpkgs {
-            #   inherit system;
-            #   config.allowUnfree = true;
-            # };
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+            specialArgs = genSpecialArgs pkgs;
 
           in
           nixpkgs.lib.nixosSystem {
@@ -276,16 +276,17 @@
         meta =
           let
             system = "x86_64-linux";
-            # specialArgs = input;
 
             pkgs = import inputs.nixpkgs {
               inherit system;
               config.allowUnfree = true;
             };
+
+            specialArgs = genSpecialArgs pkgs;
           in
           {
             nixpkgs = pkgs;
-            specialArgs = inputs;
+            specialArgs = specialArgs;
           };
 
         defaults =
