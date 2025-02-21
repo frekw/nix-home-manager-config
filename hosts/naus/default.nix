@@ -14,6 +14,7 @@ in
     ./disk-config.nix
     ./hardware-configuration.nix
     ./users.nix
+    ../../modules/linux
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -33,4 +34,6 @@ in
   ];
 
   system.stateVersion = "24.11";
+
+  modules.dev.github.enable = false;
 }

@@ -7,11 +7,18 @@
 }@args:
 {
   imports = [
+    ./age
     ./ghostty
+    ./github
+    ./zsh
   ];
 
   environment.systemPackages = with pkgs; [
     agenix.packages."${pkgs.system}".default
+    backblaze-b2
+
+    colmena
+
     git
     neovim
 

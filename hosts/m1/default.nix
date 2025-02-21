@@ -9,5 +9,6 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  # modules.programs.ghostty.enable = true;
+  modules.programs.age.enable = true;
+  modules.dev.github.enable = true;
 }

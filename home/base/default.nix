@@ -7,11 +7,9 @@
 }:
 {
   imports = [
-    ./age.nix
     ./neovim
     ./tmux
     ./vscode
-    ./zsh
     ./alacritty.nix
     ./build-tools.nix
     ./cloud.nix

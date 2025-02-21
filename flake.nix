@@ -24,10 +24,6 @@
       url = "github:nixos/nixpkgs/nixos-23.11";
     };
 
-    nixpkgs-old-tf = {
-      url = "github:nixos/nixpkgs/39ed4b64ba5929e8e9221d06b719a758915e619b";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -124,26 +120,10 @@
       allSystemNames = builtins.attrNames allSystems;
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
       genSpecialArgs =
-        pkgs: system:
+        pkgs:
         inputs
         // rec {
-          inherit
-            user
-            agenix
-            fonts
-            roc
-            ;
-
-          pkgs-stable = import inputs.nixpkgs-stable {
-            inherit system;
-            config.allowUnfree = true;
-          };
-
-          pkgs-old-tf = import inputs.nixpkgs-old-tf {
-            # refer the `system` parameter form outer scope recursively
-            inherit system;
-            config.allowUnfree = true;
-          };
+          inherit user;
 
           mypkgs = import ./pkgs {
             pkgs = pkgs;
@@ -192,7 +172,7 @@
                     };
                   }
                 );
-            specialArgs = genSpecialArgs pkgs system;
+            specialArgs = genSpecialArgs pkgs;
 
           in
           nix-darwin.lib.darwinSystem {
@@ -236,7 +216,7 @@
         um790 =
           let
             system = "x86_64-linux";
-            specialArgs = genSpecialArgs pkgs system;
+            specialArgs = genSpecialArgs pkgs;
 
             pkgs = import inputs.nixpkgs {
               inherit system;
@@ -250,6 +230,7 @@
             modules = [
               ./hosts/um790
               ./modules/linux
+              ./modules/linux/gui
               agenix.nixosModules.default
               home-manager.nixosModules.home-manager
               kmonad.nixosModules.default
@@ -272,30 +253,40 @@
         naus =
           let
             system = "x86_64-linux";
-            specialArgs = genSpecialArgs pkgs system;
-
-            pkgs = import inputs.nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            };
+            specialArgs = inputs;
+            # pkgs = import inputs.nixpkgs {
+            #   inherit system;
+            #   config.allowUnfree = true;
+            # };
 
           in
           nixpkgs.lib.nixosSystem {
             system = system;
             specialArgs = specialArgs;
             modules = [
+              agenix.nixosModules.default
               disko.nixosModules.disko
+              home-manager.nixosModules.home-manager
               ./hosts/naus
             ];
           };
       };
 
       colmena = {
-        meta = {
-          nixpkgs = import nixpkgs {
+        meta =
+          let
             system = "x86_64-linux";
+            # specialArgs = input;
+
+            pkgs = import inputs.nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
+          in
+          {
+            nixpkgs = pkgs;
+            specialArgs = inputs;
           };
-        };
 
         defaults =
           { pkgs, ... }:
@@ -307,32 +298,23 @@
             ];
           };
 
-        naus =
-          # let
-          #   system = "x86_64-linux";
-          #   specialArgs = genSpecialArgs pkgs system;
-
-          #   pkgs = import inputs.nixpkgs {
-          #     inherit system;
-          #     config.allowUnfree = true;
-          #   };
-          # in
-          {
-            # specialArgs = specialArgs;
-            deployment = {
-              targetHost = "192.168.68.66";
-              targetPort = 22;
-              buildOnTarget = true;
-              targetUser = "root";
-              tags = [ "homelab" ];
-            };
-            time.timeZone = "Europe/Stockholm";
-
-            imports = [
-              disko.nixosModules.disko
-              ./hosts/naus
-            ];
+        naus = {
+          deployment = {
+            targetHost = "192.168.68.53";
+            targetPort = 22;
+            buildOnTarget = true;
+            targetUser = "root";
+            tags = [ "homelab" ];
           };
+          time.timeZone = "Europe/Stockholm";
+
+          imports = [
+            agenix.nixosModules.default
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            ./hosts/naus
+          ];
+        };
       };
     };
 }

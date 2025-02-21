@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, user, ... }@input:
 {
   programs.zsh.enable = true;
 
@@ -29,4 +29,9 @@
       ];
     }
   ];
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.extraSpecialArgs = input;
+  home-manager.users."${user.username}" = import ./home.nix;
 }

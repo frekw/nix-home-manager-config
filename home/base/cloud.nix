@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgs-old-tf,
   user,
   ...
 }:
@@ -29,6 +28,6 @@
     sloth
     sops
     spicedb-zed
-    pkgs-old-tf.terraform
+    terraform
   ];
 }

@@ -12,6 +12,7 @@
       enable = lib.mkEnableOption "ghostty";
     };
   };
+
   config = lib.mkIf config.modules.programs.ghostty.enable {
     home-manager.users.${user.username} = {
       xdg.configFile = {
