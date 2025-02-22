@@ -36,29 +36,11 @@
     };
   };
 
-  programs.eza = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
-  };
-
-  programs.gh = {
-    enable = true;
-  };
-
   programs.go = {
     enable = true;
   };
 
   # programs.gpg = { enable = true; };
-
-  programs.home-manager = {
-    enable = true;
-  };
 
   programs.java = {
     enable = true;

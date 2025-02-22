@@ -10,6 +10,7 @@
   options.modules.programs = {
     zsh = {
       enable = lib.mkEnableOption "zsh";
+      hostname-in-prompt = lib.mkEnableOption "hostname-in-prompt";
     };
   };
 
@@ -19,6 +20,16 @@
     }
     // lib.mkIf config.modules.programs.zsh.enable {
       home-manager.users.${user.username} = {
+        programs.eza = {
+          enable = true;
+          enableZshIntegration = true;
+        };
+
+        programs.fzf = {
+          enable = true;
+          enableZshIntegration = true;
+        };
+
         programs.zsh = {
           defaultKeymap = "viins";
           enable = true;
@@ -46,13 +57,21 @@
             share = true;
           };
           initExtra = builtins.concatStringsSep "\n" [
-            # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"''
             (builtins.readFile ./scripts/init.sh)
-            ''
-              setopt PROMPT_SUBST
-              export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
-              export RPROMPT=
-            ''
+            (
+              if config.modules.programs.zsh.hostname-in-prompt then
+                ''
+                  setopt PROMPT_SUBST
+                  export PROMPT='%F{blue}[%m] %F{white}%2~ %(?.%F{green}.%F{red})→%f '
+                  export RPROMPT=
+                ''
+              else
+                ''
+                  setopt PROMPT_SUBST
+                  export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
+                  export RPROMPT=
+                ''
+            )
           ];
 
           profileExtra = ''
