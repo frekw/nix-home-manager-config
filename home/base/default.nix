@@ -69,7 +69,6 @@
   home.packages = with pkgs; [
     audacity
     bash
-    bat
     clang-tools
     elixir
     fd

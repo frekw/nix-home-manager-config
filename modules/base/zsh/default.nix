@@ -20,6 +20,10 @@
     }
     // lib.mkIf config.modules.programs.zsh.enable {
       home-manager.users.${user.username} = {
+        programs.bat = {
+          enable = true;
+        };
+
         programs.eza = {
           enable = true;
           enableZshIntegration = true;

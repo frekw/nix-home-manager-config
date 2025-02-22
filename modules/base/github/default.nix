@@ -1,4 +1,5 @@
 {
+  agenix,
   pkgs,
   config,
   lib,
@@ -13,10 +14,13 @@
   };
 
   config = lib.mkIf config.modules.dev.github.enable {
-    modules.programs.age.enable = true;
     modules.programs.zsh.enable = true;
 
     home-manager.users.${user.username} = {
+      imports = [
+        agenix.homeManagerModules.default
+      ];
+
       age.secrets.github-token.file = ../../../secrets/github-token.age;
 
       programs.gh = {

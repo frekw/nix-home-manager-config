@@ -37,5 +37,5 @@ in
 
   modules.programs.zsh.enable = true;
   modules.programs.zsh.hostname-in-prompt = true;
-  modules.dev.github.enable = false;
+  modules.dev.github.enable = true;
 }

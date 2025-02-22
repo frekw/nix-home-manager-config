@@ -3,15 +3,28 @@ let
 
   um790 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdb2HLabEYCPyYyScJ9JHSQOAgbUy+phiTNZrRPd4qj";
 
-  hosts = [
+  naus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItq0d2sO74RzIbFdTYbJONOrdsAq3t7YlYGQ5tyqwoL";
+
+  workHosts = [
     m1
     um790
   ];
+
+  allHosts = [
+    m1
+    um790
+    naus
+  ];
+
+  homeHosts = [
+    um790
+    naus
+  ];
 in
 {
-  "github-token.age".publicKeys = hosts;
-  "s-production.age".publicKeys = hosts;
-  "s-staging.age".publicKeys = hosts;
-  "terraformrc.age".publicKeys = hosts;
-  "npmrc.age".publicKeys = hosts;
+  "github-token.age".publicKeys = allHosts;
+  "s-production.age".publicKeys = workHosts;
+  "s-staging.age".publicKeys = workHosts;
+  "terraformrc.age".publicKeys = workHosts;
+  "npmrc.age".publicKeys = workHosts;
 }
