@@ -1,19 +1,15 @@
 { pkgs, ... }:
-let
-  hostname = "um790";
-in
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix
+    ./networking.nix
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.kernelModules = [ "amdgpu" ];
-
-  networking.hostName = hostname;
-  networking.networkmanager.enable = true;
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
