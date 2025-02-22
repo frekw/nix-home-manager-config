@@ -8,7 +8,7 @@
       EDITOR = "nvim";
     };
 
-    home.packages = with pkgs; [
+    packages = with pkgs; [
       _1password-cli
     ];
   };
