@@ -46,9 +46,9 @@
 
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  modules.programs.age.enable = true;
-  modules.dev.github.enable = true;
-  modules.desktop.hyprland.enable = false;
   modules.desktop.cosmic.enable = true;
+  modules.desktop.hyprland.enable = false;
+  modules.dev.github.enable = true;
+  modules.env.work.enable = true;
   modules.programs.ghostty.enable = true;
 }

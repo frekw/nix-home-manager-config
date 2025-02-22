@@ -35,7 +35,7 @@ in
 
   system.stateVersion = "24.11";
 
+  modules.dev.github.enable = true;
   modules.programs.zsh.enable = true;
   modules.programs.zsh.hostname-in-prompt = true;
-  modules.dev.github.enable = true;
 }

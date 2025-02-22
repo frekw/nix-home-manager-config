@@ -7,9 +7,9 @@
 }@args:
 {
   imports = [
-    ./age
     ./ghostty
     ./github
+    ./work
     ./zsh
   ];
 

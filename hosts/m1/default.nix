@@ -9,6 +9,6 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  modules.programs.age.enable = true;
   modules.dev.github.enable = true;
+  modules.env.work.enable = true;
 }

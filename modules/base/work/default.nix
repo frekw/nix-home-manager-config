@@ -7,13 +7,13 @@
   ...
 }:
 {
-  options.modules.programs = {
-    age = {
+  options.modules.env = {
+    work = {
       enable = lib.mkEnableOption "age";
     };
   };
 
-  config = lib.mkIf config.modules.programs.age.enable {
+  config = lib.mkIf config.modules.env.work.enable {
     home-manager.users.${user.username} = {
       imports = [
         agenix.homeManagerModules.default
