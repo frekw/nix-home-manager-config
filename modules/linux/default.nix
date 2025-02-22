@@ -9,7 +9,6 @@
     ./docker
     ./dropbox
     ./keyboard
-    ./steam
     ./vpn
     ./locale.nix
   ];

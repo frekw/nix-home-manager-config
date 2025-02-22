@@ -7,5 +7,6 @@
     ./cosmic
     ./hyprland
     ./wayland
+    ./steam
   ];
 }
