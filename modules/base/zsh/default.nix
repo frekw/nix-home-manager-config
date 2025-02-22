@@ -16,7 +16,6 @@
   config =
     {
       modules.programs.zsh.enable = lib.mkDefault true;
-
     }
     // lib.mkIf config.modules.programs.zsh.enable {
       home-manager.users.${user.username} = {
@@ -50,7 +49,6 @@
             # ''. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"''
             (builtins.readFile ./scripts/init.sh)
             ''
-              export JAVA_HOME="${config.home-manager.users.${user.username}.home.sessionVariables.JAVA_HOME}"
               setopt PROMPT_SUBST
               export PROMPT='%F{white}%2~ %(?.%F{green}.%F{red})→%f '
               export RPROMPT=

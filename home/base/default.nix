@@ -1,4 +1,5 @@
 {
+  config,
   mypkgs,
   pkgs,
   agenix,
@@ -61,6 +62,12 @@
 
   programs.java = {
     enable = true;
+  };
+  # Fix JAVA_HOME for zsh
+  programs.zsh = {
+    initExtra = ''
+      export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
+    '';
   };
 
   programs.ncspot = {
