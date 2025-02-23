@@ -1,4 +1,10 @@
-{ config, pkgs, user, ... }: {
+{
+  config,
+  pkgs,
+  user,
+  ...
+}:
+{
   imports = [ ../base ];
 
   users.users."${user.username}" = {
@@ -8,14 +14,16 @@
 
   # List packages installed in system profile. To search by name, run:
   # $ nix-env -qaP | grep wget
-  environment.systemPackages = with pkgs; [ git vim ];
+  environment.systemPackages = with pkgs; [
+    git
+    vim
+  ];
 
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/.config/nixpkgs/darwin/configuration.nix";
 
   # Auto upgrade nix package and the daemon service.
-  services.nix-daemon.enable = true;
   # nix.package = pkgs.nix;
 
   # Create /etc/bashrc that loads the nix-darwin environment.
@@ -87,12 +95,10 @@
   system.defaults.NSGlobalDomain."com.apple.mouse.tapBehavior" = 1;
 
   # enable two finger right click
-  system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" =
-    true;
+  system.defaults.NSGlobalDomain."com.apple.trackpad.enableSecondaryClick" = true;
 
   # disable corner right click
-  system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" =
-    null;
+  system.defaults.NSGlobalDomain."com.apple.trackpad.trackpadCornerClickBehavior" = null;
   # disable trackpad tap clicking
   system.defaults.trackpad.Clicking = true;
   system.defaults.trackpad.TrackpadRightClick = true;
