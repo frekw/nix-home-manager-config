@@ -15,10 +15,13 @@ in
     ./hardware-configuration.nix
     ./users.nix
     ../../modules/base
+    ./samba.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
+  nixpkgs.config.allowUnfree = true;
 
   networking.hostName = hostname;
 

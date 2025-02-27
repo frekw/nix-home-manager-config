@@ -3,7 +3,7 @@ let
 
   um790 = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdb2HLabEYCPyYyScJ9JHSQOAgbUy+phiTNZrRPd4qj";
 
-  naus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIItq0d2sO74RzIbFdTYbJONOrdsAq3t7YlYGQ5tyqwoL";
+  naus = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC9KyRgaEsFUPeMiimWeQxyh4MVpmWv1JkwVMilzbzXw";
 
   workHosts = [
     m1

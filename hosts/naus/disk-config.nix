@@ -1,4 +1,13 @@
 {
+
+  # disk 1 /dev/disk/by-id/wwn-0x5000c500fa9f6afc
+  # disk 2 /dev/disk/by-id/wwn-0x5000c500fa9f949b
+  # disk 3 /dev/disk/by-id/wwn-0x5000c500fa9f8e5a
+  # disk 4 /dev/disk/by-id/wwn-0x5000c500fa9f95c7
+
+  # shouldn't be needed, but this is the default in nix.
+  networking.hostId = "8425e349";
+
   disko.devices = {
     disk = {
       root = {
@@ -28,17 +37,34 @@
           };
         };
       };
-      disk1 = {
+
+      disk0 = {
         type = "disk";
-        device = "/dev/sda";
+        device = "/dev/disk/by-id/wwn-0x5000c500fa9f6afc";
         content = {
           type = "gpt";
           partitions = {
-            mdadm = {
+            zfs = {
               size = "100%";
               content = {
-                type = "mdraid";
-                name = "store";
+                type = "zfs";
+                pool = "storage";
+              };
+            };
+          };
+        };
+      };
+      disk1 = {
+        type = "disk";
+        device = "/dev/disk/by-id/wwn-0x5000c500fa9f949b";
+        content = {
+          type = "gpt";
+          partitions = {
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "storage";
               };
             };
           };
@@ -46,15 +72,15 @@
       };
       disk2 = {
         type = "disk";
-        device = "/dev/sdb";
+        device = "/dev/disk/by-id/wwn-0x5000c500fa9f8e5a";
         content = {
           type = "gpt";
           partitions = {
-            mdadm = {
+            zfs = {
               size = "100%";
               content = {
-                type = "mdraid";
-                name = "store";
+                type = "zfs";
+                pool = "storage";
               };
             };
           };
@@ -62,52 +88,35 @@
       };
       disk3 = {
         type = "disk";
-        device = "/dev/sdc";
+        device = "/dev/disk/by-id/wwn-0x5000c500fa9f95c7";
         content = {
           type = "gpt";
           partitions = {
-            mdadm = {
+            zfs = {
               size = "100%";
               content = {
-                type = "mdraid";
-                name = "store";
-              };
-            };
-          };
-        };
-      };
-      disk4 = {
-        type = "disk";
-        device = "/dev/sdd";
-        content = {
-          type = "gpt";
-          partitions = {
-            mdadm = {
-              size = "100%";
-              content = {
-                type = "mdraid";
-                name = "store";
+                type = "zfs";
+                pool = "storage";
               };
             };
           };
         };
       };
     };
-    mdadm = {
-      store = {
-        type = "mdadm";
-        level = 6;
-        content = {
-          type = "gpt";
-          partitions = {
-            primary = {
-              size = "100%";
-              content = {
-                type = "filesystem";
-                format = "ext4";
-                mountpoint = "/data";
-              };
-            };
+    zpool = {
+      storage = {
+        type = "zpool";
+        mode = "raidz1";
+        rootFsOptions = {
+          mountpoint = "none";
+          compression = "zstd";
+          xattr = "sa";
+          "com.sun:auto-snapshot" = "false";
+        };
+        datasets = {
+          share = {
+            type = "zfs_fs";
+            mountpoint = "/mnt/share";
           };
         };
       };

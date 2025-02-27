@@ -8,6 +8,7 @@
     extraGroups = [
       "docker"
       "networkmanager"
+      "smbgroup"
       "wheel"
     ];
     packages = with pkgs; [ ];
