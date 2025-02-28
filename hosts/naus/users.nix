@@ -2,6 +2,8 @@
 {
   programs.zsh.enable = true;
 
+  users.mutableUsers = true;
+
   users.users.fredrikw = {
     isNormalUser = true;
     description = "fredrikw";
