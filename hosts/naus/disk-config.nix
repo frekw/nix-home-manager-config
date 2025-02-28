@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
 
   # disk 1 /dev/disk/by-id/wwn-0x5000c500fa9f6afc
@@ -117,32 +116,11 @@
         datasets = {
           share = {
             type = "zfs_fs";
+            options.mountpoint = "legacy"; # otherwise we get a race between systemd and zfs; https://github.com/nix-community/disko/issues/214
             mountpoint = "/mnt/share";
           };
         };
       };
     };
-  };
-
-  environment.systemPackages = with pkgs; [
-    smartmontools
-  ];
-
-  services.smartd = {
-    enable = true;
-    devices = [
-      {
-        device = "/dev/disk/by-id/wwn-0x5000c500fa9f6afc";
-      }
-      {
-        device = "/dev/disk/by-id/wwn-0x5000c500fa9f949b";
-      }
-      {
-        device = "/dev/disk/by-id/wwn-0x5000c500fa9f8e5a";
-      }
-      {
-        device = "/dev/disk/by-id/wwn-0x5000c500fa9f95c7";
-      }
-    ];
   };
 }

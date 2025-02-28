@@ -16,6 +16,7 @@ in
     ./hardware-configuration.nix
     ./users.nix
     ../../modules/base
+    ./smartmon.nix
     ./samba.nix
   ];
 
