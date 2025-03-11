@@ -43,13 +43,15 @@
           "media.ffmpeg.vaapi.enabled" = true;
         };
 
-        extensions = with rycee-ff.packages."${pkgs.system}"; [
-          istilldontcareaboutcookies
-          react-devtools
-          reddit-enhancement-suite
-          ublock-origin
-          unpaywall
-        ];
+        extensions = {
+          packages = with rycee-ff.packages."${pkgs.system}"; [
+            istilldontcareaboutcookies
+            react-devtools
+            reddit-enhancement-suite
+            ublock-origin
+            unpaywall
+          ];
+        };
       };
     };
   };
