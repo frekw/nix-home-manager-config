@@ -16,7 +16,7 @@
 
   programs.git = {
     enable = true;
-    package = pkgs.gitAndTools.gitFull;
+    package = pkgs.gitAndTools.git;
     userName = "frekw";
     userEmail = "fredrik@warnsberg.se";
     ignores = [
