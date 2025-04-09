@@ -9,6 +9,7 @@
   imports = [
     ./ghostty
     ./github
+    ./melon-dance
     ./work
     ./zsh
   ];

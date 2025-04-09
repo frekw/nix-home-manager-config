@@ -32,8 +32,6 @@ in
   "restic/repo.age".publicKeys = homeHosts;
   "restic/password.age".publicKeys = homeHosts;
 
-  "cf-tf/access-key-id.age".publicKeys = allHosts;
-  "cf-tf/secret.age".publicKeys = allHosts;
-  "cf-tf/bucket.age".publicKeys = allHosts;
-  "cf-tf/endpoint.age".publicKeys = allHosts;
+  "cf-tf/api-key.age".publicKeys = allHosts;
+  "cf-tf/backend-config.age".publicKeys = allHosts;
 }
