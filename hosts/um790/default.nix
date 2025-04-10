@@ -48,7 +48,11 @@
 
   modules.desktop.cosmic.enable = true;
   modules.desktop.hyprland.enable = false;
+
   modules.dev.github.enable = true;
+  modules.dev.melon-dance.enable = true;
+
   modules.env.work.enable = true;
+
   modules.programs.ghostty.enable = true;
 }
