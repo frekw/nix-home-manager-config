@@ -27,13 +27,14 @@
         ALLOW_CHEATS = "false";
         EULA = "TRUE";
         TYPE = "PAPER";
+        PAPER_CHANNEL = "experimental";
         DIFFICULTY = "easy";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
-        VERSION = "LATEST";
+        VERSION = "1.21.5";
         MEMORY = "";
         ENABLE_WHITELIST = "true";
-        WHITELIST = "40e195fe-6fe9-4c31-a263-b446851bbe12";
+        WHITELIST = "40e195fe-6fe9-4c31-a263-b446851bbe12,SilasSpelar";
         SEED = "44647503765050661";
         PLUGINS = ''
           https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot
