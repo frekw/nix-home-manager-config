@@ -11,13 +11,14 @@ in
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
     (modulesPath + "/profiles/qemu-guest.nix")
-    ./disk-config.nix
-    ./backup.nix
-    ./hardware-configuration.nix
-    ./users.nix
     ../../modules/base
-    ./smartmon.nix
+    ./backup.nix
+    ./disk-config.nix
+    ./hardware-configuration.nix
+    ./minecraft.nix
     ./samba.nix
+    ./smartmon.nix
+    ./users.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
@@ -36,6 +37,7 @@ in
 
   users.users.root.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGdb2HLabEYCPyYyScJ9JHSQOAgbUy+phiTNZrRPd4qj fredrikw@um790"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZ8YlOC8kdpHJkDP04fJW7Aly3lqCac1N3aouyilzQm" # m1
   ];
 
   system.stateVersion = "24.11";

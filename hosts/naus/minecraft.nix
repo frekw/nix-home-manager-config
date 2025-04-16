@@ -26,6 +26,7 @@
       environment = {
         ALLOW_CHEATS = "false";
         EULA = "TRUE";
+        TYPE = "PAPER";
         DIFFICULTY = "easy";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
