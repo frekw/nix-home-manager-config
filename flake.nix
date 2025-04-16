@@ -83,6 +83,11 @@
       url = "git+ssh://git@github.com/frekw/fonts.git";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    colmena = {
+      url = "github:zhaofengli/colmena";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -103,6 +108,7 @@
       kmonad,
       roc,
       fonts,
+      colmena,
       ...
     }@inputs:
     let
@@ -272,6 +278,7 @@
           };
       };
 
+      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
       colmena = {
         meta =
           let
