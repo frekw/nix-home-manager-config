@@ -15,7 +15,7 @@
   config = lib.mkIf config.modules.gaming.minecraft.enable {
     home-manager.users.${user.username} = {
       home.packages = with pkgs; [
-        lunar-client
+        prismlauncher
       ];
     };
   };
