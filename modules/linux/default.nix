@@ -9,7 +9,8 @@
     ./docker
     ./dropbox
     ./keyboard
-    ./vpn
     ./locale.nix
+    ./minecraft
+    ./vpn
   ];
 }

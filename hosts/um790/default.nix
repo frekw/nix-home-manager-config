@@ -55,4 +55,6 @@
   modules.env.work.enable = true;
 
   modules.programs.ghostty.enable = true;
+
+  modules.gaming.minecraft.enable = true;
 }
