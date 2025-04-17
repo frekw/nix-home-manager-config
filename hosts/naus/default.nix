@@ -14,6 +14,7 @@ in
     ../../modules/base
     ./backup.nix
     ./disk-config.nix
+    ./dyndns.nix
     ./hardware-configuration.nix
     ./minecraft.nix
     ./samba.nix

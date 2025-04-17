@@ -35,4 +35,6 @@ in
   "cf-tf/api-key.age".publicKeys = allHosts;
   "cf-tf/backend-config.age".publicKeys = allHosts;
   "cf-tf/zone-id.age".publicKeys = allHosts;
+
+  "minecraft/rcon.age".publicKeys = homeHosts;
 }
