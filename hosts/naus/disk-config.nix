@@ -1,7 +1,7 @@
 {
 
   # disk 1 /dev/disk/by-id/wwn-0x5000c500fa9f6afc
-  # disk 2 /dev/disk/by-id/wwn-0x5000c500fa9f949b
+  # disk 2 /dev/disk/by-id/wwn-0x5000c500fab03cbf
   # disk 3 /dev/disk/by-id/wwn-0x5000c500fa9f8e5a
   # disk 4 /dev/disk/by-id/wwn-0x5000c500fa9f95c7
 
@@ -56,7 +56,7 @@
       };
       disk1 = {
         type = "disk";
-        device = "/dev/disk/by-id/wwn-0x5000c500fa9f949b";
+        device = "/dev/disk/by-id/wwn-0x5000c500fab03cbf";
         content = {
           type = "gpt";
           partitions = {
