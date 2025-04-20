@@ -31,7 +31,8 @@
         "0.0.0.0:19132:19132/udp"
       ];
       extraOptions = [
-        "--memory=4G"
+        "--cpus=4"
+        "--memory=8g"
       ];
 
       environmentFiles = [
