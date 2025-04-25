@@ -51,6 +51,7 @@
 
   modules.dev.github.enable = true;
   modules.dev.melon-dance.enable = true;
+  modules.dev.zed.enable = true;
 
   modules.env.work.enable = true;
 

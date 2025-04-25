@@ -11,6 +11,7 @@
     ./github
     ./melon-dance
     ./work
+    ./zed
     ./zsh
   ];
 

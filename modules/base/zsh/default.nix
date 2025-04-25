@@ -60,7 +60,7 @@
             size = 50000;
             share = true;
           };
-          initExtra = builtins.concatStringsSep "\n" [
+          initContent = builtins.concatStringsSep "\n" [
             (builtins.readFile ./scripts/init.sh)
             (
               if config.modules.programs.zsh.hostname-in-prompt then

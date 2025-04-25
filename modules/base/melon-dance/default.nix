@@ -26,7 +26,7 @@
       age.secrets."cf-tf/zone-id".file = ../../../secrets/cf-tf/zone-id.age;
 
       programs.zsh = {
-        initExtra = ''
+        initContent = ''
           export MELON_DANCE_CONFIG_PATH="${
             config.home-manager.users.${user.username}.age.secrets."cf-tf/backend-config".path
           }"

@@ -28,7 +28,7 @@
       };
 
       programs.zsh = {
-        initExtra = ''
+        initContent = ''
           export GITHUB_TOKEN=$(${pkgs.coreutils}/bin/cat ${
             config.home-manager.users.${user.username}.age.secrets.github-token.path
           })

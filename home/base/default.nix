@@ -47,7 +47,7 @@
   };
   # Fix JAVA_HOME for zsh
   programs.zsh = {
-    initExtra = ''
+    initContent = ''
       export JAVA_HOME="${config.home.sessionVariables.JAVA_HOME}"
     '';
   };
