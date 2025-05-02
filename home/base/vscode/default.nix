@@ -57,6 +57,12 @@
             version = "1.2.0";
             sha256 = "sha256-lMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
           }
+          {
+            name = "moonbit-lang";
+            publisher = "moonbit";
+            version = "0.1.202504302";
+            sha256 = "sha256-aMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
+          }
         ];
 
       userSettings = {

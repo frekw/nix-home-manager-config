@@ -31,7 +31,6 @@
         "0.0.0.0:19132:19132/udp"
       ];
       extraOptions = [
-        "--cpus=4"
         "--network=host"
       ];
 
