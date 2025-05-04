@@ -1,5 +1,6 @@
 {
   pkgs,
+  mypkgs,
   user,
   ...
 }:
@@ -29,5 +30,6 @@
     sops
     spicedb-zed
     terraform
+    kubent
   ];
 }

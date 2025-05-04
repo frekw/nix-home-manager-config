@@ -10,7 +10,7 @@
   ...
 }:
 let
-  version = "0.11.0";
+  version = "0.12.3";
   if_let = v: p: if lib.attrsets.matchAttrs p v then v else null;
   match =
     v: l: builtins.elemAt (lib.lists.findFirst (x: (if_let v (builtins.elemAt x 0)) != null) null l) 1;

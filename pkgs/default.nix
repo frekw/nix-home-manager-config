@@ -17,7 +17,6 @@
     firefox = pkgs.callPackage ./darwin/firefox { };
     obsidian = pkgs.callPackage ./darwin/obsidian { };
     tunnelblick = pkgs.callPackage ./darwin/tunnelblick { };
-    vfkit = pkgs.callPackage ./darwin/vfkit { };
     vlc = pkgs.callPackage ./darwin/vlc { };
     wombat = pkgs.callPackage ./darwin/wombat { };
   };
