@@ -58,4 +58,6 @@
   modules.programs.ghostty.enable = true;
 
   modules.gaming.minecraft.enable = true;
+
+  home-manager.backupFileExtension = ".bak";
 }
