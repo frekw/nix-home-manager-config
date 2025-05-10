@@ -60,7 +60,7 @@
   tab   q    w    e    r    t    y    u    i    o    p    [    ]    ret
   @caps a    s    d    f    g    h    j    k    l    ;    '    \
   lsft  grv  z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lalt  lmet           spc                 ralt rmet @fn  rctl
+  lctl lalt  lmet           spc                 ralt rmet cmp  @fn
 )
 
 (deflayer mods
