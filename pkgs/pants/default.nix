@@ -26,7 +26,7 @@ let
       { platform = "x86_64-linux"; }
       {
         url = "https://github.com/pantsbuild/scie-pants/releases/download/v${version}/scie-pants-linux-x86_64";
-        sha256 = "sha256-ifP5gjTdLMXyVSKda6pPBNNcnJZ0giuqikFBk7cXgHI=";
+        sha256 = "sha256-gW7iPX1oKD7i/3VOq6cwpvUOUqYCZSdRarJSBMKlBTk=";
       }
     ]
     [
