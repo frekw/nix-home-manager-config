@@ -60,8 +60,8 @@
           {
             name = "moonbit-lang";
             publisher = "moonbit";
-            version = "0.1.20250507";
-            sha256 = "sha256-Eka+OpaZyzXPyh7T5sJjUeUtgV9ES+KSBJsoH2PrmFc=";
+            version = "0.1.202505082";
+            sha256 = "sha256-ur5kFmdL8E9wVjFT9z52+JUddi0ypv5PHExqLhQUnEk=";
           }
         ];
 
