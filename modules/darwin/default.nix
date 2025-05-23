@@ -7,6 +7,8 @@
 {
   imports = [ ../base ];
 
+  system.primaryUser = user.username;
+
   users.users."${user.username}" = {
     description = user.name;
     home = "/Users/${user.username}";

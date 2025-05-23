@@ -84,7 +84,6 @@
     keybase
     nixfmt-rfc-style
     python3
-    postman
     ripgrep
     ruby
     scala
