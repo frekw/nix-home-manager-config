@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     shellAliases = {
-      switch = "darwin-rebuild switch --flake ~/src/priv/nix-home-manager-config";
+      switch = "darwin-rebuild build --flake ~/src/priv/nix-home-manager-config && sudo ./result/activate && rm -rf result";
     };
     initContent = ''
       eval $(brew shellenv)

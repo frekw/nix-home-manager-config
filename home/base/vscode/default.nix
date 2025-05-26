@@ -23,7 +23,7 @@
           # ms-python.python
           ocamllabs.ocaml-platform
           redhat.vscode-yaml
-          # rust-lang.rust-analyzer
+          rust-lang.rust-analyzer
           scala-lang.scala
           scalameta.metals
           tamasfe.even-better-toml
