@@ -1,6 +1,5 @@
 {
   config,
-  mypkgs,
   pkgs,
   agenix,
   roc,
@@ -88,8 +87,8 @@
     ruby
     scala
     slack
-    mypkgs.syb-cli
-    mypkgs.kube-context-switch
+    syb-cli
+    kube-context-switch
     # roc.packages."${pkgs.system}".default
     # roc.packages."${pkgs.system}".lang-server
     tree

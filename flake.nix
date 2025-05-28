@@ -125,17 +125,9 @@
       allSystems = darwinSystems // linuxSystems;
       allSystemNames = builtins.attrNames allSystems;
       forAllSystems = f: (nixpkgs.lib.genAttrs allSystemNames f);
-      genSpecialArgs =
-        pkgs:
-        inputs
-        // rec {
-          inherit user;
-
-          mypkgs = import ./pkgs {
-            pkgs = pkgs;
-            nix-alien = nix-alien;
-          };
-        };
+      specialArgs = inputs // {
+        inherit user;
+      };
     in
     {
       devShells = forAllSystems (
@@ -159,137 +151,94 @@
       );
 
       darwinConfigurations = {
-        m1 =
-          let
-            system = "aarch64-darwin";
-            pkgs =
-              (import inputs.nixpkgs {
-                inherit system;
-                config.allowUnfree = true;
-              }).extend
-                (
-                  final: prev: {
-                    tmuxPlugins = prev.tmuxPlugins // {
-                      sensible = prev.tmuxPlugins.sensible.overrideAttrs (old: {
-                        # remove the postInstall hook that force enables reattach-to-user-namespace
-                        # since it seems to be broken in OSX 14.6.1 and isn't needed since tmux 2.7
-                        postInstall = "";
-                      });
-                    };
-                  }
-                );
-            specialArgs = genSpecialArgs pkgs;
+        m1 = nix-darwin.lib.darwinSystem {
+          inherit inputs;
 
-          in
-          nix-darwin.lib.darwinSystem {
-            inherit inputs;
+          system = "aarch64-darwin";
+          specialArgs = specialArgs;
+          modules = [
+            ./hosts/m1
+            ./modules/darwin
+            ./modules/darwin/brew.nix
+            ./pkgs
 
-            system = "aarch64-darwin";
-            specialArgs = specialArgs;
-            modules = [
-              ./hosts/m1
-              ./modules/darwin
-              ./modules/darwin/brew.nix
-
-              agenix.darwinModules.default
-              home-manager.darwinModules.home-manager
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = specialArgs;
-                home-manager.users."${user.username}" = import ./home/darwin;
-              }
-              nix-homebrew.darwinModules.nix-homebrew
-              {
-                nix-homebrew = {
-                  user = user.username;
-                  enable = true;
-                  enableRosetta = true;
-                  taps = {
-                    "homebrew/homebrew-core" = homebrew-core;
-                    "homebrew/homebrew-cask" = homebrew-cask;
-                    "homebrew/homebrew-bundle" = homebrew-bundle;
-                  };
-                  mutableTaps = false;
-                  # autoMigrate = true;
+            agenix.darwinModules.default
+            home-manager.darwinModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users."${user.username}" = import ./home/darwin;
+            }
+            nix-homebrew.darwinModules.nix-homebrew
+            {
+              nix-homebrew = {
+                user = user.username;
+                enable = true;
+                enableRosetta = true;
+                taps = {
+                  "homebrew/homebrew-core" = homebrew-core;
+                  "homebrew/homebrew-cask" = homebrew-cask;
+                  "homebrew/homebrew-bundle" = homebrew-bundle;
                 };
-              }
-            ];
-          };
+                mutableTaps = false;
+                # autoMigrate = true;
+              };
+            }
+          ];
+        };
       };
 
       nixosConfigurations = {
-        um790 =
-          let
-            system = "x86_64-linux";
-            specialArgs = genSpecialArgs pkgs;
+        um790 = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            ./hosts/um790
+            ./modules/linux
+            ./modules/linux/gui
+            ./pkgs
 
-            pkgs = import inputs.nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            };
+            agenix.nixosModules.default
+            home-manager.nixosModules.home-manager
+            kmonad.nixosModules.default
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.extraSpecialArgs = specialArgs;
+              home-manager.users."${user.username}" = import ./home/linux;
+            }
+            nixos-cosmic.nixosModules.default
+            {
+              nix.settings = {
+                substituters = [ "https://cosmic.cachix.org/" ];
+                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+              };
+            }
+          ];
+        };
 
-          in
-          nixpkgs.lib.nixosSystem {
-            system = "x86_64-linux";
-            specialArgs = specialArgs;
-            modules = [
-              ./hosts/um790
-              ./modules/linux
-              ./modules/linux/gui
-              agenix.nixosModules.default
-              home-manager.nixosModules.home-manager
-              kmonad.nixosModules.default
-              {
-                home-manager.useGlobalPkgs = true;
-                home-manager.useUserPackages = true;
-                home-manager.extraSpecialArgs = specialArgs;
-                home-manager.users."${user.username}" = import ./home/linux;
-              }
-              nixos-cosmic.nixosModules.default
-              {
-                nix.settings = {
-                  substituters = [ "https://cosmic.cachix.org/" ];
-                  trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-                };
-              }
-            ];
-          };
-
-        naus =
-          let
-            system = "x86_64-linux";
-            pkgs = import inputs.nixpkgs {
-              inherit system;
-              config.allowUnfree = true;
-            };
-            specialArgs = genSpecialArgs pkgs;
-
-          in
-          nixpkgs.lib.nixosSystem {
-            system = system;
-            specialArgs = specialArgs;
-            modules = [
-              agenix.nixosModules.default
-              disko.nixosModules.disko
-              home-manager.nixosModules.home-manager
-              ./hosts/naus
-            ];
-          };
+        naus = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          specialArgs = specialArgs;
+          modules = [
+            agenix.nixosModules.default
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+            ./hosts/naus
+            ./pkgs
+          ];
+        };
       };
 
       colmenaHive = colmena.lib.makeHive self.outputs.colmena;
       colmena = {
         meta =
           let
-            system = "x86_64-linux";
-
             pkgs = import inputs.nixpkgs {
-              inherit system;
+              system = "x86_64-linux";
               config.allowUnfree = true;
             };
-
-            specialArgs = genSpecialArgs pkgs;
           in
           {
             nixpkgs = pkgs;
@@ -321,6 +270,7 @@
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
             ./hosts/naus
+            ./pkgs
           ];
         };
       };

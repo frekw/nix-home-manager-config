@@ -1,4 +1,4 @@
-{ pkgs, mypkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [
     vfkit

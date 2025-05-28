@@ -1,7 +1,6 @@
 {
   pkgs,
   user,
-  mypkgs,
   config,
   ...
 }:
@@ -23,11 +22,11 @@
   };
 
   home.packages = with pkgs; [
-    mypkgs.app-launcher
+    app-launcher
     # mypkgs.darwin.altair
-    mypkgs.darwin.obsidian
-    mypkgs.darwin.vlc
-    mypkgs.darwin.wombat
+    darwinPackages.obsidian
+    darwinPackages.vlc
+    darwinPackages.wombat
     rectangle
   ];
 }

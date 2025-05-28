@@ -1,7 +1,6 @@
 {
   user,
   pkgs,
-  mypkgs,
   config,
   fonts,
   ...
@@ -49,6 +48,6 @@
     ncspot
     obsidian
     spotify
-    mypkgs.pants
+    pants
   ];
 }
