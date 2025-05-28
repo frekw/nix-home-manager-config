@@ -1,5 +1,6 @@
 {
   pkgs,
+  nix-alien,
   ...
 }:
 {
@@ -10,7 +11,7 @@
       app-launcher = final.callPackage ./app-launcher { };
       kube-context-switch = final.callPackage ./kube-context-switch { };
       monaspace = final.callPackage ./monaspace { };
-      pants = final.callPackage ./pants { };
+      pants = final.callPackage ./pants { inherit nix-alien; };
       sloth = final.callPackage ./sloth { };
       syb-cli = final.callPackage ./syb-cli { };
 
