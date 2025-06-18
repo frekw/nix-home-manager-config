@@ -150,8 +150,6 @@
 
       darwinConfigurations = {
         m1 = nix-darwin.lib.darwinSystem {
-          inherit inputs;
-
           system = "aarch64-darwin";
           specialArgs = specialArgs;
           modules = [
