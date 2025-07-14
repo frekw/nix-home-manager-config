@@ -42,7 +42,7 @@
         ALLOW_CHEATS = "false";
         EULA = "TRUE";
         TYPE = "PAPER";
-        PAPER_CHANNEL = "experimental";
+        PAPER_CHANNEL = "default";
         DIFFICULTY = "easy";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
