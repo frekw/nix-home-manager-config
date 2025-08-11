@@ -8,16 +8,11 @@
   inputs = {
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixos-unstable";
-      follows = "nixos-cosmic/nixpkgs"; # NOTE: change "nixpkgs" to "nixpkgs-stable" to use stable NixOS release
     };
 
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    nixos-cosmic = {
-      url = "github:lilyinstarlight/nixos-cosmic";
     };
 
     nixpkgs-stable = {
@@ -93,7 +88,6 @@
       self,
       nixpkgs,
       disko,
-      nixos-cosmic,
       nix-darwin,
       home-manager,
       nix-homebrew,
@@ -203,13 +197,6 @@
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = specialArgs;
               home-manager.users."${user.username}" = import ./home/linux;
-            }
-            nixos-cosmic.nixosModules.default
-            {
-              nix.settings = {
-                substituters = [ "https://cosmic.cachix.org/" ];
-                trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
-              };
             }
           ];
         };
