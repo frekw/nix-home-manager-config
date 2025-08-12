@@ -96,7 +96,8 @@
 
   services.avahi = {
     enable = true;
-    nssmdns = true;
+    nssmdns4 = true;
+    nssmdns6 = false;
     publish = {
       enable = true;
       addresses = true;
