@@ -15,10 +15,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-stable = {
-      url = "github:nixos/nixpkgs/nixos-23.11";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,10 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    kmonad = {
-      url = "github:kmonad/kmonad?dir=nix";
-    };
-
     roc = {
       url = "github:roc-lang/roc";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -97,7 +89,6 @@
       nix-alien,
       rycee-ff,
       agenix,
-      kmonad,
       roc,
       fonts,
       colmena,
@@ -191,7 +182,6 @@
 
             agenix.nixosModules.default
             home-manager.nixosModules.home-manager
-            kmonad.nixosModules.default
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
