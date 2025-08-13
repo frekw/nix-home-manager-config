@@ -1,4 +1,4 @@
-{ pkgs, roc, ... }:
+{ pkgs, ... }:
 {
   programs.vscode = {
     enable = true;
@@ -50,12 +50,6 @@
             publisher = "Graphite";
             version = "0.6.1";
             sha256 = "sha256-gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
-          }
-          {
-            name = "roc-lang-unofficial";
-            publisher = "IvanDemchenko";
-            version = "1.2.0";
-            sha256 = "sha256-lMN6GlUM20ptg1c6fNp8jwSzlCzE1U0ugRyhRLYGPGE=";
           }
           {
             name = "moonbit-lang";
@@ -188,11 +182,6 @@
           "height" = 21;
           "fontSize" = 13;
         };
-
-        # "roc-lang.language-server.exe" = "${
-        #   roc.packages.${pkgs.system}.lang-server
-        # }/bin/roc_language_server
-        # }";
       };
     };
   };

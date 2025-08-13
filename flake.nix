@@ -58,11 +58,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    roc = {
-      url = "github:roc-lang/roc";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # private flake
     fonts = {
       url = "git+ssh://git@github.com/frekw/fonts.git";
@@ -89,7 +84,6 @@
       nix-alien,
       rycee-ff,
       agenix,
-      roc,
       fonts,
       colmena,
       ...

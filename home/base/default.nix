@@ -2,7 +2,6 @@
   config,
   pkgs,
   agenix,
-  roc,
   ...
 }:
 {
@@ -89,8 +88,6 @@
     slack
     syb-cli
     kube-context-switch
-    # roc.packages."${pkgs.system}".default
-    # roc.packages."${pkgs.system}".lang-server
     tree
     yarn
     yq-go
