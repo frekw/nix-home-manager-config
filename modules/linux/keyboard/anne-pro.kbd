@@ -49,7 +49,7 @@
   fwd (around lalt f)
   bck (around lalt b)
 
-  eml #(@ s o u n d t r a c k y o u r b r a n d . c o m)
+  eml #(@ s o u n d t r a c k . i o)
 
   caps (tap-next esc (layer-toggle mods))
   spc (tap-hold 250 spc (layer-toggle mods))

@@ -1,0 +1,69 @@
+(defcfg
+  input (device-file "/dev/input/by-id/usb-OBINS_HEXCORE_ANNEPRO2_ISO_024319480260704718490428086803D1-event-kbd")
+  output (uinput-sink
+          "KMonad: Anne Pro"
+          "sleep 0.2s; xset r rate 230 70; sleep 0.2s; /run/current-system/sw/bin/setxkbmap -option compose:ralt")
+  cmp-seq ralt
+  cmp-seq-delay 5
+  allow-cmd true)
+
+(defsrc
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f20  f12  prnt del
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc pgup
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret  pgdn
+  caps a    s    d    f    g    h    j    k    l    ;    '    \         home
+  lsft grv  z    x    c    v    b    n    m    ,    .    /    rsft up   end
+  lctl lmet lalt           spc                 ralt cmp  rctl left down rght
+)
+
+(defalias
+  ;; å (tap-hold 300 [ (around ralt w))
+  ;; ä (tap-hold 300 ' (around ralt q))
+  ;; ö (tap-hold 300 ; (around ralt p))
+
+  mu (layer-toggle mods-upper)
+  fn (layer-toggle fn-keys)
+
+  å (around ralt å)
+  ä (around ralt ä)
+  ö (around ralt ö)
+  
+  Å (around ralt Å)
+  Ä (around ralt Ä)
+  Ö (around ralt Ö)
+
+  fwd (around lalt f)
+  bck (around lalt b)
+
+  eml #(@ s o u n d t r a c k . i o)
+
+  caps (tap-next esc (layer-toggle mods))
+  spc (tap-hold 250 spc (layer-toggle mods))
+)
+
+(defsrc base
+  esc  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f20  f12  prnt del
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc pgup
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    ret  pgdn
+  caps a    s    d    f    g    h    j    k    l    ;    '    \         home
+  lsft grv  z    x    c    v    b    n    m    ,    .    /    rsft up   end
+  lctl lmet lalt           spc                 ralt cmp  rctl left down rght
+)
+
+(defsrc mods
+  _   _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    @eml _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    _    _    _    _    _    _    _    _    _    @å   _    _    _
+  _   _    _    _    _    _    left down up   rght @ö   @ä   _         _
+  @mu _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    _              _                   _    _    _    _    _    _
+)
+
+(defsrc mods-upper
+  _   _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    @eml _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    _    _    _    _    _    _    _    _    _    @Å   _    _    _
+  _   _    _    _    _    _    left down up   rght @Ö   @Ä   _         _
+  _   _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _   _    _              _                   _    _    _    _    _    _
+)

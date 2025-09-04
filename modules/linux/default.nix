@@ -8,7 +8,7 @@
     ./audio.nix
     ./docker
     ./dropbox
-    ./keyboard
+    # ./keyboard
     ./locale.nix
     ./minecraft
     ./vpn
