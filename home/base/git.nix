@@ -11,7 +11,7 @@
     gitmux
     # broken on macOS and not currently using it.
     # spr
-    pkgs.nodePackages_latest.graphite-cli
+    pkgs.graphite-cli
   ];
 
   programs.git = {
