@@ -60,6 +60,8 @@
         ];
 
       userSettings = {
+        "update.mode" = "none";
+
         "[nix]"."editor.tabSize" = 2;
         "nix.enableLanguageServer" = true;
 
