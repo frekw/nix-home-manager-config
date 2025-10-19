@@ -7,7 +7,9 @@
       extensions =
         with pkgs.vscode-extensions;
         [
+          # ms-python.python
           bazelbuild.vscode-bazel
+          bradlc.vscode-tailwindcss
           brettm12345.nixfmt-vscode
           elixir-lsp.vscode-elixir-ls
           elixir-lsp.vscode-elixir-ls
@@ -56,6 +58,12 @@
             publisher = "moonbit";
             version = "0.1.202505082";
             sha256 = "sha256-ur5kFmdL8E9wVjFT9z52+JUddi0ypv5PHExqLhQUnEk=";
+          }
+          {
+            name = "triggertaskonsave";
+            publisher = "Gruntfuggly";
+            version = "0.2.17";
+            sha256 = "sha256-ax/hkewlH0K+sLkFAvgofD6BjEheRYObAAvt8MA3pqc=";
           }
         ];
 
@@ -184,7 +192,19 @@
           "height" = 21;
           "fontSize" = 13;
         };
-      };
+
+        "[jsonc]" = {
+          "editor.defaultFormatter" = "esbenp.prettier-vscode";
+        };
+      }
+      // (
+        if pkgs.stdenv.hostPlatform.isDarwin then
+          {
+            "dev.containers.dockerPath" = "podman";
+          }
+        else
+          { }
+      );
     };
   };
 }
