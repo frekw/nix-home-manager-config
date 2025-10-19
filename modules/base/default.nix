@@ -43,7 +43,6 @@
     # networking
     wget
     curl
-    ipcalc
 
     # misc
     which

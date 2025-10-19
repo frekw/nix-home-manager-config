@@ -29,7 +29,6 @@
     sops
     spicedb-zed
     terraform
-    tfctl
     kubent
   ];
 }
