@@ -46,7 +46,7 @@
         DIFFICULTY = "easy";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
-        VERSION = "1.21.7";
+        VERSION = "1.21.10";
 
         ENABLE_RCON = "true";
         RCON_PORT = "25575";
