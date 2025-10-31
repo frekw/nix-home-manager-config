@@ -4,7 +4,7 @@
 
   home.packages = with pkgs; [
     corefonts
-    vistafonts
+    vista-fonts
     fira-code
     monaspace
     nerd-fonts.fira-code
