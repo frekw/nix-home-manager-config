@@ -16,7 +16,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
-    agenix.packages."${pkgs.system}".default
+    agenix.packages."${pkgs.stdenv.hostPlatform.system}".default
     backblaze-b2
 
     colmena

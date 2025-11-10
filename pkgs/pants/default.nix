@@ -14,7 +14,7 @@ let
   if_let = v: p: if lib.attrsets.matchAttrs p v then v else null;
   match =
     v: l: builtins.elemAt (lib.lists.findFirst (x: (if_let v (builtins.elemAt x 0)) != null) null l) 1;
-  package = match { platform = stdenv.system; } [
+  package = match { platform = stdenv.hostPlatform.system; } [
     [
       { platform = "aarch64-linux"; }
       {
@@ -59,7 +59,9 @@ let
   };
   patched = writeShellScriptBin "pants" ''
     export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
-    ${nix-alien.packages."${pkgs.system}".default}/bin/nix-alien ${unpatched}/bin/pants -- "$@"
+    ${
+      nix-alien.packages."${stdenv.hostPlatform.system}".default
+    }/bin/nix-alien ${unpatched}/bin/pants -- "$@"
   '';
 in
 if stdenv.isDarwin then unpatched else patched

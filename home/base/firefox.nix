@@ -43,7 +43,7 @@
         };
 
         extensions = {
-          packages = with rycee-ff.packages."${pkgs.system}"; [
+          packages = with rycee-ff.packages."${pkgs.stdenv.hostPlatform.system}"; [
             istilldontcareaboutcookies
             react-devtools
             reddit-enhancement-suite

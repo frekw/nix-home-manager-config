@@ -4,6 +4,7 @@
   pkgs,
   fonts,
   user,
+  stdenv,
   ...
 }:
 {
@@ -39,7 +40,7 @@
         # Set programs that you use
         "$terminal" = "kitty ";
         "$launcher" = "tofi-drun --drun-launch=true --font ${
-          fonts.packages.${pkgs.system}.berkeley-mono
+          fonts.packages.${stdenv.hostPlatform.system}.berkeley-mono
         }/share/fonts/TTF/berkeley-mono/BerkeleyMonoVariable-Regular.ttf";
         "$fileManager" = "dolphin";
         # in lieu of a splash /login screen, we'll just use swaylock
@@ -48,7 +49,8 @@
         # so this method just has the single user login and then the session starts, then locks
         # so I get the security of requiring a login, without the (not needed) ability to
         # change user names nor environments (Hyprland, Gnome, zsh, etc).
-        "$swayLock" = "swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2";
+        "$swayLock" =
+          "swaylock --screenshots --clock --indicator --indicator-radius 100 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5 --grace 2 --fade-in 0.2";
         # --image ~/.config/hypr/lock.png
         # $menu = wofi --show drun
 

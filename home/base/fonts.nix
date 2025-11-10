@@ -8,6 +8,6 @@
     fira-code
     monaspace
     nerd-fonts.fira-code
-    fonts.packages.${pkgs.system}.berkeley-mono
+    fonts.packages.${pkgs.stdenv.hostPlatform.system}.berkeley-mono
   ];
 }

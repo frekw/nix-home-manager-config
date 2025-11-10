@@ -32,7 +32,7 @@
   gtk = {
     enable = true;
     font = {
-      package = fonts.packages.${pkgs.system}.berkeley-mono;
+      package = fonts.packages.${pkgs.stdenv.hostPlatform.system}.berkeley-mono;
       name = "BerkeleyMono-Regular";
     };
 
