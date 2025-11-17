@@ -14,6 +14,10 @@
   };
 
   config = lib.mkIf config.modules.env.work.enable {
+    environment.systemPackages = with pkgs; [
+      gemini-cli
+    ];
+
     home-manager.users.${user.username} = {
       imports = [
         agenix.homeManagerModules.default
