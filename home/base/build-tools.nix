@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    bazel
+    # bazel
     buck2
     cmake
     gnumake
