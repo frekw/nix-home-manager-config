@@ -28,6 +28,9 @@
       services.desktopManager.cosmic.enable = true;
       services.displayManager.cosmic-greeter.enable = true;
       services.desktopManager.cosmic.xwayland.enable = true;
+
+      # disable screen reader
+      services.orca.enable = false;
     }
   );
 }

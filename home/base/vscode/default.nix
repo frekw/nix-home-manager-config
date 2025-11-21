@@ -137,7 +137,7 @@
         "editor.tokenColorCustomizations" = { };
 
         "metals.suggestLatestUpgrade" = true;
-        "metals.serverVersion" = "1.3.0";
+        "metals.serverVersion" = "1.6.3";
         "metals.javaHome" = "${pkgs.jdk}";
 
         "github.copilot.enable" = {
