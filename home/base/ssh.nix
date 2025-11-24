@@ -26,7 +26,7 @@
   };
 
   # work around to get 600 permissions on .ssh/config
-  home.file.".ssh/config" = {
+  home.file.".ssh/config_link" = {
     text = ''
       Host *
         ForwardAgent no
@@ -46,5 +46,14 @@
       UseKeychain yes
       IdentityFile ~/.ssh/id_ed25519
     '';
+
+    onChange = ''
+      rm ~/.ssh/config
+      cat ~/.ssh/config_link > ~/.ssh/config
+      rm ~/.ssh/config_link
+      chmod 600 ~/.ssh/config
+    '';
+
+    force = true;
   };
 }
