@@ -59,5 +59,5 @@
 
   modules.gaming.minecraft.enable = true;
 
-  home-manager.backupFileExtension = ".bak";
+  home-manager.backupFileExtension = "bak";
 }
