@@ -15,6 +15,7 @@
           elixir-lsp.vscode-elixir-ls
           esbenp.prettier-vscode
           github.copilot
+          github.copilot-chat
           github.vscode-github-actions
           golang.go
           graphql.vscode-graphql
@@ -140,15 +141,6 @@
         "metals.serverVersion" = "1.6.3";
         "metals.javaHome" = "${pkgs.jdk}";
 
-        "github.copilot.enable" = {
-          "*" = true;
-          "yaml" = true;
-          "plaintext" = false;
-          "markdown" = false;
-          "scala" = true;
-          "go" = true;
-        };
-
         "window.zoomLevel" = 1;
         "workbench.colorTheme" = "Monochrome Dark";
         "workbench.preferredDarkColorTheme" = "Monochrome Dark";
@@ -163,34 +155,15 @@
 
         "python.analysis.typeCheckingMode" = "basic";
 
-        "apc.activityBar" = {
-          "position" = "bottom";
-          "hideSettings" = true;
-          "size" = 20;
-        };
-
-        "apc.statusBar" = {
-          "position" = "editor-bottom";
-          "height" = 22;
-          "fontSize" = 12;
-        };
-
-        "apc.electron" = {
-          "titleBarStyle" = "hiddenInset";
-          "trafficLightPosition" = {
-            "x" = 8;
-            "y" = 10;
-          };
-        };
-
-        "apc.header" = {
-          "height" = 34;
-          "fontSize" = 14;
-        };
-
-        "apc.listRow" = {
-          "height" = 21;
-          "fontSize" = 13;
+        "github.copilot.inlineSuggest.enable" = true;
+        "github.copilot.enable" = {
+          "*" = true;
+          "yaml" = true;
+          "scala" = true;
+          "go" = true;
+          "terraform" = true;
+          "plaintext" = false;
+          "markdown" = false;
         };
 
         "[jsonc]" = {
