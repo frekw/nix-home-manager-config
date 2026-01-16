@@ -9,7 +9,7 @@ in
 
   nixpkgs.config.allowUnfree = true;
 
-  home-manager.backupFileExtension = ".bak";
+  home-manager.backupFileExtension = "bak";
 
   modules.dev.github.enable = true;
   modules.dev.melon-dance.enable = true;
