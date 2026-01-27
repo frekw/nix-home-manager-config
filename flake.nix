@@ -44,6 +44,11 @@
       flake = false;
     };
 
+    homebrew-multi-gitter = {
+      url = "github:lindell/homebrew-multi-gitter";
+      flake = false;
+    };
+
     nix-alien = {
       url = "github:thiagokokada/nix-alien";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -81,6 +86,7 @@
       homebrew-bundle,
       homebrew-core,
       homebrew-cask,
+      homebrew-multi-gitter,
       nix-alien,
       rycee-ff,
       agenix,
@@ -155,6 +161,7 @@
                   "homebrew/homebrew-core" = homebrew-core;
                   "homebrew/homebrew-cask" = homebrew-cask;
                   "homebrew/homebrew-bundle" = homebrew-bundle;
+                  "lindell/homebrew-multi-gitter" = homebrew-multi-gitter;
                 };
                 mutableTaps = false;
                 # autoMigrate = true;

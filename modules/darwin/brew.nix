@@ -32,6 +32,7 @@
       "slack"
       "spotify"
       "tunnelblick"
+      "multi-gitter"
     ];
 
     brews = [

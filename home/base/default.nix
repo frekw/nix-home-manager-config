@@ -80,7 +80,7 @@
     httpie
     jq
     keybase
-    nixfmt-rfc-style
+    nixfmt
     python3
     ripgrep
     ruby

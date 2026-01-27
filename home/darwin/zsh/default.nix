@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   programs.zsh = {
+    dotDir = "${config.xdg.configHome}/zsh";
+
     shellAliases = {
       switch = "darwin-rebuild build --flake ~/src/priv/nix-home-manager-config && sudo ./result/activate && rm -rf result";
     };
