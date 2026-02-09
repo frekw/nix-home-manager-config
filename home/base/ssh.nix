@@ -26,7 +26,7 @@
   # };
 
   programs.ssh.enable = false;
-  home.packages = with pkgs; [ openssh ];
+  home.packages = with pkgs; if pkgs.stdenv.hostPlatform.isDarwin then [ ] else [ openssh ];
 
   # work around to get 600 permissions on .ssh/config
   home.file.".ssh/config_link" = {
@@ -48,6 +48,7 @@
       AddKeysToAgent yes
       UseKeychain yes
       IdentityFile ~/.ssh/id_ed25519
+
     '';
 
     onChange = ''

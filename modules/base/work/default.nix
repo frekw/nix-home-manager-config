@@ -15,6 +15,7 @@
 
   config = lib.mkIf config.modules.env.work.enable {
     environment.systemPackages = with pkgs; [
+      antigravity
       gemini-cli
     ];
 

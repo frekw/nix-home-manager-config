@@ -43,8 +43,8 @@
         ALLOW_CHEATS = "false";
         EULA = "TRUE";
         TYPE = "PAPER";
-        # PAPER_CHANNEL = "default";
-        PAPER_CHANNEL = "experimental";
+        PAPER_CHANNEL = "default";
+        # PAPER_CHANNEL = "experimental";
         DIFFICULTY = "easy";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
@@ -67,7 +67,8 @@
           "97edccda-abeb-42e7-8445-4983f1d05e36"
           "00000000-0000-0000-0009-01f5a548fbe9"
           "00000000-0000-0000-0009-01f17f0f6f84"
-          "c38fdca1-5d5a-4b69-8af6-d345d9f9feaf"
+          "c38fdca1-5d5a-4b69-8af6-d345d9f9feaf" # albin
+          "bf8c7d2a-660f-4abe-9331-5e60473611d1" # oliver
         ];
         SEED = "44647503765050661";
         PLUGINS = ''
