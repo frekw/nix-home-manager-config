@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     # Sets alias vim=nvim
@@ -8,7 +9,7 @@
 
     # Neovim plugins
     plugins = with pkgs.vimPlugins; [
-      ctrlp
+      ctrlp-vim
       editorconfig-vim
       gruvbox
       nerdtree
