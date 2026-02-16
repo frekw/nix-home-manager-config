@@ -45,7 +45,7 @@
         TYPE = "PAPER";
         PAPER_CHANNEL = "default";
         # PAPER_CHANNEL = "experimental";
-        DIFFICULTY = "easy";
+        DIFFICULTY = "normal";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
         VERSION = "1.21.11";
