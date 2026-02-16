@@ -17,6 +17,7 @@
     environment.systemPackages = with pkgs; [
       antigravity
       gemini-cli
+      opencode
     ];
 
     home-manager.users.${user.username} = {
