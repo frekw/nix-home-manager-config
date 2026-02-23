@@ -37,4 +37,6 @@ in
   "cf-tf/zone-id.age".publicKeys = allHosts;
 
   "minecraft/rcon.age".publicKeys = homeHosts;
+
+  "ai/gemini.age".publicKeys = workHosts;
 }

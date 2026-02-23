@@ -57,15 +57,18 @@
         MAX_MEMORY = "8G";
 
         ENABLE_WHITELIST = "true";
+        OPS = lib.concatStringsSep "," [
+
+        ];
         WHITELIST = lib.concatStringsSep "," [
-          "40e195fe-6fe9-4c31-a263-b446851bbe12"
+          "40e195fe-6fe9-4c31-a263-b446851bbe12" # silas
           "00000000-0000-0000-0009-01f9df2f1ded"
           "00000000-0000-0000-0009-01facc8a9af9"
           "81fcd61d-5091-450d-b7ee-7fc81bba5ca8"
           "00000000-0000-0000-0009-01f3ba3c24da"
           "13b08c97-0e84-4a56-b10c-a84bacac95ed"
           "97edccda-abeb-42e7-8445-4983f1d05e36"
-          "00000000-0000-0000-0009-01f5a548fbe9"
+          "00000000-0000-0000-0009-01f5a548fbe9" # harry
           "00000000-0000-0000-0009-01f17f0f6f84"
           "c38fdca1-5d5a-4b69-8af6-d345d9f9feaf" # albin
           "bf8c7d2a-660f-4abe-9331-5e60473611d1" # oliver
