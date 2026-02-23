@@ -13,6 +13,7 @@ in
 
   modules.dev.github.enable = true;
   modules.dev.melon-dance.enable = true;
+  modules.env.ai.enable = true;
   modules.env.work.enable = true;
   modules.programs.ghostty.enable = true;
 }

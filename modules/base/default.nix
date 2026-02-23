@@ -7,6 +7,7 @@
 }@args:
 {
   imports = [
+    ./ai
     ./ghostty
     ./github
     ./melon-dance

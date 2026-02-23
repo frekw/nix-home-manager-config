@@ -53,6 +53,7 @@
   modules.dev.melon-dance.enable = true;
   modules.dev.zed.enable = true;
 
+  modules.env.ai.enable = true;
   modules.env.work.enable = true;
 
   modules.programs.ghostty.enable = true;
