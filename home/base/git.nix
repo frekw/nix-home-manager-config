@@ -48,7 +48,16 @@
         };
       };
 
-      rerere.enabled = "true";
+      rebase = {
+        autoStash = "true";
+        updateRefs = "true";
+      };
+
+      rerere = {
+        enabled = "true";
+        autoUpdate = "true";
+      };
+
       commit.gpgsign = "false";
       # gpg.program = "gpg2";
 
