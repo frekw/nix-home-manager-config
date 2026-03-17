@@ -28,7 +28,23 @@
       config = {
         home.file.".config/opencode/opencode.json".text = builtins.toJSON {
           "$schema" = "https://opencode.ai/config.json";
-          plugin = [ "opencode-gemini-auth@latest" ];
+          plugin = [
+            "opencode-gemini-auth@latest"
+            "superpowers@git+https://github.com/obra/superpowers.git"
+          ];
+          mcp = {
+            soundtrack = {
+              enabled = true;
+              type = "local";
+              command = [
+                "/Users/fredrikw/src/work/soundtrack-mcp-server/target/release/soundtrack-mcp-server"
+              ];
+              environment = {
+                # SOUNDTRACK_TOKEN = "$(sybp get token)";
+                SOUNDTRACK_TOKEN = "eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzeWItbG9naW4iLCJzdWIiOiJWWE5sY2l3c01XcHFkWHBrWlRjNWVHTXYiLCJhdWQiOlsic3liLWNvcmUiXSwiZXhwIjoxNzczMzA0MjE1LCJpYXQiOjE3NzI2OTk0MTMsImp0aSI6IjZsQkxITW1iNFdYelpnUUhTOGl5YmYiLCJ0eXAiOiJzdXBlcnVzZXIifQ._De4NE3ijH17FB-Ph3vd03nJUmLrWsgJTFUgDrZElUCgdialbeNJStnGe6H7V7gRHQh7OmtjR9r5ppxdvOrtKw";
+              };
+            };
+          };
           provider = {
             google = {
               options = {

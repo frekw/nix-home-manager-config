@@ -8,7 +8,7 @@
 {
   programs.firefox = {
     enable = true;
-    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.darwinPackages.firefox else pkgs.firefox;
+    package = if pkgs.stdenv.hostPlatform.isDarwin then pkgs.firefox-bin else pkgs.firefox;
     policies = {
       DisableFirefoxStudies = true;
       DisablePocket = true;

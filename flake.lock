@@ -201,11 +201,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773608492,
-        "narHash": "sha256-QZteyExJYSQzgxqdsesDPbQgjctGG7iKV/6ooyQPITk=",
+        "lastModified": 1773681856,
+        "narHash": "sha256-+bRqxoFCJFO9ZTFhcCkzNXbDT3b8AEk88fyjB7Is6eo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9a40ec3b78fc688d0908485887d355caa5666d18",
+        "rev": "57d5560ee92a424fb71fde800acd6ed2c725dfce",
         "type": "github"
       },
       "original": {
@@ -233,11 +233,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1773644570,
-        "narHash": "sha256-sEyg00gqhRyrVC04+pTFDnhElAJMeEGY1Y8bzK2noEc=",
+        "lastModified": 1773756423,
+        "narHash": "sha256-nrDztft+jt/pNGijYHfCr9BdZpAO7AnZkwPW6WJiEfo=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "6a92d0e5d3fb0fc26ac418adfa5cd09fbb133c85",
+        "rev": "bf1d11541c8f941ac26d7946217fd369c9ed9e82",
         "type": "github"
       },
       "original": {
@@ -249,11 +249,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1773643742,
-        "narHash": "sha256-JiPkRiRmo+OBN16OzY2XyNbkxwB0UM1QRK7LfPk81Rg=",
+        "lastModified": 1773754941,
+        "narHash": "sha256-r6LhdxayxR6tGlpyxiLyQ3sLYkR9NGNXNHjHE3GAQlc=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "4d903874da94b602971a1b2896fe4d7533553c29",
+        "rev": "181bb2a3339b200152a839797b55e533550a9557",
         "type": "github"
       },
       "original": {
@@ -383,11 +383,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1773579282,
-        "narHash": "sha256-LWvZj9Bvm1EuoO6zbX4yjZebwnZNfeTbmCJGS7RGQ3Y=",
+        "lastModified": 1773646010,
+        "narHash": "sha256-iYrs97hS7p5u4lQzuNWzuALGIOdkPXvjz7bviiBjUu8=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5a88de74db0e948139be4b46f9a94d64aa11391c",
+        "rev": "5b2c2d84341b2afb5647081c1386a80d7a8d8605",
         "type": "github"
       },
       "original": {
@@ -437,11 +437,11 @@
       },
       "locked": {
         "dir": "pkgs/firefox-addons",
-        "lastModified": 1772656028,
-        "narHash": "sha256-aIKNEfH6pOB5K6b5pATJLndNAyRX1l28DPwq7KumDsw=",
+        "lastModified": 1773661557,
+        "narHash": "sha256-4vwz59H6qE77UZXcv23Q5pyq8/qC9UK2+7yI5hC5ctE=",
         "owner": "~rycee",
         "repo": "nur-expressions",
-        "rev": "76c2e5599604532644ad1d1c64c2385a4676f2d5",
+        "rev": "cd73982e721557fcea774dcf914d3c5627a8b64b",
         "type": "sourcehut"
       },
       "original": {

@@ -17,7 +17,7 @@
 
       darwinPackages = {
         altair = final.callPackage ./darwin/altair { };
-        firefox = final.callPackage ./darwin/firefox { };
+        # firefox = final.callPackage ./darwin/firefox { };
         obsidian = final.callPackage ./darwin/obsidian { };
         tunnelblick = final.callPackage ./darwin/tunnelblick { };
         vlc = final.callPackage ./darwin/vlc { };
