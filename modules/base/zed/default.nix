@@ -20,12 +20,12 @@
 
     home-manager.users.${user.username} = {
       home.packages = with pkgs; [
-        pkgs.unstable.zed
+        pkgs.unstable.zed-editor
       ];
 
       programs.zed-editor = {
         enable = true;
-        package = pkgs.unstable.zed;
+        package = pkgs.unstable.zed-editor;
 
         extensions = [
           "elixir"
