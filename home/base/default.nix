@@ -91,7 +91,6 @@
     yarn
     yq-go
     yt-dlp
-    unstable.zed-editor
     zlib
   ];
 }

@@ -19,8 +19,14 @@
     # Base16 Grayscale Dark
 
     home-manager.users.${user.username} = {
+      home.packages = with pkgs; [
+        pkgs.unstable.zed
+      ];
+
       programs.zed-editor = {
         enable = true;
+        package = pkgs.unstable.zed;
+
         extensions = [
           "elixir"
           "graphql"
