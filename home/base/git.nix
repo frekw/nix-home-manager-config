@@ -11,7 +11,7 @@
     gitmux
     # broken on macOS and not currently using it.
     # spr
-    pkgs.graphite-cli
+    unstable.graphite-cli
   ];
 
   programs.git = {
@@ -83,6 +83,7 @@
     ];
 
     signing = {
+      format = "openpgp";
       key = "456E7B9AD00B512DFF44ACC5F7CA7570539B75D1";
       signByDefault = true;
     };

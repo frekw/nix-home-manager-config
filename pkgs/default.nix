@@ -1,11 +1,17 @@
 {
   pkgs,
+  unstable,
   nix-alien,
   ...
 }:
 {
   nixpkgs.overlays = [
     (final: prev: {
+      unstable = import unstable {
+        system = prev.stdenv.hostPlatform.system;
+        config.allowUnfree = true;
+      };
+
       tfctl = final.callPackage ./tfctl { };
       adr = final.callPackage ./adr { };
       app-launcher = final.callPackage ./app-launcher { };

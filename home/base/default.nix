@@ -70,8 +70,7 @@
     clang-tools
     elixir
     fd
-    # ffmpeg
-    ffmpeg_7
+    ffmpeg
     gopls
     go-outline
     ginkgo
@@ -85,14 +84,14 @@
     ripgrep
     ruby
     scala
-    slack
+    unstable.slack
     syb-cli
     kube-context-switch
     tree
     yarn
     yq-go
     yt-dlp
-    zed-editor
+    unstable.zed-editor
     zlib
   ];
 }

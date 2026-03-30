@@ -1,6 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, unstabe, ... }:
 {
   programs.vscode = {
+    package = pkgs.unstable.vscode;
+
     enable = true;
     mutableExtensionsDir = false;
     profiles.default = {
