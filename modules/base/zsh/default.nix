@@ -31,6 +31,7 @@
 
         programs.fzf = {
           enable = true;
+          package = pkgs.unstable.fzf;
           enableZshIntegration = true;
         };
 
