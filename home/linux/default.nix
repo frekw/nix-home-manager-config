@@ -42,8 +42,8 @@
   };
 
   home.packages = with pkgs; [
-    _1password-cli
-    _1password-gui
+    unstable._1password-cli
+    unstable._1password-gui
     docker-compose
     ncspot
     obsidian

@@ -58,7 +58,6 @@
         autoUpdate = "true";
       };
 
-      commit.gpgsign = "false";
       # gpg.program = "gpg2";
 
       # TODO(linux)
@@ -83,8 +82,8 @@
     ];
 
     signing = {
-      format = "openpgp";
-      key = "456E7B9AD00B512DFF44ACC5F7CA7570539B75D1";
+      format = "ssh";
+      key = "~/.ssh/id_ed25519.pub";
       signByDefault = true;
     };
   };
