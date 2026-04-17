@@ -34,6 +34,18 @@
           })
         '';
       };
+
+      programs.nushell = {
+        extraConfig = ''
+          try {
+            let secret_path = "${config.home-manager.users.${user.username}.age.secrets.github-token.path}"
+            if($secret_path | path exists) {
+              let token = (open $secret_path | str trim)
+              load-env { GITHUB_TOKEN: $token }
+            }
+          }
+        '';
+      };
     };
   };
 }

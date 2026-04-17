@@ -16,4 +16,5 @@ in
   modules.env.ai.enable = true;
   modules.env.work.enable = true;
   modules.programs.ghostty.enable = true;
+  modules.programs.nushell.enable = true;
 }

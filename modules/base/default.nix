@@ -11,6 +11,7 @@
     ./ghostty
     ./github
     ./melon-dance
+    ./nushell
     ./work
     ./zed
     ./zsh
