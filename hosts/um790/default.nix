@@ -57,6 +57,7 @@
   modules.env.work.enable = true;
 
   modules.programs.ghostty.enable = true;
+  modules.programs.nushell.enable = true;
 
   modules.gaming.minecraft.enable = true;
 

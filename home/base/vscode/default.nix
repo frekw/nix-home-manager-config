@@ -7,7 +7,7 @@
     mutableExtensionsDir = false;
     profiles.default = {
       extensions =
-        with pkgs.vscode-extensions;
+        with pkgs.unstable.vscode-extensions;
         [
           # ms-python.python
           bazelbuild.vscode-bazel
