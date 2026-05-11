@@ -73,6 +73,9 @@
       userSettings = {
         "update.mode" = "none";
 
+        # Fix caps -> esc in linux
+        "keyboard.dispatch" = "keyCode";
+
         "[nix]"."editor.tabSize" = 2;
         "nix.enableLanguageServer" = true;
 
