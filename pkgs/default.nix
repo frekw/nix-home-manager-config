@@ -18,6 +18,7 @@
       kube-context-switch = final.callPackage ./kube-context-switch { };
       monaspace = final.callPackage ./monaspace { };
       pants = final.callPackage ./pants { inherit nix-alien; };
+      # pi-coding-agent-rust = final.callPackage ./pi-rust { };
       sloth = final.callPackage ./sloth { };
       syb-cli = final.callPackage ./syb-cli { };
 

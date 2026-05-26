@@ -45,9 +45,40 @@
         home-manager.users.${user.username} = {
           imports = [
             agenix.homeManagerModules.default
+            ./claude.nix
           ];
 
           config = {
+            home.file.".config/.pi/agent/models.json".text = builtins.toJSON {
+              providers = {
+                google = {
+                  apiKey = "$GEMINI_API_KEY";
+                  models = [
+                    {
+                      id = "gemini-3.1-pro-preview";
+                      name = "Gemini 3.1 Pro Preview";
+                      reasoning = true;
+                      input = [
+                        "text"
+                        "image"
+                      ];
+                      contextWindow = 1048576;
+
+                      maxTokens = 65536;
+                      cost = {
+                        input = 2;
+                        output = 12;
+                        cacheRead = 0.2;
+                        cacheWrite = 0;
+                      };
+                    }
+                  ];
+                  api = "google-generative-ai";
+                  baseUrl = "https://generativelanguage.googleapis.com/v1beta";
+                };
+              };
+            };
+
             home.file.".config/opencode/opencode.json".text = builtins.toJSON {
               "$schema" = "https://opencode.ai/config.json";
               plugin = [
