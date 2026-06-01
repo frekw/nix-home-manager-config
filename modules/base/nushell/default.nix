@@ -27,12 +27,23 @@
           enable = true;
         };
 
+        programs.carapace = {
+          enable = true;
+          enableNushellIntegration = false;
+        };
+
         programs.nushell = {
           enable = true;
           settings = {
             edit_mode = "vi";
             show_banner = false;
           };
+          extraEnv = ''
+            # Fall back on other shells if Carapace doesn't have a native completion
+            $env.CARAPACE_BRIDGES = 'zsh,fish,bash'
+            # Prevent Carapace from throwing errors on unrecognized shorthand flags
+            $env.CARAPACE_LENIENT = 1
+          '';
           extraConfig = lib.concatStringsSep "\n" [
             ''
               # Define the left prompt
@@ -63,6 +74,43 @@
                 nix-switch
                 nix-collect-garbage
               }
+
+
+              # Define the core Carapace completion engine
+              let carapace_completer = {|spans: list<string>|
+                carapace $spans.0 nushell ...$spans | from json
+              }
+
+              # Smart completer wrapper that expands aliases before running Carapace
+              let external_completer = {|spans|
+                let expanded_alias = (scope aliases | where name == $spans.0 | get -o 0 | get -o expansion)
+                
+                let spans = if $expanded_alias != null {
+                  $spans | skip 1 | prepend ($expanded_alias | split row ' ')
+                } else {
+                  $spans
+                }
+
+                match $spans.0 {
+                  _ => $carapace_completer
+                } | do $in $spans
+              }
+
+              # Safely merge our new external completer into the existing Nushell config
+              $env.config = (
+                $env.config
+                | upsert completions (
+                    $env.config.completions? 
+                    | default {} 
+                    | merge {
+                        external: {
+                          enable: true
+                          max_results: 100
+                          completer: $external_completer
+                        }
+                      }
+                  )
+              )
             ''
 
             (
