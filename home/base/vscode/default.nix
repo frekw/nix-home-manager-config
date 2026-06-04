@@ -1,4 +1,7 @@
 { pkgs, unstabe, ... }:
+let
+  belt = pkgs.callPackage ./plugins/belt { };
+in
 {
   programs.vscode = {
     package = pkgs.unstable.vscode;
@@ -9,24 +12,26 @@
       extensions =
         with pkgs.unstable.vscode-extensions;
         [
-          # ms-python.python
-          bazelbuild.vscode-bazel
+          # bazelbuild.vscode-bazel
+          # ocamllabs.ocaml-platform
+          belt
+          bierner.markdown-mermaid
           bradlc.vscode-tailwindcss
           brettm12345.nixfmt-vscode
-          elixir-lsp.vscode-elixir-ls
+          drblury.protobuf-vsc
           elixir-lsp.vscode-elixir-ls
           esbenp.prettier-vscode
-          github.copilot
           github.copilot-chat
           github.vscode-github-actions
           golang.go
           graphql.vscode-graphql
           graphql.vscode-graphql-syntax
+          hashicorp.hcl
+          hashicorp.hcl
           hashicorp.terraform
           jnoortheen.nix-ide
           mkhl.direnv
-          # ms-python.python
-          ocamllabs.ocaml-platform
+          ms-python.python
           redhat.vscode-yaml
           rust-lang.rust-analyzer
           scala-lang.scala
@@ -47,26 +52,20 @@
           {
             name = "authzed";
             publisher = "chiperific";
-            version = "1.1.0";
+            version = "1.1.1";
             sha256 = "sha256-GmZowlnf+0JjN5ilR5aWZyR06pQKzuydhCeEWXnRvfs=";
           }
           {
             name = "gti-vscode";
             publisher = "Graphite";
-            version = "0.6.1";
+            version = "0.7.78";
             sha256 = "sha256-gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
           }
           {
             name = "moonbit-lang";
             publisher = "moonbit";
-            version = "0.1.202505082";
+            version = "0.7.2026060201";
             sha256 = "sha256-ur5kFmdL8E9wVjFT9z52+JUddi0ypv5PHExqLhQUnEk=";
-          }
-          {
-            name = "triggertaskonsave";
-            publisher = "Gruntfuggly";
-            version = "0.2.17";
-            sha256 = "sha256-ax/hkewlH0K+sLkFAvgofD6BjEheRYObAAvt8MA3pqc=";
           }
         ];
 
