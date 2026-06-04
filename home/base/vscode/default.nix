@@ -40,7 +40,6 @@ in
           vscodevim.vim
           vspacecode.vspacecode
           vspacecode.whichkey
-          zxh404.vscode-proto3
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
