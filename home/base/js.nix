@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     bun
     # deno
-    nodePackages_latest.pnpm
+    pnpm
     nodejs_latest
   ];
 }

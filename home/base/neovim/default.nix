@@ -4,6 +4,8 @@
     enable = true;
     # Sets alias vim=nvim
     vimAlias = true;
+    withRuby = false;
+    withPython3 = false;
 
     extraConfig = (builtins.readFile ./.vimrc);
 

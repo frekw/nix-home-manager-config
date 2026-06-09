@@ -52,19 +52,19 @@ in
             name = "authzed";
             publisher = "chiperific";
             version = "1.1.1";
-            sha256 = "sha256-GmZowlnf+0JjN5ilR5aWZyR06pQKzuydhCeEWXnRvfs=";
+            sha256 = "sha256-qq5u/KMHrktMpLbGt0/3xTjXL+sI85rKmlYI5U5ibt4=";
           }
           {
             name = "gti-vscode";
             publisher = "Graphite";
             version = "0.7.78";
-            sha256 = "sha256-gGpWj1iVz6nYgMk7RuYgvIf9E8Yq0lt9PZnhLLDO7So=";
+            sha256 = "sha256-9kqklXt2yi3h3bqQQ3p0dvW03m0HlcUWAgEXogffpKM=";
           }
           {
             name = "moonbit-lang";
             publisher = "moonbit";
             version = "0.7.2026060201";
-            sha256 = "sha256-ur5kFmdL8E9wVjFT9z52+JUddi0ypv5PHExqLhQUnEk=";
+            sha256 = "sha256-ze3shn25Pz/ro9cXVlgQDpdy6b08cNxYYLG7o556qBM=";
           }
         ];
 

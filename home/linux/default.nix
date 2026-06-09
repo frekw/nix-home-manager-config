@@ -36,8 +36,10 @@
       name = "BerkeleyMono-Regular";
     };
 
-    theme = {
-      name = "Adwaita Dark";
+    gtk4 = {
+      theme = {
+        name = "Adwaita Dark";
+      };
     };
   };
 
