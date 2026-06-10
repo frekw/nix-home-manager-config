@@ -34,7 +34,7 @@
           "org,repos,issues,pull_requests"
         ];
         env = {
-          GITHUB_PERSONAL_ACCESS_TOKEN = "{env:GITHUB_TOKEN}";
+          GITHUB_PERSONAL_ACCESS_TOKEN = "\${GITHUB_TOKEN}";
         };
       };
       grafana = {
@@ -44,7 +44,7 @@
         ];
         env = {
           GRAFANA_URL = "https://grafana.monitoring-us.infrastructure.production.internal.syb.sh";
-          GRAFANA_SERVICE_ACCOUNT_TOKEN = "{env:GRAFANA_TOKEN}";
+          GRAFANA_SERVICE_ACCOUNT_TOKEN = "\${GRAFANA_TOKEN}";
         };
       };
     };
