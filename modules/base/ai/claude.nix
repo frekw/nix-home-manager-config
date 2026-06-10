@@ -14,9 +14,7 @@
 
   programs.zsh = {
     initContent = ''
-      export GRAFANA_TOKEN=$(${pkgs.coreutils}/bin/cat ${
-        config.age.secrets.grafana-token.path
-      })
+      export GRAFANA_TOKEN=$(${pkgs.coreutils}/bin/cat ${config.age.secrets.grafana-token.path})
     '';
   };
 
@@ -45,7 +43,8 @@
           "stdio"
         ];
         env = {
-          GRAFANA_API_KEY = "{env:GRAFANA_TOKEN}";
+          GRAFANA_URL = "https://grafana.monitoring-us.infrastructure.production.internal.syb.sh";
+          GRAFANA_SERVICE_ACCOUNT_TOKEN = "{env:GRAFANA_TOKEN}";
         };
       };
     };
