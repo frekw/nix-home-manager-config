@@ -6,7 +6,7 @@
 
 let
   packageJson = builtins.fromJSON (builtins.readFile ./package.json);
-  version = "0.0.11";
+  version = "0.0.12";
   vsix = ./. + "/belt-vscode-${version}.vsix";
   vscodeExtPublisher = "soundtrack";
   vscodeExtName = "belt-vscode";
