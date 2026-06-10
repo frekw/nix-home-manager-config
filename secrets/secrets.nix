@@ -27,6 +27,7 @@ in
   "s-staging.age".publicKeys = workHosts;
   "terraformrc.age".publicKeys = workHosts;
   "npmrc.age".publicKeys = workHosts;
+  "grafana-token.age".publicKeys = workHosts;
 
   "restic/env.age".publicKeys = homeHosts;
   "restic/repo.age".publicKeys = homeHosts;

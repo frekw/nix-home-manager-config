@@ -1,7 +1,24 @@
-{ pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  ...
+}:
 {
 
-  home.packages = with pkgs; [ github-mcp-server ];
+  home.packages = with pkgs; [
+    github-mcp-server
+    mcp-grafana
+  ];
+
+  age.secrets.grafana-token.file = ../../../secrets/grafana-token.age;
+
+  programs.zsh = {
+    initContent = ''
+      export GRAFANA_TOKEN=$(${pkgs.coreutils}/bin/cat ${
+        config.age.secrets.grafana-token.path
+      })
+    '';
+  };
 
   programs.claude-code = {
     enable = true;
@@ -20,6 +37,15 @@
         ];
         env = {
           GITHUB_PERSONAL_ACCESS_TOKEN = "{env:GITHUB_TOKEN}";
+        };
+      };
+      grafana = {
+        command = "${pkgs.mcp-grafana}/bin/mcp-grafana";
+        args = [
+          "stdio"
+        ];
+        env = {
+          GRAFANA_API_KEY = "{env:GRAFANA_TOKEN}";
         };
       };
     };
