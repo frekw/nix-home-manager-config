@@ -4,10 +4,12 @@
   config,
   agenix,
   user,
-  options,
   ...
 }:
 {
+  # ollama disabled for now — fails to build on macOS
+  # imports = [ ./ollama.nix ];
+
   options.modules.env = {
     ai = {
       enable = lib.mkEnableOption "AI tools";
@@ -16,31 +18,12 @@
 
   config = lib.mkIf config.modules.env.ai.enable (
     lib.mkMerge [
-      # services.ollama doesn't exist on Darwin
-      (lib.optionalAttrs (options.services ? ollama) {
-        services.ollama = {
-          enable = true;
-          package = pkgs.unstable.ollama;
-          syncModels = true;
-          loadModels = [
-            "devstral-small-2:24b"
-            "nemotron-3-nano:30b"
-            "gpt-oss:20b"
-            "qwen3-coder:30b"
-          ];
-        };
-      })
       {
-        environment.systemPackages =
-          with pkgs.unstable;
-          [
-            antigravity
-            gemini-cli
-            opencode
-          ]
-          ++ lib.optionals (stdenv.isDarwin) [
-            pkgs.unstable.ollama
-          ];
+        environment.systemPackages = with pkgs.unstable; [
+          antigravity
+          gemini-cli
+          opencode
+        ];
 
         home-manager.users.${user.username} = {
           imports = [
@@ -188,7 +171,6 @@
 
             programs.zsh = {
               initContent = ''
-                export OLLAMA_KEEP_ALIVE=0
                 export GEMINI_API_KEY=$(${pkgs.coreutils}/bin/cat ${
                   config.home-manager.users.${user.username}.age.secrets.geminiKey.path
                 })

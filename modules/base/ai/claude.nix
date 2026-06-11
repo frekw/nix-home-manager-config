@@ -47,6 +47,10 @@
           GRAFANA_SERVICE_ACCOUNT_TOKEN = "\${GRAFANA_TOKEN}";
         };
       };
+      linear = {
+        type = "sse";
+        url = "https://mcp.linear.app/sse";
+      };
     };
   };
 }
