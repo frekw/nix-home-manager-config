@@ -25,7 +25,6 @@
 
     home-manager.users.${user.username} = {
       imports = [
-        agenix.homeManagerModules.default
         ./claude.nix
         ./opencode.nix
         ./pi.nix

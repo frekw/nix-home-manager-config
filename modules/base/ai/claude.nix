@@ -1,9 +1,14 @@
 {
   config,
   pkgs,
+  agenix,
   ...
 }:
 {
+
+  imports = [
+    agenix.homeManagerModules.default
+  ];
 
   home.packages = with pkgs; [
     github-mcp-server

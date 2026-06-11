@@ -1,9 +1,14 @@
 {
   config,
   pkgs,
+  agenix,
   ...
 }:
 {
+  imports = [
+    agenix.homeManagerModules.default
+  ];
+
   home.file.".config/opencode/opencode.json".text = builtins.toJSON {
     "$schema" = "https://opencode.ai/config.json";
     plugin = [
