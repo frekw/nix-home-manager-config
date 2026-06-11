@@ -53,6 +53,7 @@
   modules.dev.zed.enable = true;
 
   modules.env.ai.enable = true;
+  modules.env.ai.ollama.enable = true;
   modules.env.work.enable = true;
 
   modules.programs.ghostty.enable = true;

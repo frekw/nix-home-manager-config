@@ -7,7 +7,7 @@
   ...
 }:
 {
-  config = lib.mkIf config.modules.env.ai.enable (
+  config = lib.mkIf (config.modules.env.ai.enable && config.modules.env.ai.ollama.enable) (
     lib.mkMerge [
       # services.ollama doesn't exist on Darwin
       (lib.optionalAttrs (options.services ? ollama) {
