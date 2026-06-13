@@ -53,8 +53,8 @@
         };
       };
       linear = {
-        type = "sse";
-        url = "https://mcp.linear.app/sse";
+        type = "http";
+        url = "https://mcp.linear.app/mcp";
       };
     };
   };

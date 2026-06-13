@@ -49,7 +49,7 @@
         ENFORCE_SECURE_PROFILE = "false";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
-        VERSION = "1.21.11";
+        VERSION = "26.1.2";
 
         ENABLE_RCON = "true";
         RCON_PORT = "25575";
