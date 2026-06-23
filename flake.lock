@@ -263,22 +263,6 @@
         "type": "github"
       }
     },
-    "homebrew-multi-gitter": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1778440030,
-        "narHash": "sha256-m/3wuoxqWTuOptJinBoZVqc+NmnakqDUxHXF7X1MqPo=",
-        "owner": "lindell",
-        "repo": "homebrew-multi-gitter",
-        "rev": "5036208a8974648555732d3d7535bbbe7da416c2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "lindell",
-        "repo": "homebrew-multi-gitter",
-        "type": "github"
-      }
-    },
     "nix-alien": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -424,7 +408,6 @@
         "homebrew-bundle": "homebrew-bundle",
         "homebrew-cask": "homebrew-cask",
         "homebrew-core": "homebrew-core",
-        "homebrew-multi-gitter": "homebrew-multi-gitter",
         "nix-alien": "nix-alien",
         "nix-darwin": "nix-darwin",
         "nix-homebrew": "nix-homebrew",

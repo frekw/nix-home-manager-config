@@ -27,15 +27,14 @@
     enable = true;
     package = pkgs.unstable.claude-code;
 
-    # plugins = [
-    #   pkgs.fetchFromGitHub
-    #   {
-    #     owner = "obra";
-    #     repo = "superpowers";
-    #     rev = "8cf39006140a743dce31ba4046fceab90cc214e6";
-    #     sha256 = "228fdd7e5908ea1d2f65218ecd9c71e1eefa0834d200d55fbb8bf8b5563acec0";
-    #   }
-    # ];
+    plugins = [
+      (pkgs.fetchFromGitHub {
+        owner = "obra";
+        repo = "superpowers";
+        rev = "896224c4b1879920ab573417e68fd51d2ccc9072"; # v6.0.3
+        hash = "sha256-+lT2a/qq0SF4k0PgnEDKiuidVlZX2p0vEso4d/5T1os=";
+      })
+    ];
 
     mcpServers = {
       github = {

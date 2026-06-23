@@ -8,6 +8,7 @@
 {
   imports = [
     ./ai
+    ./cloudflare-warp
     ./ghostty
     ./github
     ./melon-dance
