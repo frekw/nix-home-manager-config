@@ -41,6 +41,7 @@
 
       environment = {
         ALLOW_CHEATS = "false";
+        ALLOW_FLIGHT = "TRUE";
         EULA = "TRUE";
         TYPE = "PAPER";
         PAPER_CHANNEL = "default";
