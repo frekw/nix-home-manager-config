@@ -18,7 +18,7 @@
 
   config = lib.mkIf config.modules.env.ai.enable {
     environment.systemPackages = with pkgs.unstable; [
-      antigravity
+      antigravity-ide
       gemini-cli
       opencode
     ];

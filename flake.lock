@@ -163,11 +163,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1781012796,
-        "narHash": "sha256-56gLrg4csXk4QHMEpp7iwVIGbyZ8kqrZWILrJN2thzY=",
+        "lastModified": 1786347550,
+        "narHash": "sha256-2N2amhDyKnwKl73lg4cT/PNkLEHmumeQNMh58LDTkLg=",
         "ref": "refs/heads/main",
-        "rev": "75db5db070c8549da43b5915433bffd116ed5327",
-        "revCount": 37,
+        "rev": "f3525fbda83c1b19a5e9db7c85d041efa2ceccea",
+        "revCount": 39,
         "type": "git",
         "url": "ssh://git@github.com/frekw/fonts.git"
       },
@@ -237,11 +237,11 @@
     "homebrew-cask": {
       "flake": false,
       "locked": {
-        "lastModified": 1786339969,
-        "narHash": "sha256-gjQZYFKz7OZ29OZs7Czm3HA+xwXC8y2tEoL2u7PDvtU=",
+        "lastModified": 1786347136,
+        "narHash": "sha256-NYDuz5SxuEhLhT9q1h9tU1s8iHls8ry+kMZudXNC+f0=",
         "owner": "homebrew",
         "repo": "homebrew-cask",
-        "rev": "9bb1cbc735601ba51d00ba71c45384e6573e9fc1",
+        "rev": "3390c6346a2f105f5689c055d89b4454f2123e9f",
         "type": "github"
       },
       "original": {
@@ -253,11 +253,11 @@
     "homebrew-core": {
       "flake": false,
       "locked": {
-        "lastModified": 1786341427,
-        "narHash": "sha256-oW9aCYOE1hyUWspjEnwaGZqrGl84W6FiKTWrtou8qCg=",
+        "lastModified": 1786345278,
+        "narHash": "sha256-DL7VNgZlCLVl+HKV9DSIaPIpB6LoJmH0FHQVkkgk6KM=",
         "owner": "homebrew",
         "repo": "homebrew-core",
-        "rev": "37ee3cdea622be9c8fb399840325aea317afb1d0",
+        "rev": "c6dfd15274760f9653d3769004c078a25cee84ed",
         "type": "github"
       },
       "original": {

@@ -58,7 +58,7 @@ in
             name = "gti-vscode";
             publisher = "Graphite";
             version = "0.7.78";
-            sha256 = "sha256-9kqklXt2yi3h3bqQQ3p0dvW03m0HlcUWAgEXogffpKM=";
+            sha256 = "sha256-YVEtDyH8xAqwWm1Fpa8DBNZVfqnySmeWmDh6Bz4lW2M=";
           }
           {
             name = "moonbit-lang";
