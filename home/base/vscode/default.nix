@@ -54,12 +54,25 @@ in
             version = "1.1.1";
             sha256 = "sha256-qq5u/KMHrktMpLbGt0/3xTjXL+sI85rKmlYI5U5ibt4=";
           }
-          {
-            name = "gti-vscode";
-            publisher = "Graphite";
-            version = "0.7.78";
-            sha256 = "sha256-YVEtDyH8xAqwWm1Fpa8DBNZVfqnySmeWmDh6Bz4lW2M=";
-          }
+          (
+            {
+              name = "gti-vscode";
+              publisher = "Graphite";
+              version = "0.7.78";
+            }
+            // (
+              if pkgs.stdenv.hostPlatform.isDarwin then
+                {
+                  arch = "darwin-arm64";
+                  sha256 = "sha256-9kqklXt2yi3h3bqQQ3p0dvW03m0HlcUWAgEXogffpKM=";
+                }
+              else
+                {
+                  arch = "linux-x64";
+                  sha256 = "sha256-YVEtDyH8xAqwWm1Fpa8DBNZVfqnySmeWmDh6Bz4lW2M=";
+                }
+            )
+          )
           {
             name = "moonbit-lang";
             publisher = "moonbit";
