@@ -1,9 +1,14 @@
 {
   config,
+  lib,
   pkgs,
   agenix,
   ...
 }:
+let
+  # Skills vendored from github.com/cursor/plugins (pstack). See claude-skills/VENDOR.md.
+  claudeSkills = ./claude-skills;
+in
 {
 
   imports = [
@@ -36,6 +41,11 @@
       })
     ];
 
+    # Every directory under ./claude-skills becomes ~/.claude/skills/<name>/.
+    skills = lib.mapAttrs (name: _: claudeSkills + "/${name}") (
+      lib.filterAttrs (_: type: type == "directory") (builtins.readDir claudeSkills)
+    );
+
     mcpServers = {
       github = {
         command = "${pkgs.github-mcp-server}/bin/github-mcp-server";
@@ -57,6 +67,12 @@
           GRAFANA_URL = "https://grafana.monitoring-us.infrastructure.production.internal.syb.sh";
           GRAFANA_SERVICE_ACCOUNT_TOKEN = "\${GRAFANA_TOKEN}";
         };
+      };
+      # beat static-app host MCP server (staging). WARP-only — the host resolves to
+      # an internal VIP reachable solely over WARP; beat's own OAuth gates access.
+      beat = {
+        type = "http";
+        url = "https://beat-mcp.staging.soundtr.ac/mcp";
       };
       linear = {
         type = "http";

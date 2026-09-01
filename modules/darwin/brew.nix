@@ -23,6 +23,7 @@
       "1password"
       "altair-graphql-client"
       "balenaetcher"
+      "claude"
       "dropbox"
       "figma"
       "heynote"

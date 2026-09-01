@@ -25,7 +25,7 @@
   virtualisation.oci-containers.containers = {
     minecraft = {
       serviceName = "minecraft";
-      image = "itzg/minecraft-server:2026.3.3";
+      image = "itzg/minecraft-server:2026.8.1";
       ports = [
         "0.0.0.0:25565:25565"
         "0.0.0.0:25575:25575"
@@ -50,7 +50,7 @@
         ENFORCE_SECURE_PROFILE = "false";
         SERVER_NAME = "minecreft";
         TZ = "Europe/Paris";
-        VERSION = "26.2";
+        VERSION = "LATEST";
 
         ENABLE_RCON = "true";
         RCON_PORT = "25575";
