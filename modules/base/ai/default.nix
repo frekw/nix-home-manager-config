@@ -21,6 +21,7 @@
       antigravity-ide
       gemini-cli
       opencode
+      pi-coding-agent
     ];
 
     home-manager.users.${user.username} = {
