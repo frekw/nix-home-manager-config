@@ -56,6 +56,11 @@ Two changes went beyond substitution:
 - **`arena` candidate isolation.** Phase A wanted "a git worktree where possible". That is now
   named outright as the Agent tool's `isolation: "worktree"`.
 
+## Additional skills
+
+- `improve-codebase-architecture` & `codebase-design`: Vendored from `mattpocock/skills` (MIT licensed).
+  Surface architectural friction, propose deepening opportunities as an HTML visual report, and design deep module interfaces.
+
 ## Re-syncing
 
 ```sh
