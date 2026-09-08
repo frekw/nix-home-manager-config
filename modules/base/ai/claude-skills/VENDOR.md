@@ -60,6 +60,8 @@ Two changes went beyond substitution:
 
 - `improve-codebase-architecture` & `codebase-design`: Vendored from `mattpocock/skills` (MIT licensed).
   Surface architectural friction, propose deepening opportunities as an HTML visual report, and design deep module interfaces.
+- `grill-me`, `grilling`, `grill-with-docs`, & `domain-modeling`: Vendored from `mattpocock/skills` (MIT licensed).
+  Relentless interview loops to stress-test designs and plans, with active domain modeling (glossaries in CONTEXT.md and decision records in docs/adr/).
 
 ## Re-syncing
 
