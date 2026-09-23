@@ -19,7 +19,6 @@
   config = lib.mkIf config.modules.env.ai.enable {
     environment.systemPackages = with pkgs.unstable; [
       antigravity-ide
-      gemini-cli
       opencode
       pi-coding-agent
     ];
