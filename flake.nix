@@ -72,6 +72,12 @@
       url = "github:zhaofengli/colmena";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Official Claude Desktop Linux beta, repackaged from Anthropic's Debian repo
+    claude-desktop = {
+      url = "github:poeck/claude-desktop-nix-flake";
+      inputs.nixpkgs.follows = "unstable";
+    };
   };
 
   outputs =

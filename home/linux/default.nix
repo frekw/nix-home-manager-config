@@ -3,6 +3,7 @@
   pkgs,
   config,
   fonts,
+  claude-desktop,
   ...
 }:
 {
@@ -51,5 +52,6 @@
     obsidian
     spotify
     pants
+    claude-desktop.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
