@@ -143,8 +143,8 @@
         "syntax": {
           "attribute": { "color": "#969696" },
           "boolean": { "color": "#ffffff" },
-          "comment": { "color": "#7a7a7a", "font_style": "italic" },
-          "comment.doc": { "color": "#8a8a8a", "font_style": "italic" },
+          "comment": { "color": "#7a7a7a", "font_style": "normal" },
+          "comment.doc": { "color": "#8a8a8a", "font_style": "normal" },
           "constant": { "color": "#ffffff" },
           "constructor": { "color": "#969696" },
           "embedded": { "color": "#ffffff" },
