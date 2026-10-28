@@ -25,7 +25,7 @@
   virtualisation.oci-containers.containers = {
     minecraft = {
       serviceName = "minecraft";
-      image = "itzg/minecraft-server:2026.8.1";
+      image = "itzg/minecraft-server:2026.10.1";
       ports = [
         "0.0.0.0:25565:25565"
         "0.0.0.0:25575:25575"
