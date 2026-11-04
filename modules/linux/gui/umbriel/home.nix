@@ -14,6 +14,8 @@ let
   tomlFormat = pkgs.formats.toml { };
 
   noctaliaMsg = cmd: "spawn noctalia msg ${cmd}";
+  # Screenshots default to clipboard only (shell.screenshot.save_to_file = false).
+  saveShot = "--save-to-file --no-copy-to-clipboard";
   once = action: {
     inherit action;
     repeat = false;
@@ -163,7 +165,15 @@ let
         "Alt+Tab" = noctaliaMsg "window-switcher hold";
         "Alt+Shift+Tab" = noctaliaMsg "window-switcher hold reverse";
         "Print" = once (noctaliaMsg "screenshot-region");
+        # macOS-style screenshot keys, flipped so the common case is shorter:
+        # Mod+Shift+<key> copies to the clipboard, adding Ctrl saves to ~/Pictures
+        # instead. S region, A whole monitor, W window.
         "Mod+Shift+S" = once (noctaliaMsg "screenshot-region");
+        "Mod+Ctrl+Shift+S" = once (noctaliaMsg "screenshot-region ${saveShot}");
+        "Mod+Shift+A" = once (noctaliaMsg "screenshot-fullscreen");
+        "Mod+Ctrl+Shift+A" = once (noctaliaMsg "screenshot-fullscreen ${saveShot}");
+        "Mod+Shift+W" = once (noctaliaMsg "screenshot-window");
+        "Mod+Ctrl+Shift+W" = once (noctaliaMsg "screenshot-window ${saveShot}");
 
         # Session
         "Mod+Escape" = once (noctaliaMsg "session lock");
@@ -298,6 +308,7 @@ in
       settings = {
         shell = {
           font_family = "SF Pro";
+          screenshot.save_to_file = false;
           polkit_agent = true;
           umbriel_overview_type_to_launch_enabled = true;
           umbriel_overview_close_on_launch_enabled = true;
