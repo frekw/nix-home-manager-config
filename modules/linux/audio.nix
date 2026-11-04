@@ -30,27 +30,24 @@
     extraConfig = {
       pipewire = {
 
-        default = {
-          clock.rate = 48000;
-          clock.allowed-rates = [
-            44100
-            48000
-            96000
-            192000
-          ];
-          clock.quantum = 1024;
-          clock.min-quantum = 16;
-          clock.max-quantum = 4096;
-          clock.quantum-limit = 8192;
-          video.width = 640;
-          video.height = 480;
-          video.rate.num = 25;
-          video.rate.denom = 1;
-        };
-
-        settings = {
-          check-quantum = false;
-          check-rate = false;
+        # Let the output follow the source's sample rate instead of resampling
+        # everything to 48 kHz, so 44.1 kHz music reaches the DAC untouched and
+        # hi-res files play at their own rate. PipeWire only switches rate while
+        # the device is idle; mixed sources play at the current rate.
+        # (Settings must sit under context.properties; top-level keys like
+        # `clock.rate` are silently ignored, which is what this file had before.)
+        "10-sample-rates" = {
+          "context.properties" = {
+            "default.clock.rate" = 48000;
+            "default.clock.allowed-rates" = [
+              44100
+              48000
+              88200
+              96000
+              176400
+              192000
+            ];
+          };
         };
 
         "10-airplay" = {
@@ -64,11 +61,6 @@
               # };
             }
           ];
-        };
-
-        # These overrides are only applied when running in a vm.
-        vm.overrides = {
-          default.clock.min-quantum = 1024;
         };
       };
     };
