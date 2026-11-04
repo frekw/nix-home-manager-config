@@ -309,13 +309,15 @@ in
           ++ lib.optional ghostty "ghostty";
         };
 
-        # COSMIC-style top panel: edge to edge, workspaces in the middle.
+        # Full-width bar, with workspaces in the middle.
         bar.main = {
           position = "top";
-          thickness = 32;
-          radius = 0;
+          thickness = 30;
           margin_ends = 0;
-          margin_edge = 0;
+          radius = 0;
+          # Defaults are 6 and 14, which crowd the status icons.
+          widget_spacing = 14;
+          padding = 16;
           start = [
             "launcher"
             "active_window"
@@ -335,7 +337,6 @@ in
             "notifications"
             "worldclock"
             "clock"
-            "control-center"
             "session"
           ];
         };
@@ -347,6 +348,8 @@ in
           "noctalia/world_clock"
         ];
         widget.umbriel.type = "noctalia/umbriel-companion:bar";
+        # Drop the "Nothing Playing" placeholder; paused players still show.
+        widget.media.hide_when_no_media = true;
         # The zone list lives in the plugin's data dir, not here; it's managed
         # from the panel or `noctalia msg plugin noctalia/world_clock:service all add <zone>`.
         widget.worldclock = {
@@ -387,6 +390,15 @@ in
     };
 
     dconf.settings."org/gnome/desktop/interface".color-scheme = "prefer-dark";
+
+    # nm-applet's autostart entry only skips KDE, GNOME and COSMIC, so under
+    # Umbriel it puts a second Wi-Fi icon next to Noctalia's network widget.
+    xdg.configFile."autostart/nm-applet.desktop".text = ''
+      [Desktop Entry]
+      Type=Application
+      Name=NetworkManager Applet
+      Hidden=true
+    '';
 
     # Ghostty's config is a read-only Home Manager symlink. Noctalia's template
     # hook only tries to edit it when the theme line isn't already exactly
