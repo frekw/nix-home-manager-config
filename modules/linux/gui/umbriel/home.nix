@@ -186,6 +186,12 @@ let
         "Mod+Ctrl+Equal" = "window-modify-secondary-extent +0.05";
         "Mod+R" = "window-cycle-primary-extent";
 
+        # Scratchpad: windows stored off-workspace, shown and hidden together.
+        "Mod+Shift+Space" = once "window-move-to-scratchpad";
+        "Mod+Space" = once "scratchpad-toggle";
+        "Mod+Ctrl+Space" = once "window-restore-from-scratchpad";
+        "Mod+Tab" = "scratchpad-focus-next";
+
         # Layout (COSMIC: Super+Y toggles tiling, Super+O flips orientation)
         "Mod+Y" = once "workspace-set-layout toggle ${cfg.layout} stacking";
         # Flip between scrolling and tiling while deciding which to keep.
