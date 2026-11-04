@@ -73,6 +73,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # Umbriel compositor + Noctalia shell. Not following nixpkgs so the
+    # projects' cachix caches get hits.
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+    };
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia";
+    };
+
+    noctalia-greeter = {
+      url = "github:noctalia-dev/noctalia-greeter";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    umbriel-shaders = {
+      url = "github:noctalia-dev/community-umbriel-shaders";
+      flake = false;
+    };
+
     # Official Claude Desktop Linux beta, repackaged from Anthropic's Debian repo
     claude-desktop = {
       url = "github:poeck/claude-desktop-nix-flake";

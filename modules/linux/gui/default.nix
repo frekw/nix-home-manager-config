@@ -6,6 +6,7 @@
   imports = [
     ./cosmic
     ./hyprland
+    ./umbriel
     ./wayland
     ./steam
   ];

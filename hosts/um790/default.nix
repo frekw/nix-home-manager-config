@@ -15,9 +15,6 @@
   # services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = false;
@@ -46,6 +43,7 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
   modules.desktop.cosmic.enable = true;
+  modules.desktop.umbriel.enable = true;
   modules.desktop.hyprland.enable = false;
 
   modules.dev.github.enable = true;
