@@ -112,6 +112,8 @@ let
       };
     };
 
+    output = cfg.outputs;
+
     environment = {
       ELECTRON_OZONE_PLATFORM_HINT = "auto";
       NIXOS_OZONE_WL = "1";
@@ -190,8 +192,9 @@ let
         "Mod+Comma" = once (noctaliaMsg "settings-toggle");
         # Umbriel's overlay listing every active keybind.
         "Mod+Slash" = once "cheatsheet-toggle";
-        "Alt+Tab" = noctaliaMsg "window-switcher hold";
-        "Alt+Shift+Tab" = noctaliaMsg "window-switcher hold reverse";
+        # Most-recently-used order (shell.window_switcher.mru), like macOS Cmd+Tab.
+        "Mod+Tab" = noctaliaMsg "window-switcher hold";
+        "Mod+Shift+Tab" = noctaliaMsg "window-switcher hold reverse";
         "Print" = once (noctaliaMsg "screenshot-region");
         # macOS-style screenshot keys, flipped so the common case is shorter:
         # Mod+Shift+<key> copies to the clipboard, adding Ctrl saves to ~/Pictures
@@ -228,7 +231,7 @@ let
         "Mod+Shift+Space" = once "window-move-to-scratchpad";
         "Mod+Space" = once "scratchpad-toggle";
         "Mod+Ctrl+Space" = once "window-restore-from-scratchpad";
-        "Mod+Tab" = "scratchpad-focus-next";
+        "Mod+Grave" = "scratchpad-focus-next";
 
         # Layout (COSMIC: Super+Y toggles tiling, Super+O flips orientation)
         "Mod+Y" = once "workspace-set-layout toggle ${cfg.layout} stacking";
@@ -340,7 +343,25 @@ in
           polkit_agent = true;
           umbriel_overview_type_to_launch_enabled = true;
           umbriel_overview_close_on_launch_enabled = true;
+          window_switcher.mru = true;
         };
+
+        # Short, glitchy lock/unlock instead of a random 1.5 s transition.
+        lockscreen = {
+          transition = [
+            "pixel"
+            "stripes"
+            "wipe"
+          ];
+          transition_duration = 400;
+        };
+
+        # Location feeds weather (and night light, if enabled).
+        location.address = "Nyköping, Sweden";
+        weather.enabled = true;
+
+        # The monitor's real backlight over DDC/CI; needs hardware.i2c (default.nix).
+        brightness.enable_ddcutil = true;
 
         theme = {
           mode = "dark";
@@ -378,8 +399,8 @@ in
             "network"
             "bluetooth"
             "volume"
-            "battery"
             "notifications"
+            "weather"
             "worldclock"
             "clock"
             "session"

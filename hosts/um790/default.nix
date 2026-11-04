@@ -44,6 +44,12 @@
 
   modules.desktop.cosmic.enable = true;
   modules.desktop.umbriel.enable = true;
+  # FreeSync only for fullscreen (games, video); HDR only when fullscreen
+  # content actually sends HDR, so the desktop stays SDR.
+  modules.desktop.umbriel.outputs."LG Electronics LG ULTRAGEAR 109MAMB4BA07" = {
+    vrr = "fullscreen";
+    hdr = "auto";
+  };
   modules.desktop.hyprland.enable = false;
 
   modules.dev.github.enable = true;

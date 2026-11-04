@@ -105,6 +105,18 @@ in
       };
     };
 
+    outputs = lib.mkOption {
+      type = lib.types.attrsOf (lib.types.attrsOf lib.types.anything);
+      default = { };
+      example = lib.literalExpression ''
+        { "LG Electronics LG ULTRAGEAR 109MAMB4BA07" = { vrr = "fullscreen"; }; }
+      '';
+      description = ''
+        Umbriel [output.<name>] sections, keyed by connector (e.g. "DP-1") or
+        the monitor's "Config name" from `umbriel outputs`.
+      '';
+    };
+
     terminal = lib.mkOption {
       type = lib.types.str;
       default = "ghostty";
@@ -165,9 +177,14 @@ in
         # Spacebar quick-preview in Nautilus.
         services.gnome.sushi.enable = true;
 
+        # DDC/CI access so Noctalia can set external monitor brightness via ddcutil.
+        hardware.i2c.enable = true;
+        users.users.${user.username}.extraGroups = [ "i2c" ];
+
         environment.systemPackages = with pkgs; [
           # Umbriel spawns Xwayland on demand and expects it on PATH.
           xwayland
+          ddcutil
           nautilus
           adwaita-icon-theme
         ];
