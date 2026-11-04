@@ -9,7 +9,6 @@
 {
   imports = [
     ../base
-    ./audio
     ./fonts.nix
     ./zsh
   ];
