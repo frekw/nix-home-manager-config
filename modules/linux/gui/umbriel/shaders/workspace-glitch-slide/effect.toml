@@ -1,0 +1,3 @@
+[effects.preset."workspace-glitch-slide"]
+kind = "animation"
+shader = "shader.glsl"

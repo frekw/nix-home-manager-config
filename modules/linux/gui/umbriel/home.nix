@@ -25,6 +25,14 @@ let
     allow_when_locked = true;
   };
 
+  # Our own effects in ./shaders/<name> take precedence over umbriel-shaders.
+  shaderInclude =
+    e:
+    let
+      local = ./shaders + "/${baseNameOf e}";
+    in
+    if builtins.pathExists local then "${local}/effect.toml" else "${umbriel-shaders}/${e}/effect.toml";
+
   # effect.toml paths inside umbriel-shaders, as "<kind>/<name>".
   shaderEffects = lib.unique (
     map (e: "animation/${e}") (
@@ -78,7 +86,7 @@ let
 
     # Shader paths inside each effect.toml resolve next to it, so pointing at
     # the store copy of the repo is enough.
-    include.files = map (e: "${umbriel-shaders}/${e}/effect.toml") shaderEffects;
+    include.files = map shaderInclude shaderEffects;
 
     effects =
       lib.optionalAttrs (cfg.effects.border != null) { inherit (cfg.effects) border; }
