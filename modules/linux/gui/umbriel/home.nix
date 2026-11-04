@@ -25,11 +25,17 @@ let
     allow_when_locked = true;
   };
 
+  # effect.toml paths inside umbriel-shaders, as "<kind>/<name>".
   shaderEffects = lib.unique (
-    lib.filter (e: e != null) [
-      cfg.windowAnimation.open
-      cfg.windowAnimation.close
-    ]
+    map (e: "animation/${e}") (
+      lib.filter (e: e != null) [
+        cfg.windowAnimation.open
+        cfg.windowAnimation.close
+        cfg.workspaceAnimation.effect
+      ]
+    )
+    ++ lib.optional (cfg.effects.border != null) "border/${cfg.effects.border}"
+    ++ lib.optional (cfg.effects.window != null) "window/${cfg.effects.window}"
   );
 
   windowAnimationEvent = effect: {
@@ -72,7 +78,11 @@ let
 
     # Shader paths inside each effect.toml resolve next to it, so pointing at
     # the store copy of the repo is enough.
-    include.files = map (e: "${umbriel-shaders}/animation/${e}/effect.toml") shaderEffects;
+    include.files = map (e: "${umbriel-shaders}/${e}/effect.toml") shaderEffects;
+
+    effects =
+      lib.optionalAttrs (cfg.effects.border != null) { inherit (cfg.effects) border; }
+      // lib.optionalAttrs (cfg.effects.window != null) { inherit (cfg.effects) window; };
 
     animation = {
       enabled = true;
@@ -82,6 +92,16 @@ let
     }
     // lib.optionalAttrs (cfg.windowAnimation.close != null) {
       windows_out = windowAnimationEvent cfg.windowAnimation.close;
+    }
+    // lib.optionalAttrs (cfg.workspaceAnimation.effect != null) {
+      # "reveal" hands both full workspace scenes to the shader instead of sliding.
+      workspaces = {
+        enabled = true;
+        style = "reveal";
+        inherit (cfg.workspaceAnimation) effect;
+        duration_ms = cfg.workspaceAnimation.duration;
+        curve = "linear";
+      };
     };
 
     environment = {

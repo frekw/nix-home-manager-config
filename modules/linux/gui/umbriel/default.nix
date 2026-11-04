@@ -71,6 +71,36 @@ in
       };
     };
 
+    # Workspace switch transition from community-umbriel-shaders, by directory
+    # name under animation/ (the "workspace-*" ones). null keeps the plain slide.
+    workspaceAnimation = {
+      effect = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = "workspace-glitch-phase";
+      };
+      duration = lib.mkOption {
+        type = lib.types.ints.positive;
+        # The shaders ship with ~1100 ms, which feels sluggish for switching.
+        default = 500;
+        description = "Workspace transition length in milliseconds.";
+      };
+    };
+
+    # Always-on effects from community-umbriel-shaders, by directory name
+    # under border/ and window/. null leaves the slot empty.
+    effects = {
+      border = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = "kzzzt-ring";
+        description = "Effect drawn around the focused window.";
+      };
+      window = lib.mkOption {
+        type = lib.types.nullOr lib.types.str;
+        default = "kzzzt";
+        description = "Effect drawn over every window's content.";
+      };
+    };
+
     terminal = lib.mkOption {
       type = lib.types.str;
       default = "ghostty";
