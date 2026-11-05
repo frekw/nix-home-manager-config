@@ -36,6 +36,11 @@
           window-padding-balance = true;
           window-decoration = false;
           auto-update = "off";
+        }
+        // lib.optionalAttrs pkgs.stdenv.hostPlatform.isLinux {
+          # Paste with Ctrl+V like other apps (macOS already has Cmd+V). This
+          # hides Ctrl+V from programs; Neovim's visual block is also on Ctrl+Q.
+          keybind = [ "ctrl+v=paste_from_clipboard" ];
         };
       };
     };
